@@ -1,0 +1,57 @@
+/* Reset SCSS */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15; // Ajusta o espaçamento vertical
+  -webkit-text-size-adjust: 100%; // Ajusta o tamanho do texto no Safari
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  display: block; // Garante o suporte ao elemento <main> em navegadores antigos
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+ul,
+ol {
+  list-style: none; // Remove as bolinhas e números padrão
+}
+
+a {
+  text-decoration: none; // Remove sublinhado
+  color: inherit; // Herda a cor do elemento pai
+}
+
+img {
+  max-width: 100%; // Torna as imagens responsivas
+  height: auto;
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit; // Herda as propriedades de fonte do elemento pai
+  border: none;
+  background: none;
+}
+
+table {
+  border-collapse: collapse; // Remove espaçamento entre bordas de tabelas
+  border-spacing: 0;
+}
