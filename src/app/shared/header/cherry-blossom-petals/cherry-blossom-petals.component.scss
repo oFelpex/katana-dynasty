@@ -1,7 +1,5 @@
 .cherry-blossom-petals-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  z-index: 1;
+  #tsparticles {
+    z-index: 11; // Coloca as partículas como plano de fundo
+  }
 }
