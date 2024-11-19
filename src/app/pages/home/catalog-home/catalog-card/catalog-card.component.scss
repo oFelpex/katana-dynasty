@@ -1,8 +1,28 @@
 .card-container {
   max-width: 400px;
-}
+  border: none;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
 
-.card-header-image {
-  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
-  background-size: cover;
+  mat-card-content {
+    padding: 20px 0 20px 20px;
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+
+    .button-wish-list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+
+      mat-icon {
+        font-size: 25px;
+      }
+    }
+  }
 }

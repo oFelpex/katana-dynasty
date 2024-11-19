@@ -11,6 +11,7 @@
   border-bottom: #fff 1px solid;
   backdrop-filter: blur(4px);
   z-index: 1;
+  flex-wrap: wrap;
 
   .logo {
     font-size: xx-large;
@@ -18,7 +19,8 @@
 
   .routes {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 50px;
+    gap: 30px;
   }
 }

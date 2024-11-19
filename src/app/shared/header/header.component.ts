@@ -25,7 +25,7 @@ export class HeaderComponent {
   }
 
   moveDown(): void {
-    const target = document.getElementById('test');
+    const target = document.getElementById('catalog-container');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
