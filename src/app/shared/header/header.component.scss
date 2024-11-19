@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Shojumaru&display=swap");
+
 .background-container {
   width: 100%;
   height: 100vh;
@@ -11,6 +13,66 @@
     height: 100%;
     object-fit: cover;
     z-index: 0;
-    opacity: 60%;
+    opacity: 50%;
+    border-bottom: #ffffff 3px solid;
+  }
+
+  .header-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    h1 {
+      font-family: "shojumaru", system-ui;
+      font-size: 4rem;
+      z-index: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px #fff;
+    }
+    h2,
+    h3 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 100;
+      z-index: 1;
+      color: #fff;
+    }
+
+    button {
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 4rem;
+      height: 4rem;
+      margin-top: 20px;
+      transition: 0.2s transform;
+
+      mat-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 4rem;
+        height: 4rem;
+        font-size: 3rem;
+        animation: float 2s infinite ease-in-out;
+      }
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
   }
 }

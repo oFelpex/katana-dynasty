@@ -4,7 +4,15 @@
 <div class="background-container">
   <img
     class="background"
-    src="../../../assets/images/backgrounds/background-1.webp"
-    alt="teste"
+    [src]="wallpaper"
+    alt="A wallpaper of a random samurai from the Edo period, looking at a city, with a Sakura tree beside him as petals fall."
   />
+  <div class="header-content">
+    <h1>Katana Dynasty</h1>
+    <h2>All that a true warrior needs is a worthy Katana!</h2>
+    <h3>Check out our brand-new catalog with a greater variety of Katanas</h3>
+    <button mat-icon-button (click)="moveDown()">
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+  </div>
 </div>
