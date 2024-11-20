@@ -1,28 +1,62 @@
 .card-container {
   max-width: 400px;
+  height: 720px;
   border: none;
   background-color: transparent;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   mat-card-content {
     padding: 20px 0 20px 20px;
+    flex: 1;
+
+    mat-card-title {
+      width: fit-content;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.2s transform;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+  .price {
+    padding-left: 20px;
+  }
+  .button-add-to-cart {
+    margin-left: 10px;
+    align-self: flex-start;
   }
 
-  mat-card-actions {
+  .button-wish-list {
+    position: absolute;
+    z-index: 1;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
 
-    .button-wish-list {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
+    mat-icon {
+      font-size: 25px;
+    }
+  }
 
-      mat-icon {
-        font-size: 25px;
-      }
+  .img-container {
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+      padding: 20px;
     }
   }
 }
