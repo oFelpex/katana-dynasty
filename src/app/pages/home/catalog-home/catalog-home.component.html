@@ -1,13 +1,13 @@
 <div id="catalog-container">
   <h2>Newly Added Katanas</h2>
-  <!-- USE NGFOR / @FOR HERE -->
 
-  @for (communKatana of newlyAddedKatanas; track $index) {
+  @for (newlyAddedKatana of newlyAddedKatanas; track $index) {
   <app-catalog-card
-    [title]="communKatana.title"
-    [description]="communKatana.description"
-    [imgSRC]="communKatana.imgSRC"
-    [price]="communKatana.price"
+    [ngClass]="newlyAddedKatana.class"
+    [title]="newlyAddedKatana.title"
+    [description]="newlyAddedKatana.description"
+    [imgSRC]="newlyAddedKatana.imgSRC"
+    [price]="newlyAddedKatana.price"
   ></app-catalog-card>
   }
 </div>
