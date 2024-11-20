@@ -1,6 +1,6 @@
-import { CommunKatanas } from './commun-katanas';
-
-export interface CursedKatanas extends CommunKatanas {
+import { Katanas } from './katanas';
+export interface CursedKatanas extends Katanas {
+  class: 'cursed';
   curseTitle: string;
   curseDescription: string;
 }

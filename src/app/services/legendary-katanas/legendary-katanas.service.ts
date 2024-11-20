@@ -8,6 +8,7 @@ export class LegendaryKatanasService {
   private legendaryKatanas: LegendaryKatanas[] = [
     {
       id: 0,
+      class: 'legendary',
       imgSRC: `../../../../assets/images/products/katanas/legendaryKatanas/Dragon-Hunter's Great Katana.webp`,
       imgALT: `Dragon-Hunter's Great Katana`,
       title: `Dragon-Hunter's Great Katana`,
@@ -22,6 +23,7 @@ export class LegendaryKatanasService {
     },
     {
       id: 1,
+      class: 'legendary',
       imgSRC:
         '../../../../assets/images/products/katanas/legendaryKatanas/Dragonscale Blade.webp',
       imgALT: 'Dragonscale Blade',
@@ -37,6 +39,7 @@ export class LegendaryKatanasService {
     },
     {
       id: 2,
+      class: 'legendary',
       imgSRC:
         '../../../../assets/images/products/katanas/legendaryKatanas/Hand of Malenia.webp',
       imgALT: 'Hand of Malenia',
@@ -52,6 +55,7 @@ export class LegendaryKatanasService {
     },
     {
       id: 3,
+      class: 'legendary',
       imgSRC:
         '../../../../assets/images/products/katanas/legendaryKatanas/Shusui.webp',
       imgALT: 'Shusui',
@@ -65,7 +69,7 @@ export class LegendaryKatanasService {
     },
   ];
 
-  getCommunKatanas(): LegendaryKatanas[] {
+  getLegendaryKatanas(): LegendaryKatanas[] {
     return this.legendaryKatanas;
   }
 }

@@ -8,6 +8,7 @@ export class MagicKatanasService {
   private magicKatanas: MagicKatanas[] = [
     {
       id: 0,
+      class: 'magic',
       imgSRC:
         '../../../../assets/images/products/katanas/magicKatanas/Meteoric Ore Blade.webp',
       imgALT: 'Meteoric Ore Blade',
@@ -20,6 +21,7 @@ export class MagicKatanasService {
     },
     {
       id: 1,
+      class: 'magic',
       imgSRC:
         '../../../../assets/images/products/katanas/magicKatanas/Moonveil.webp',
       imgALT: 'Moonveil',
@@ -32,6 +34,7 @@ export class MagicKatanasService {
     },
     {
       id: 2,
+      class: 'magic',
       imgSRC:
         '../../../../assets/images/products/katanas/magicKatanas/Serpentbone Blade.webp',
       imgALT: 'Serpentbone Blade',
@@ -44,6 +47,7 @@ export class MagicKatanasService {
     },
     {
       id: 3,
+      class: 'magic',
       imgSRC:
         '../../../../assets/images/products/katanas/magicKatanas/Star-Lined Sword.webp',
       imgALT: 'Star-Lined Sword',
@@ -56,6 +60,7 @@ export class MagicKatanasService {
     },
     {
       id: 4,
+      class: 'magic',
       imgSRC:
         '../../../../assets/images/products/katanas/magicKatanas/Sword of Night.webp',
       imgALT: 'Sword of Night',
@@ -68,7 +73,7 @@ export class MagicKatanasService {
     },
   ];
 
-  getCommunKatanas(): MagicKatanas[] {
+  getMagicKatanas(): MagicKatanas[] {
     return this.magicKatanas;
   }
 }
