@@ -9,6 +9,6 @@
     <mat-card-title>{{ title }}</mat-card-title>
     <mat-card-subtitle>{{ description }}</mat-card-subtitle>
   </mat-card-content>
-  <mat-card-subtitle class="price">$ {{ price }}</mat-card-subtitle>
+  <mat-card-subtitle class="price">{{ price | currency }}</mat-card-subtitle>
   <button mat-button class="button-add-to-cart">ADD TO CART</button>
 </mat-card>
