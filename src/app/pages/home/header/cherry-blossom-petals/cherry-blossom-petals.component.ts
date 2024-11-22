@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  Input,
-  OnInit,
-  Renderer2,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 export type BlossomSceneConfig = {
   id: string;
@@ -87,12 +80,14 @@ export class CherryBlossomPetalsComponent implements OnInit {
   private windDuration = 0;
   private timer = 0;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.validateConfig();
 
-    const container = this.el.nativeElement.querySelector(`#${this.config.id}`);
+    const container = document.querySelector(
+      `#${this.config.id}`
+    ) as HTMLDivElement;
     if (!container) {
       throw new Error(`Container with ID "${this.config.id}" not found.`);
     }

@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 
-import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { NavBarComponent } from '../../../shared/nav-bar/nav-bar.component';
 import { CherryBlossomPetalsComponent } from './cherry-blossom-petals/cherry-blossom-petals.component';
 import {
   BlossomSceneConfig,
