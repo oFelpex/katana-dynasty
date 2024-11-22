@@ -1,13 +1,23 @@
-<app-cherry-blossom-petals></app-cherry-blossom-petals>
+@if(petalsEnabled) {
+<app-cherry-blossom-petals [config]="blossomConfig"></app-cherry-blossom-petals>
+}
 <app-nav-bar></app-nav-bar>
 
 <div class="background-container">
   <img
     class="background"
-    [src]="wallpaper"
+    [src]="wallpaperSRC"
     alt="A wallpaper of a random samurai from the Edo period, looking at a city, with a Sakura tree beside him as petals fall."
   />
   <div class="header-content">
+    <div class="petals-toggle">
+      <mat-slide-toggle
+        class="slide-toggle"
+        labelPosition="before"
+        [(ngModel)]="petalsEnabled"
+        >Toggle Petals!</mat-slide-toggle
+      >
+    </div>
     <h1>Katana Dynasty</h1>
     <h2>Feel like a real samurai!</h2>
     <h3>Check out our brand-new catalog with a greater variety of Katanas</h3>

@@ -27,6 +27,7 @@ $katana-dynasty-theme: mat.define-theme(
 // that you are using.
 :root {
   @include mat.all-component-themes($katana-dynasty-theme);
+  --mat-switch-label-text-color: #fff;
 }
 
 // Comment out the line below if you want to use the pre-defined typography utility classes.
