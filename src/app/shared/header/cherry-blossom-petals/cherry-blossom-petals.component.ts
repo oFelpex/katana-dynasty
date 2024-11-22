@@ -100,6 +100,13 @@ export class CherryBlossomPetalsComponent implements OnInit {
     this.width = container.offsetWidth;
     this.height = container.offsetHeight;
 
+    if (!this.width || !this.height) {
+      console.error('Container dimensions are invalid:', {
+        width: this.width,
+        height: this.height,
+      });
+    }
+
     this.createPetals(container);
     requestAnimationFrame(this.updateFrame.bind(this));
   }

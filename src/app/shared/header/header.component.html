@@ -1,5 +1,8 @@
 @if(petalsEnabled) {
-<app-cherry-blossom-petals [config]="blossomConfig"></app-cherry-blossom-petals>
+<app-cherry-blossom-petals
+  *ngIf="petalsEnabled"
+  [config]="blossomConfig"
+></app-cherry-blossom-petals>
 }
 <app-nav-bar></app-nav-bar>
 

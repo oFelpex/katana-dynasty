@@ -39,7 +39,7 @@ export class HeaderComponent {
     }
   }
 
-  petalsEnabled: boolean = true;
+  petalsEnabled: boolean = false;
   blossomConfig: BlossomSceneConfig = {
     id: 'blossom-container',
     petalsTypes: [
@@ -48,8 +48,8 @@ export class HeaderComponent {
       new Petal({ customClass: 'petal-style3' }),
       new Petal({ customClass: 'petal-style4' }),
     ],
-    numPetals: Math.random() * 12,
-    gravity: Math.random() * (1 - 0.2) + 0.2,
+    numPetals: Math.random() * (12 - 2) + 2,
+    gravity: Math.random() * (0.5 - 0.2) + 0.2,
     windMaxSpeed: Math.random() * 5,
   };
 }
