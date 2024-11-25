@@ -35,6 +35,7 @@ export class HeaderComponent {
   navBarStyles: {} = {
     'border-color': '#fff',
     color: '#fff',
+    'background-color': '#903749',
   };
   currentScrollY = 0;
   @HostListener('window:scroll')
@@ -50,10 +51,12 @@ export class HeaderComponent {
       ? (this.navBarStyles = {
           'border-color': 'black',
           color: 'black',
+          'background-color': '#fff',
         })
       : (this.navBarStyles = {
           'border-color': '#fff',
           color: '#fff',
+          'background-color': '#903749',
         });
   }
 
