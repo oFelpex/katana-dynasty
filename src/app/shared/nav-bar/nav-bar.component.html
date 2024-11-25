@@ -8,7 +8,10 @@
     <a href="">Cursed</a>
     <a href="">Common</a>
   </div>
-  <button mat-icon-button aria-label="Cart button">
-    <mat-icon [ngStyle]="navBarStyles">shopping_cart</mat-icon>
+  <button mat-icon-button aria-label="Cart button" (click)="addToCart()">
+    <mat-icon [ngStyle]="navBarStyles" matBadge="15">shopping_cart</mat-icon>
   </button>
 </nav>
+@if(drawerOpen) {
+<app-cart-menu></app-cart-menu>
+}
