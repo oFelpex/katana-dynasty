@@ -1,3 +1,5 @@
 <mat-drawer-container class="cart-menu-container" [hasBackdrop]="true">
-  <mat-drawer #drawer [mode]="'over'">I'm a drawer</mat-drawer>
+  <mat-drawer (closedStart)="onDrawerClosed()" #drawer [mode]="'over'"
+    >I'm a drawer</mat-drawer
+  >
 </mat-drawer-container>

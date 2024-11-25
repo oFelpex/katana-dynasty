@@ -22,23 +22,23 @@ import { CartService } from '../../services/cart-service/cart-service';
 export class CartMenuComponent implements OnInit, OnDestroy {
   @ViewChild('drawer') drawer!: MatDrawer;
   private subscription!: Subscription;
-  @Output() drawerOpen: boolean = true;
 
-  constructor(private cartService: CartService) {}
+  constructor(public cartService: CartService) {}
 
   ngOnInit(): void {
     this.subscription = this.cartService.toggleCart$.subscribe(() => {
-      this.openCartDrawer();
+      this.drawer.toggle();
     });
 
     setTimeout(() => {
-      this.openCartDrawer();
+      this.drawer.toggle();
     }, 0);
   }
 
-  openCartDrawer(): void {
-    this.drawer.toggle();
-    this.drawerOpen = !this.drawerOpen;
+  onDrawerClosed(): void {
+    setTimeout(() => {
+      this.cartService.toggleCartDrawer();
+    }, 1000);
   }
 
   ngOnDestroy(): void {

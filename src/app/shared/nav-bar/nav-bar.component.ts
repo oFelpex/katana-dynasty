@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,11 +21,9 @@ import { CartService } from '../../services/cart-service/cart-service';
 })
 export class NavBarComponent {
   @Input() navBarStyles: {} = {};
-  @Input() drawerOpen: boolean = false;
 
-  constructor(private cartService: CartService) {}
+  constructor(public cartService: CartService) {}
   addToCart(): void {
-    this.drawerOpen = !this.drawerOpen;
-    this.cartService.triggerCartDrawer();
+    this.cartService.toggleCartDrawer();
   }
 }

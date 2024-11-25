@@ -43,7 +43,10 @@ export class HeaderComponent {
     this.isAtPositionY();
   }
   isAtPositionY(): void {
-    this.currentScrollY >= 900
+    const teste = document.querySelector(
+      '.background-container'
+    ) as HTMLDivElement;
+    this.currentScrollY >= teste.offsetHeight - 30
       ? (this.navBarStyles = {
           'border-color': 'black',
           color: 'black',

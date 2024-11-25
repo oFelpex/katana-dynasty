@@ -12,6 +12,6 @@
     <mat-icon [ngStyle]="navBarStyles" matBadge="15">shopping_cart</mat-icon>
   </button>
 </nav>
-@if(drawerOpen) {
+@if(cartService.isOpen) {
 <app-cart-menu></app-cart-menu>
 }
