@@ -38,7 +38,7 @@ export class CartMenuComponent implements OnInit, OnDestroy {
   onDrawerClosed(): void {
     setTimeout(() => {
       this.cartService.toggleCartDrawer();
-    }, 1000);
+    }, 500);
   }
 
   ngOnDestroy(): void {

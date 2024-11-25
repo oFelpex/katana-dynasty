@@ -50,11 +50,14 @@ export class CartService {
   }
 
   private toggleCartSource = new Subject<void>();
-  public isOpen: boolean = false;
+  private isOpen: boolean = false;
   toggleCart$ = this.toggleCartSource.asObservable();
 
   toggleCartDrawer(): void {
     this.isOpen = !this.isOpen;
     this.toggleCartSource.next();
+  }
+  get drawerIsOpen(): boolean {
+    return this.isOpen;
   }
 }
