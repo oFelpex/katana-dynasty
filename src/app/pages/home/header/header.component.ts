@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -32,10 +32,33 @@ export class HeaderComponent {
     this.wallpaperSRC = `../../../assets/images/backgrounds/background-${this.wallpaperNumber}.webp`;
   }
 
+  navBarStyles: {} = {
+    'border-color': '#fff',
+    color: '#fff',
+  };
+  currentScrollY = 0;
+  @HostListener('window:scroll')
+  onScroll(): void {
+    this.currentScrollY = window.scrollY || document.documentElement.scrollTop;
+    this.isAtPositionY();
+  }
+  isAtPositionY(): void {
+    this.currentScrollY >= 900
+      ? (this.navBarStyles = {
+          'border-color': 'black',
+          color: 'black',
+        })
+      : (this.navBarStyles = {
+          'border-color': '#fff',
+          color: '#fff',
+        });
+  }
+
   moveDown(): void {
     const target = document.getElementById('catalog-container');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      console.log(this.navBarStyles);
     }
   }
 
