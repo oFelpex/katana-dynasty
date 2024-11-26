@@ -1,18 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
-import { CommunKatanas } from '../../models/commun-katanas';
-import { CursedKatanas } from '../../models/cursed-katanas';
-import { LegendaryKatanas } from '../../models/legendary-katanas';
-import { MagicKatanas } from '../../models/magic-katanas';
+import { BaseKatana } from '../../models/base-katanas';
 
-export interface CartItem {
-  katanaCategory:
-    | CommunKatanas
-    | CursedKatanas
-    | LegendaryKatanas
-    | MagicKatanas;
-  id: number;
+export interface CartItem extends BaseKatana {
   quantity: number;
 }
 @Injectable({
@@ -25,11 +16,10 @@ export class CartService {
     return this.items;
   }
 
-  addItem(item: CartItem): void {
+  addItem(item: BaseKatana): void {
     const existingItem = this.items.find((index) => index.id === item.id);
-    existingItem
-      ? (existingItem.quantity += item.quantity)
-      : this.items.push(item);
+    if (existingItem) existingItem.quantity += 1;
+    else this.items.push({ ...item, quantity: 1 });
   }
 
   //NEED TO SEE LATER
@@ -43,7 +33,7 @@ export class CartService {
 
   getTotal(): number {
     return this.items.reduce(
-      (total, item) => total + item.katanaCategory.price * item.quantity,
+      (total, item) => total + item.price * item.quantity,
       0
     );
   }

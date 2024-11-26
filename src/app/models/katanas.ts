@@ -1,11 +1,5 @@
-type KatanaClass = 'commun' | 'cursed' | 'magic' | 'legendary';
+import { BaseKatana } from './base-katanas';
 
 export interface Katanas {
-  id: number;
-  class: KatanaClass;
-  imgSRC: string;
-  imgALT: string;
-  title: string;
-  description: string;
-  price: number;
+  katanaCategory: BaseKatana;
 }

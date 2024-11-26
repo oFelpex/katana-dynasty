@@ -1,10 +1,5 @@
-import { Katanas } from './katanas';
-export interface CommunKatanas extends Katanas {
-  id: number;
+import { BaseKatana } from './base-katanas';
+
+export interface CommunKatanas extends BaseKatana {
   class: 'commun';
-  imgSRC: string;
-  imgALT: string;
-  title: string;
-  description: string;
-  price: number;
 }

@@ -1,6 +1,6 @@
-import { Katanas } from './katanas';
+import { BaseKatana } from './base-katanas';
 
-export interface LegendaryKatanas extends Katanas {
+export interface LegendaryKatanas extends BaseKatana {
   class: 'legendary';
   ancientSwordsman: string;
   legend: string;

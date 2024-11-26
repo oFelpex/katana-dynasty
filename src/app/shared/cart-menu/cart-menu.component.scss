@@ -10,9 +10,17 @@
   mat-drawer {
     border-radius: 0%;
     background-color: #f1f6f9;
-  }
 
-  mat-drawer-content {
-    cursor: pointer;
+    .cart-menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      flex-direction: column;
+      padding: 20px;
+
+      .cart-item {
+      }
+    }
   }
 }

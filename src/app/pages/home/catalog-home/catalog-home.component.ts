@@ -8,7 +8,7 @@ import { MagicKatanas } from '../../../models/magic-katanas';
 import { CommunKatanasService } from '../../../services/commun-katanas/commun-katanas.service';
 import { LegendaryKatanasService } from '../../../services/legendary-katanas/legendary-katanas.service';
 import { MagicKatanasService } from '../../../services/magic-katanas/magic-katanas.service';
-import { Katanas } from '../../../models/katanas';
+import { BaseKatana } from '../../../models/base-katanas';
 
 @Component({
   selector: 'app-catalog-home',
@@ -21,7 +21,7 @@ export class CatalogHomeComponent implements OnInit {
   communKatanas: CommunKatanas[] = [];
   legendaryKatanas: LegendaryKatanas[] = [];
   magicKatanas: MagicKatanas[] = [];
-  newlyAddedKatanas: Katanas[] = [];
+  newlyAddedKatanas: BaseKatana[] = [];
 
   constructor(
     private communKatanasService: CommunKatanasService,
@@ -39,5 +39,6 @@ export class CatalogHomeComponent implements OnInit {
       this.magicKatanas[3],
       this.legendaryKatanas[1]
     );
+    console.log(this.newlyAddedKatanas);
   }
 }

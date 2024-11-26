@@ -5,7 +5,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
-import { CartService } from '../../services/cart-service/cart-service';
+import {
+  CartItem,
+  CartService,
+} from '../../services/cart-service/cart-service';
 
 @Component({
   selector: 'app-cart-menu',
@@ -22,8 +25,11 @@ import { CartService } from '../../services/cart-service/cart-service';
 export class CartMenuComponent implements OnInit, OnDestroy {
   @ViewChild('drawer') drawer!: MatDrawer;
   private subscription!: Subscription;
+  public cartItens: CartItem[];
 
-  constructor(public cartService: CartService) {}
+  constructor(public cartService: CartService) {
+    this.cartItens = this.cartService.getCartItems();
+  }
 
   ngOnInit(): void {
     this.subscription = this.cartService.toggleCart$.subscribe(() => {

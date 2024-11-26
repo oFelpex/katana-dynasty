@@ -4,10 +4,7 @@
   @for (newlyAddedKatana of newlyAddedKatanas; track $index) {
   <app-catalog-card
     [ngClass]="newlyAddedKatana.class"
-    [title]="newlyAddedKatana.title"
-    [description]="newlyAddedKatana.description"
-    [imgSRC]="newlyAddedKatana.imgSRC"
-    [price]="newlyAddedKatana.price"
+    [newlyAddedKatanas]="newlyAddedKatanas"
   ></app-catalog-card>
   }
 </div>

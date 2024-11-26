@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { CartService } from '../../../../services/cart-service/cart-service';
+import { BaseKatana } from '../../../../models/base-katanas';
 @Component({
   selector: 'app-catalog-card',
   standalone: true,
@@ -12,10 +13,7 @@ import { CartService } from '../../../../services/cart-service/cart-service';
   styleUrl: './catalog-card.component.scss',
 })
 export class CatalogCardComponent {
-  @Input() title!: string;
-  @Input() description!: string;
-  @Input() imgSRC!: string;
-  @Input() price!: number;
+  @Input() newlyAddedKatanas: BaseKatana[] = [];
 
   constructor(public cartService: CartService) {}
   openTheCart(): void {

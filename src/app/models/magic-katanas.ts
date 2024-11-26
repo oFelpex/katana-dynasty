@@ -1,6 +1,6 @@
-import { Katanas } from './katanas';
+import { BaseKatana } from './base-katanas';
 
-export interface MagicKatanas extends Katanas {
+export interface MagicKatanas extends BaseKatana {
   class: 'magic';
   spellName: string;
   spellDescription: string;

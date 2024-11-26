@@ -1,3 +1,4 @@
+@for (newlyAddedKatana of newlyAddedKatanas; track $index) {
 <mat-card class="card-container" appearance="outlined">
   <button
     mat-icon-button
@@ -7,14 +8,26 @@
     <mat-icon>add_box</mat-icon>
   </button>
   <div class="img-container">
-    <img mat-card-image src="{{ imgSRC }}" alt="Photo of a Shiba Inu" />
+    <img
+      mat-card-image
+      [src]="newlyAddedKatana.imgSRC"
+      [alt]="newlyAddedKatana.imgALT"
+    />
   </div>
   <mat-card-content>
-    <mat-card-title>{{ title }}</mat-card-title>
-    <mat-card-subtitle>{{ description }}</mat-card-subtitle>
+    <mat-card-title>{{ newlyAddedKatana.title }}</mat-card-title>
+    <mat-card-subtitle>{{ newlyAddedKatana.description }}</mat-card-subtitle>
   </mat-card-content>
-  <mat-card-subtitle class="price">{{ price | currency }}</mat-card-subtitle>
-  <button mat-button class="button-add-to-cart" (click)="openTheCart()">
+  <mat-card-subtitle class="price">{{
+    newlyAddedKatana.price | currency
+  }}</mat-card-subtitle>
+  <button
+    mat-button
+    class="button-add-to-cart"
+    (click)="cartService.toggleCartDrawer()"
+    (click)="cartService.addItem(newlyAddedKatana)"
+  >
     ADD TO CART
   </button>
 </mat-card>
+}

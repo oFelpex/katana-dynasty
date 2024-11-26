@@ -3,8 +3,15 @@
   [hasBackdrop]="true"
   (click)="changePointersEvents()"
 >
-  <mat-drawer #drawer [mode]="'over'"
-    >I'm a drawer
-    <mat-drawer-content></mat-drawer-content>
+  <mat-drawer #drawer [mode]="'over'">
+    <div class="cart-menu">
+      <h2>Cart Itens</h2>
+      @for (item of cartItens; track $index) {
+      <div class="cart-item">
+        <img [src]="item.imgSRC" [alt]="item.imgALT" />
+        <h4>{{ item.title }}</h4>
+      </div>
+      }
+    </div>
   </mat-drawer>
 </mat-drawer-container>
