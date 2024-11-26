@@ -28,17 +28,22 @@ export class CartMenuComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.cartService.toggleCart$.subscribe(() => {
       this.drawer.toggle();
-    });
 
-    setTimeout(() => {
-      this.drawer.toggle();
-    }, 0);
+      this.changePointersEvents();
+    });
   }
 
-  onDrawerClosed(): void {
-    setTimeout(() => {
-      this.cartService.toggleCartDrawer();
-    }, 500);
+  changePointersEvents() {
+    this.cartService.drawerBoolean = this.drawer.opened;
+    if (this.drawer.opened) {
+      (
+        document.getElementById('cart-menu-container') as HTMLElement
+      ).style.pointerEvents = 'all';
+    } else {
+      (
+        document.getElementById('cart-menu-container') as HTMLElement
+      ).style.pointerEvents = 'none';
+    }
   }
 
   ngOnDestroy(): void {

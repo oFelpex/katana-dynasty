@@ -1,13 +1,18 @@
-.cart-menu-container {
+#cart-menu-container {
   position: fixed;
   width: 100%;
   height: calc(100% - 60px);
   margin-top: 60px;
   background-color: transparent;
   z-index: 5;
+  pointer-events: none;
 
   mat-drawer {
     border-radius: 0%;
     background-color: #f1f6f9;
+  }
+
+  mat-drawer-content {
+    cursor: pointer;
   }
 }

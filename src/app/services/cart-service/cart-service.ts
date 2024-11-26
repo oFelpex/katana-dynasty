@@ -53,10 +53,12 @@ export class CartService {
   toggleCart$ = this.toggleCartSource.asObservable();
 
   toggleCartDrawer(): void {
-    this.isOpen = !this.isOpen;
     this.toggleCartSource.next();
   }
   get drawerIsOpen(): boolean {
     return this.isOpen;
+  }
+  set drawerBoolean(teste: boolean) {
+    this.isOpen = teste;
   }
 }

@@ -1,5 +1,10 @@
-<mat-drawer-container class="cart-menu-container" [hasBackdrop]="true">
-  <mat-drawer (closedStart)="onDrawerClosed()" #drawer [mode]="'over'"
-    >I'm a drawer</mat-drawer
-  >
+<mat-drawer-container
+  id="cart-menu-container"
+  [hasBackdrop]="true"
+  (click)="changePointersEvents()"
+>
+  <mat-drawer #drawer [mode]="'over'"
+    >I'm a drawer
+    <mat-drawer-content></mat-drawer-content>
+  </mat-drawer>
 </mat-drawer-container>
