@@ -35,9 +35,9 @@ export class CatalogHomeComponent implements OnInit {
     this.magicKatanas = this.magicKatanasService.getMagicKatanas();
 
     this.newlyAddedKatanas.push(
-      this.communKatanas[2],
-      this.magicKatanas[0],
-      this.legendaryKatanas[0]
+      this.communKatanas[0],
+      this.magicKatanas[3],
+      this.legendaryKatanas[1]
     );
   }
 }
