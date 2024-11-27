@@ -3,8 +3,8 @@
 
   @for (newlyAddedKatana of newlyAddedKatanas; track $index) {
   <app-catalog-card
-    [ngClass]="newlyAddedKatana.class"
-    [newlyAddedKatanas]="newlyAddedKatanas"
+    [ngClass]="newlyAddedKatana.KatanaCategory.class"
+    [newlyAddedKatana]="newlyAddedKatana"
   ></app-catalog-card>
   }
 </div>

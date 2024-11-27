@@ -6,11 +6,19 @@
   <mat-drawer #drawer [mode]="'over'">
     <div class="cart-menu">
       <h2>Cart Itens</h2>
+      <mat-divider></mat-divider>
       @for (item of cartItens; track $index) {
-      <div class="cart-item">
-        <img [src]="item.imgSRC" [alt]="item.imgALT" />
-        <h4>{{ item.title }}</h4>
+      <div class="cart-item-container">
+        <div class="cart-item-main">
+          <img [src]="item.imgSRC" [alt]="item.imgALT" />
+          <mat-divider [vertical]="true"></mat-divider>
+          <div class="cart-item-about">
+            <h4>{{ item.title }}</h4>
+            <span>quantity: {{ item.quantity }}</span>
+          </div>
+        </div>
       </div>
+      <mat-divider></mat-divider>
       }
     </div>
   </mat-drawer>

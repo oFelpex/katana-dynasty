@@ -10,16 +10,40 @@
   mat-drawer {
     border-radius: 0%;
     background-color: #f1f6f9;
+    width: 40%;
 
     .cart-menu {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       height: 100%;
       flex-direction: column;
-      padding: 20px;
 
-      .cart-item {
+      h2 {
+        padding: 20px;
+      }
+      .cart-item-container {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        background-color: aqua;
+
+        .cart-item-main {
+          display: flex;
+          flex-wrap: nowrap;
+          background-color: bisque;
+
+          img {
+            width: 48%;
+            height: auto;
+          }
+
+          mat-divider {
+            margin: 0 20px 0 20px;
+          }
+        }
       }
     }
   }

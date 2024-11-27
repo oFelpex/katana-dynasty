@@ -21,7 +21,23 @@ export class CatalogHomeComponent implements OnInit {
   communKatanas: CommunKatanas[] = [];
   legendaryKatanas: LegendaryKatanas[] = [];
   magicKatanas: MagicKatanas[] = [];
-  newlyAddedKatanas: BaseKatana[] = [];
+  newlyAddedKatanas: [
+    {
+      KatanaCategory: CommunKatanas | LegendaryKatanas | MagicKatanas;
+    }
+  ] = [
+    {
+      KatanaCategory: {
+        id: -1,
+        class: 'commun',
+        imgSRC: '',
+        imgALT: 'ERROR',
+        title: 'ERROR',
+        description: 'ERROR',
+        price: 0,
+      },
+    },
+  ];
 
   constructor(
     private communKatanasService: CommunKatanasService,
@@ -35,9 +51,9 @@ export class CatalogHomeComponent implements OnInit {
     this.magicKatanas = this.magicKatanasService.getMagicKatanas();
 
     this.newlyAddedKatanas.push(
-      this.communKatanas[0],
-      this.magicKatanas[3],
-      this.legendaryKatanas[1]
+      { KatanaCategory: { ...this.communKatanas[0] } },
+      { KatanaCategory: { ...this.magicKatanas[0] } },
+      { KatanaCategory: { ...this.legendaryKatanas[1] } }
     );
     console.log(this.newlyAddedKatanas);
   }

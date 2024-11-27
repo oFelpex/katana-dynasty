@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild, OnDestroy, Output } from '@angular/core';
-
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
 import { Subscription } from 'rxjs';
+
 import {
   CartItem,
   CartService,
@@ -18,6 +19,7 @@ import {
     MatSelectModule,
     MatFormFieldModule,
     MatSidenavModule,
+    MatDividerModule,
   ],
   templateUrl: './cart-menu.component.html',
   styleUrl: './cart-menu.component.scss',

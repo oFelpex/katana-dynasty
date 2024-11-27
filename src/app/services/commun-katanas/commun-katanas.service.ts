@@ -7,6 +7,7 @@ import { CommunKatanas } from '../../models/commun-katanas';
 export class CommunKatanasService {
   private communKatanas: CommunKatanas[] = [
     {
+      KatanaCategory: ,
       id: 0,
       class: 'commun',
       imgSRC:
