@@ -17,7 +17,9 @@ export class CartService {
   }
 
   addItem(item: BaseKatana): void {
-    const existingItem = this.items.find((index) => index.id === item.id);
+    const existingItem = this.items.find(
+      (index) => index.id === item.id && item.class === index.class
+    );
     if (existingItem) existingItem.quantity += 1;
     else this.items.push({ ...item, quantity: 1 });
   }

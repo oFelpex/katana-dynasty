@@ -5,9 +5,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { CartService } from '../../../../services/cart-service/cart-service';
 import { BaseKatana } from '../../../../models/base-katanas';
-import { CommunKatanas } from '../../../../models/commun-katanas';
-import { LegendaryKatanas } from '../../../../models/legendary-katanas';
-import { MagicKatanas } from '../../../../models/magic-katanas';
 @Component({
   selector: 'app-catalog-card',
   standalone: true,
@@ -17,13 +14,12 @@ import { MagicKatanas } from '../../../../models/magic-katanas';
 })
 export class CatalogCardComponent {
   @Input()
-  newlyAddedKatana!: { KatanaCategory: BaseKatana };
+  newlyAddedKatana!: BaseKatana;
 
   constructor(public cartService: CartService) {}
 
   handleButtonClick() {
     this.cartService.toggleCartDrawer();
-    this.cartService.addItem(this.newlyAddedKatana.KatanaCategory);
-    console.log(this.newlyAddedKatana);
+    this.cartService.addItem(this.newlyAddedKatana);
   }
 }

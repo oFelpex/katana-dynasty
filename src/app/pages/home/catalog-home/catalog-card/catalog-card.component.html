@@ -9,18 +9,16 @@
   <div class="img-container">
     <img
       mat-card-image
-      [src]="newlyAddedKatana.KatanaCategory.imgSRC"
-      [alt]="newlyAddedKatana.KatanaCategory.imgALT"
+      [src]="newlyAddedKatana.imgSRC"
+      [alt]="newlyAddedKatana.imgALT"
     />
   </div>
   <mat-card-content>
-    <mat-card-title>{{ newlyAddedKatana.KatanaCategory.title }}</mat-card-title>
-    <mat-card-subtitle>{{
-      newlyAddedKatana.KatanaCategory.description
-    }}</mat-card-subtitle>
+    <mat-card-title>{{ newlyAddedKatana.title }}</mat-card-title>
+    <mat-card-subtitle>{{ newlyAddedKatana.description }}</mat-card-subtitle>
   </mat-card-content>
   <mat-card-subtitle class="price">{{
-    newlyAddedKatana.KatanaCategory.price | currency
+    newlyAddedKatana.price | currency
   }}</mat-card-subtitle>
   <button mat-button class="button-add-to-cart" (click)="handleButtonClick()">
     ADD TO CART
