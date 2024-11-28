@@ -16,7 +16,7 @@ export class CartService {
     return this.items;
   }
 
-  getQuantityCartItems(): number {
+  getTotalQuantityCartItems(): number {
     let quantityCartItems: number = 0;
     if (this.items.length > 0) {
       for (let i = 0; i < this.items.length; i++) {
@@ -34,9 +34,22 @@ export class CartService {
     else this.items.push({ ...item, quantity: 1 });
   }
 
-  //NEED TO SEE LATER
-  removeItem(itemId: number): void {
-    this.items = this.items.filter((item) => item.id !== itemId);
+  removeItem(item: BaseKatana): void {
+    const index = this.items.findIndex(
+      (i) => i.id === item.id && i.class === item.class
+    );
+
+    if (index !== -1) {
+      this.items[index].quantity--;
+
+      if (this.items[index].quantity <= 0) {
+        this.items = [
+          ...this.items.slice(0, index),
+          ...this.items.slice(index + 1),
+        ];
+      }
+    }
+    console.log(this.items);
   }
 
   clearCart(): void {

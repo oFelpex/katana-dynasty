@@ -14,7 +14,7 @@ import { Katanas } from '../../../../models/katanas';
   standalone: true,
   imports: [MatButtonModule, MatIcon, MatCardModule, CurrencyPipe],
   templateUrl: './catalog-card.component.html',
-  styleUrl: './catalog-card.component.scss',
+  styleUrls: ['./catalog-card.component.scss'],
 })
 export class CatalogCardComponent {
   @Input()

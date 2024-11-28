@@ -10,6 +10,7 @@ import {
   CartItem,
   CartService,
 } from '../../services/cart-service/cart-service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cart-menu',
@@ -20,18 +21,16 @@ import {
     MatFormFieldModule,
     MatSidenavModule,
     MatDividerModule,
+    CurrencyPipe,
   ],
   templateUrl: './cart-menu.component.html',
-  styleUrl: './cart-menu.component.scss',
+  styleUrls: ['./cart-menu.component.scss'],
 })
 export class CartMenuComponent implements OnInit, OnDestroy {
   @ViewChild('drawer') drawer!: MatDrawer;
   private subscription!: Subscription;
-  public cartItens: CartItem[];
 
-  constructor(public cartService: CartService) {
-    this.cartItens = this.cartService.getCartItems();
-  }
+  constructor(public cartService: CartService) {}
 
   ngOnInit(): void {
     this.subscription = this.cartService.toggleCart$.subscribe(() => {

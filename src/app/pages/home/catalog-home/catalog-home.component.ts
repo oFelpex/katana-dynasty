@@ -5,7 +5,7 @@ import { CatalogCardComponent } from './catalog-card/catalog-card.component';
 import { CommunKatanas } from '../../../models/commun-katanas';
 import { LegendaryKatanas } from '../../../models/legendary-katanas';
 import { MagicKatanas } from '../../../models/magic-katanas';
-import { CommunKatanasService } from '../../../services/commun-katanas/commun-katanas.service';
+import { CommunKatanasService } from '../../../services/common-katanas/common-katanas.service';
 import { LegendaryKatanasService } from '../../../services/legendary-katanas/legendary-katanas.service';
 import { MagicKatanasService } from '../../../services/magic-katanas/magic-katanas.service';
 import { BaseKatana } from '../../../models/base-katanas';
@@ -17,7 +17,7 @@ import { CursedKatanas } from '../../../models/cursed-katanas';
   standalone: true,
   imports: [CatalogCardComponent, CommonModule],
   templateUrl: './catalog-home.component.html',
-  styleUrl: './catalog-home.component.scss',
+  styleUrls: ['./catalog-home.component.scss'],
 })
 export class CatalogHomeComponent implements OnInit {
   communKatanas: CommunKatanas[] = [];

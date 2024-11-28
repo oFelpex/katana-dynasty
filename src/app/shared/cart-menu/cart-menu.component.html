@@ -4,22 +4,74 @@
   (click)="changePointersEvents()"
 >
   <mat-drawer #drawer [mode]="'over'">
+    @if(cartService.getTotalQuantityCartItems() > 0) {
     <div class="cart-menu">
       <h2>Cart Itens</h2>
       <mat-divider></mat-divider>
-      @for (item of cartItens; track $index) {
+      @for (item of cartService.getCartItems(); track $index) {
       <div class="cart-item-container">
         <div class="cart-item-main">
           <img [src]="item.imgSRC" [alt]="item.imgALT" />
           <mat-divider [vertical]="true"></mat-divider>
           <div class="cart-item-about">
             <h3>{{ item.title }}</h3>
-            <span>quantity: {{ item.quantity }}</span>
+            <span>Quantity: {{ item.quantity }}</span>
+            <span
+              >Price to pay: {{ item.quantity * item.price | currency }}</span
+            >
+            <div class="cart-item-about-buttons">
+              <button
+                mat-button
+                aria-label="Add more of this item"
+                (click)="cartService.addItem(item)"
+                [disabled]="cartService.disableButton(item.id, item)"
+              >
+                {{
+                  cartService.disableButton(item.id, item)
+                    ? "Out of Stock"
+                    : "Add One"
+                }}
+              </button>
+              <button
+                mat-button
+                aria-label="Remove Item"
+                style="color: #e84545"
+                (click)="cartService.removeItem(item)"
+              >
+                Remove One
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      <mat-divider></mat-divider>
+
       }
     </div>
+    } @else {
+    <h2 class="cart-empty">The Cart is empty</h2>
+    }
+    <mat-divider></mat-divider>
+    <footer class="cart-footer">
+      <div class="cart-footer-about">
+        <span
+          >Total of products:
+          {{ cartService.getTotalQuantityCartItems() }}</span
+        >
+        <h3>Total: {{ cartService.getTotal() | currency }}</h3>
+      </div>
+      <div class="cart-footer-buttons">
+        <button mat-button aria-label="Complete Purchase">
+          Complete Purchase
+        </button>
+        <button
+          mat-button
+          aria-label="Clear Cart"
+          style="color: #e84545"
+          (click)="cartService.clearCart()"
+        >
+          Clear Cart
+        </button>
+      </div>
+    </footer>
   </mat-drawer>
 </mat-drawer-container>

@@ -1,17 +1,17 @@
 <nav class="nav-bar" [ngStyle]="navBarStyles">
-  <div class="logo">⚔</div>
+  <a routerLink="/home" class="logo">⚔</a>
   <!-- ROUTES -->
   <div class="routes">
-    <a href="">About</a>
-    <a href="">Legendary</a>
-    <a href="">Magic</a>
-    <a href="">Cursed</a>
-    <a href="">Common</a>
+    <a routerLink="/about">About</a>
+    <a routerLink="/legendary">Legendary</a>
+    <a routerLink="/magic">Magic</a>
+    <a routerLink="/cursed">Cursed</a>
+    <a routerLink="/common">Common</a>
   </div>
   <button mat-icon-button aria-label="Cart button" (click)="openTheCart()">
     <mat-icon
       [ngStyle]="navBarStyles"
-      [matBadge]="cartService.getQuantityCartItems()"
+      [matBadge]="cartService.getTotalQuantityCartItems()"
       aria-hidden="false"
       >shopping_cart</mat-icon
     >
