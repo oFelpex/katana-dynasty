@@ -22,7 +22,7 @@ import {
     MatDividerModule,
   ],
   templateUrl: './cart-menu.component.html',
-  styleUrl: './cart-menu.component.scss',
+  styleUrls: ['./cart-menu.component.scss'],
 })
 export class CartMenuComponent implements OnInit, OnDestroy {
   @ViewChild('drawer') drawer!: MatDrawer;

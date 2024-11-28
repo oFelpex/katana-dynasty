@@ -8,6 +8,6 @@ import { HeaderComponent } from './header/header.component';
   standalone: true,
   imports: [FooterComponent, CatalogHomeComponent, HeaderComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {}
