@@ -40,6 +40,17 @@ export class CartService {
     );
   }
 
+  disableButton(id: number, katana: BaseKatana): boolean {
+    const cartItems: CartItem[] = this.getCartItems();
+    const cartItem: CartItem | undefined = cartItems.find(
+      (item) => item.id === id && item.class === katana.class
+    );
+    if (cartItem) {
+      return cartItem.quantity >= katana.stock;
+    }
+    return false;
+  }
+
   private toggleCartSource = new Subject<void>();
   private isOpen: boolean = false;
   toggleCart$ = this.toggleCartSource.asObservable();

@@ -3,8 +3,12 @@ import { Component, Input, input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
-import { CartService } from '../../../../services/cart-service/cart-service';
+import {
+  CartItem,
+  CartService,
+} from '../../../../services/cart-service/cart-service';
 import { BaseKatana } from '../../../../models/base-katanas';
+import { Katanas } from '../../../../models/katanas';
 @Component({
   selector: 'app-catalog-card',
   standalone: true,
@@ -18,7 +22,7 @@ export class CatalogCardComponent {
 
   constructor(public cartService: CartService) {}
 
-  handleButtonClick() {
+  handleButtonClick(): void {
     this.cartService.toggleCartDrawer();
     this.cartService.addItem(this.newlyAddedKatana);
   }

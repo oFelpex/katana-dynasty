@@ -20,7 +20,14 @@
   <mat-card-subtitle class="price">{{
     newlyAddedKatana.price | currency
   }}</mat-card-subtitle>
-  <button mat-button class="button-add-to-cart" (click)="handleButtonClick()">
+  <button
+    [disabled]="
+      cartService.disableButton(newlyAddedKatana.id, newlyAddedKatana)
+    "
+    mat-button
+    class="button-add-to-cart"
+    (click)="handleButtonClick()"
+  >
     ADD TO CART
   </button>
 </mat-card>

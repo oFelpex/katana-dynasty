@@ -18,6 +18,7 @@ export class MagicKatanasService {
       spellName: 'Gravitas',
       spellDescription:
         'Skill originating from the Alabaster Lords, who had skin of stone. Thrust the armament into the ground to create a gravity well. In addition to dealing damage, this attack pulls enemies in.',
+      stock: 6,
     },
     {
       id: 1,
@@ -31,6 +32,7 @@ export class MagicKatanasService {
       spellName: 'Transient Moonlight',
       spellDescription:
         'Sheathe blade, holding it at the hip in a composed stance. Follow up with either a normal or a strong attack to draw the blade at great speed for an instant slash attack. Both attacks fire off a wave of light.',
+      stock: 6,
     },
     {
       id: 2,
@@ -44,6 +46,7 @@ export class MagicKatanasService {
       spellName: 'Double Slash',
       spellDescription:
         'Skill of superior swordsmen. Perform a crossing slash attack from a low stance. Repeated inputs allow for up to two follow up attacks.',
+      stock: 4,
     },
     {
       id: 3,
@@ -57,6 +60,7 @@ export class MagicKatanasService {
       spellName: `Onze's Line of Stars`,
       spellDescription:
         'This skill, named after a demi-human swordmaster, imbues sorcerous energy into lined glintstones and executes a slash attack. Repeated inputs allow for up to two follow-up attacks, each dealing greater damage than the last.',
+      stock: 5,
     },
     {
       id: 4,
@@ -70,6 +74,7 @@ export class MagicKatanasService {
       spellName: 'Witching Hour Slash',
       spellDescription:
         'Hold the sword level and infuse it with the dark of Night before unleashing a series of incorporeal attacks. This attack cannot be blocked. Can be charged to increase its power.',
+      stock: 2,
     },
   ];
 

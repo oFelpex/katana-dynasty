@@ -20,6 +20,7 @@ export class LegendaryKatanasService {
       dormantPowerName: 'Dragonwound Slash',
       dormantPowerDescription:
         'Is ideal for hunting dragons, granting the armament a cloak with anti-dragon effect, before performing a powerful slash.',
+      stock: 1,
     },
     {
       id: 1,
@@ -36,6 +37,7 @@ export class LegendaryKatanasService {
       dormantPowerName: 'Ice Lightning Sword',
       dormantPowerDescription:
         'Calls down a bolt of ice lightning that damages an enemy. It also leaves the blade with extra lightning damage and frostbite buildup for the next 45 seconds.',
+      stock: 1,
     },
     {
       id: 2,
@@ -52,6 +54,7 @@ export class LegendaryKatanasService {
       dormantPowerName: 'Waterfowl Dance',
       dormantPowerDescription:
         'Perform a series of one-footed leaps in the manner of a waterfowl to unleash a swift yet graceful slashing combo. Repeated inputs allow for up to two follow-up attacks',
+      stock: 1,
     },
     {
       id: 3,
@@ -66,6 +69,7 @@ export class LegendaryKatanasService {
       legend: `Shimotsuki Ryuma was a legendary, world-famous samurai hailing from the Shimotsuki Family of Wano Country, who lived during Wano's "Country of Gold" era centuries ago. He was revered for his mastery of swordsmanship that earned him the title Sword God, as well as his feat of slaying a dragon.`,
       dormantPowerName: 'Unbreakable Spirit',
       dormantPowerDescription: `The stronger the user's willpower, the stronger the katana will be, being able to become unbreakable in a few moments.`,
+      stock: 1,
     },
   ];
 

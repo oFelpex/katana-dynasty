@@ -18,6 +18,7 @@ export class CursedKatanasService {
       curseTitle: 'Instant Death',
       curseDescription:
         'The user dies instantly when drawing the katana for the first time, it is said that only those capable of revival can use it.',
+      stock: 4,
     },
     {
       id: 1,
@@ -31,6 +32,7 @@ export class CursedKatanasService {
       curseTitle: 'Power Absorption',
       curseDescription:
         "The katana will constantly absorb the user's life force, and transform it into power, if the user is not strong enough, the katana will suck out their soul, killing them.",
+      stock: 5,
     },
     {
       id: 2,
@@ -43,6 +45,7 @@ export class CursedKatanasService {
       curseTitle: 'Blood Addiction',
       curseDescription:
         'The katana is addicted to absorbing the blood of its opponents, this addiction is passed on to the user, who becomes a murderous maniac addicted to killing.',
+      stock: 6,
     },
     {
       id: 3,
@@ -55,6 +58,7 @@ export class CursedKatanasService {
       price: 5100,
       curseTitle: 'Blood Manipulation',
       curseDescription: `The katana has the ability to manipulate its user's blood, and when the user injures someone with the katana, it uses the user's own blood to burn their opponents as if it were acid, from the inside out.`,
+      stock: 3,
     },
   ];
 

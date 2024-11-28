@@ -43,6 +43,12 @@
           mat-divider {
             margin: 0 20px 0 20px;
           }
+
+          .cart-item-about {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+          }
         }
       }
     }
