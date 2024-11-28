@@ -9,7 +9,10 @@
     <a href="">Common</a>
   </div>
   <button mat-icon-button aria-label="Cart button" (click)="openTheCart()">
-    <mat-icon [ngStyle]="navBarStyles" matBadge="15" aria-hidden="false"
+    <mat-icon
+      [ngStyle]="navBarStyles"
+      [matBadge]="cartService.getQuantityCartItems()"
+      aria-hidden="false"
       >shopping_cart</mat-icon
     >
   </button>

@@ -16,6 +16,16 @@ export class CartService {
     return this.items;
   }
 
+  getQuantityCartItems(): number {
+    let quantityCartItems: number = 0;
+    if (this.items.length > 0) {
+      for (let i = 0; i < this.items.length; i++) {
+        quantityCartItems += this.items[i].quantity;
+      }
+    }
+    return quantityCartItems;
+  }
+
   addItem(item: BaseKatana): void {
     const existingItem = this.items.find(
       (index) => index.id === item.id && item.class === index.class
