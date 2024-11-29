@@ -2,6 +2,24 @@
 
 It's a e-commerce for katanas, I really love katanas
 
+## Requirements for the final work of the Ada platform (PT-BR)
+
+### PROJETO FINAL INDIVIDUAL
+
+- Criar um ecommerce com base no que foi feito em aula;
+- Trocar a temática para ser algo diferente do tema usado em sala;
+- Ter uma lista de cards sendo mostrada na tela principal;
+- Criar um formulário para adição de novos "cards";
+- O carrinho deve estar funcional, ou seja, ao clicar no botão de adicionar ao carrinho, ele deve alterar de forma dinâmica;
+- O projeto deve possuir rotas, uma para a tela principal e outra para o formulário;
+- Uma tela para rotas que não existem (not found);
+- Ter um service, pelo menos, de "cards" (os dados devem vir de uma API);
+- O usuário só poderá adicionar um "card" novo se estiver logado.
+
+### EXTRA
+
+- Concluir o CRUD dos "cards";
+
 ### Used color palettes
 
 > https://colorhunt.co/palette/2b2e4ae8454590374953354a
@@ -22,8 +40,7 @@ It's a e-commerce for katanas, I really love katanas
 
 WAS NOT MADE BY ME!!! All rights reserved to NiceCue
 
-> https://codepen.io/nicecue
-> https://codepen.io/nicecue/pen/gOpppqE
+> https://codepen.io/nicecue > https://codepen.io/nicecue/pen/gOpppqE
 
 # KatanaDynastyAngular - Angular DOC
 
