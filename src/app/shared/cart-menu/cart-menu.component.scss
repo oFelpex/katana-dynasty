@@ -79,7 +79,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      height: 20%;
+      height: 19%;
 
       .cart-footer-about {
         width: 50%;
@@ -96,6 +96,13 @@
         gap: 10px;
         flex-wrap: wrap;
         justify-content: center;
+
+        .clear-cart {
+          color: #e84545;
+          &:disabled {
+            color: var(--mdc-text-button-disabled-label-text-color);
+          }
+        }
       }
     }
   }

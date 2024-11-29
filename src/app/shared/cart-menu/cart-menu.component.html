@@ -60,13 +60,18 @@
         <h3>Total: {{ cartService.getTotal() | currency }}</h3>
       </div>
       <div class="cart-footer-buttons">
-        <button mat-button aria-label="Complete Purchase">
+        <button
+          mat-button
+          aria-label="Complete Purchase"
+          [disabled]="cartService.getTotalQuantityCartItems() <= 0"
+        >
           Complete Purchase
         </button>
         <button
           mat-button
           aria-label="Clear Cart"
-          style="color: #e84545"
+          class="clear-cart"
+          [disabled]="cartService.getTotalQuantityCartItems() <= 0"
           (click)="cartService.clearCart()"
         >
           Clear Cart
