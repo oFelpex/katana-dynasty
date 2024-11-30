@@ -11,7 +11,7 @@ export class CommunKatanasService {
 
   constructor(private http: HttpClient) {}
 
-  getCommunKatanas(): Observable<CommunKatanas[]> {
+  getCommunKatanasFromAPI(): Observable<CommunKatanas[]> {
     return this.http.get<CommunKatanas[]>(this.apiUrl);
   }
 }

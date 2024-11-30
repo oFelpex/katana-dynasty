@@ -1,4 +1,8 @@
-<mat-card class="card-container" appearance="outlined">
+<mat-card
+  [ngClass]="{ 'legendary-katana': newlyAddedKatana.class === 'legendary' }"
+  id="card-container"
+  appearance="outlined"
+>
   <button
     mat-icon-button
     class="button-wish-list"
@@ -17,17 +21,19 @@
     <mat-card-title>{{ newlyAddedKatana.title }}</mat-card-title>
     <mat-card-subtitle>{{ newlyAddedKatana.description }}</mat-card-subtitle>
   </mat-card-content>
-  <mat-card-subtitle class="price">{{
-    newlyAddedKatana.price | currency
-  }}</mat-card-subtitle>
-  <button
-    [disabled]="
-      cartService.disableButton(newlyAddedKatana.id, newlyAddedKatana)
-    "
-    mat-button
-    class="button-add-to-cart"
-    (click)="handleButtonClick()"
-  >
-    ADD TO CART
-  </button>
+  <div class="card-about">
+    <div class="chip">{{ newlyAddedKatana.class | titlecase }}</div>
+    <mat-card-subtitle class="price">{{
+      newlyAddedKatana.price | currency
+    }}</mat-card-subtitle>
+    <button
+      [disabled]="
+        cartService.disableButton(newlyAddedKatana.id, newlyAddedKatana)
+      "
+      mat-button
+      (click)="handleButtonClick()"
+    >
+      ADD TO CART
+    </button>
+  </div>
 </mat-card>

@@ -33,7 +33,7 @@ export class CatalogHomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.communKatanasService.getCommunKatanas().subscribe({
+    this.communKatanasService.getCommunKatanasFromAPI().subscribe({
       next: (katanas) => {
         this.communKatanas = katanas;
         this.loading = false;
