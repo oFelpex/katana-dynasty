@@ -1,13 +1,13 @@
 <nav class="nav-bar" [ngStyle]="navBarStyles">
   <a routerLink="/home" class="logo">⚔</a>
   <!-- ROUTES -->
-  <div class="routes">
-    <a routerLink="/about">About</a>
-    <a routerLink="/legendary">Legendary</a>
-    <a routerLink="/magic">Magic</a>
-    <a routerLink="/cursed">Cursed</a>
-    <a routerLink="/common">Common</a>
-  </div>
+  <ul class="routes">
+    <li routerLink="/about">About</li>
+    <li routerLink="/legendary">Legendary</li>
+    <li routerLink="/magic">Magic</li>
+    <li routerLink="/cursed">Cursed</li>
+    <li routerLink="/common">Common</li>
+  </ul>
   <button mat-icon-button aria-label="Cart button" (click)="openTheCart()">
     <mat-icon
       [ngStyle]="navBarStyles"

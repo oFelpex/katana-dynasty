@@ -1,10 +1,11 @@
 <div id="catalog-container">
   <h2>Newly Added Katanas</h2>
-
-  @for (newlyAddedKatana of newlyAddedKatanas; track $index) {
+  @if(loading) {
+  <p>Loading...</p>
+  } @else { @for (newlyAddedKatana of newlyAddedKatanas; track $index) {
   <app-catalog-card
     [ngClass]="newlyAddedKatana.class"
     [newlyAddedKatana]="newlyAddedKatana"
   ></app-catalog-card>
-  }
+  } }
 </div>

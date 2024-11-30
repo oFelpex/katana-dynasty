@@ -24,6 +24,7 @@ export class CatalogHomeComponent implements OnInit {
   legendaryKatanas: LegendaryKatanas[] = [];
   magicKatanas: MagicKatanas[] = [];
   newlyAddedKatanas: BaseKatana[] = [];
+  loading = true;
 
   constructor(
     private communKatanasService: CommunKatanasService,
@@ -32,18 +33,49 @@ export class CatalogHomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.communKatanas = this.communKatanasService.getCommunKatanas();
-    this.legendaryKatanas = this.legendaryKatanasService.getLegendaryKatanas();
-    this.magicKatanas = this.magicKatanasService.getMagicKatanas();
+    this.communKatanasService.getCommunKatanas().subscribe({
+      next: (katanas) => {
+        this.communKatanas = katanas;
+        this.loading = false;
 
-    if (this.communKatanas.length > 0) {
-      this.newlyAddedKatanas.push(this.communKatanas[0]);
-    }
-    if (this.legendaryKatanas.length > 0) {
-      this.newlyAddedKatanas.push(this.legendaryKatanas[0]);
-    }
-    if (this.magicKatanas.length > 0) {
-      this.newlyAddedKatanas.push(this.magicKatanas[0]);
-    }
+        if (this.communKatanas.length > 0) {
+          this.newlyAddedKatanas.push(this.communKatanas[0]);
+        }
+      },
+      error: (err) => {
+        console.error('Error when searching for katanas on the API: ', err);
+        this.loading = false;
+      },
+    });
+
+    this.legendaryKatanasService.getLegendaryKatanas().subscribe({
+      next: (katanas) => {
+        this.legendaryKatanas = katanas;
+        this.loading = false;
+
+        if (this.legendaryKatanas.length > 0) {
+          this.newlyAddedKatanas.push(this.legendaryKatanas[0]);
+        }
+      },
+      error: (err) => {
+        console.error('Error when searching for katanas on the API: ', err);
+        this.loading = false;
+      },
+    });
+
+    this.magicKatanasService.getMagicKatanas().subscribe({
+      next: (katanas) => {
+        this.magicKatanas = katanas;
+        this.loading = false;
+
+        if (this.magicKatanas.length > 0) {
+          this.newlyAddedKatanas.push(this.magicKatanas[0]);
+        }
+      },
+      error: (err) => {
+        console.error('Error when searching for katanas on the API: ', err);
+        this.loading = false;
+      },
+    });
   }
 }

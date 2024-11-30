@@ -1,0 +1,244 @@
+{
+  "common-katanas": [
+    {
+      "id": 0,
+      "class": "commun",
+      "imgSRC": "../../../../assets/images/products/katanas/communKatanas/Great Katana.webp",
+      "imgALT": "A Great Katana",
+      "title": "Great Katana",
+      "description": "Large katana with a long, heavy blade. A weapon unique to warriors of the Land of Reeds. Designed for aggression, this armament requires the wielder to throw their entire body into swinging it. The slashing attacks of its honed edge incite blood loss.",
+      "price": 2500,
+      "stock": 13
+    },
+    {
+      "id": 1,
+      "class": "commun",
+      "imgSRC": "../../../../assets/images/products/katanas/communKatanas/Nagakiba.webp",
+      "imgALT": "A Long Katana",
+      "title": "Nagakiba",
+      "description": "Katana with a ferociously long blade. Signature weapon of Yura, hunter of Bloody Fingers. Reminiscent of a reinforced spear, its imposing length can be put to good use with powerful thrusting attacks.",
+      "price": 3700,
+      "stock": 16
+    },
+    {
+      "id": 2,
+      "class": "commun",
+      "imgSRC": "../../../../assets/images/products/katanas/communKatanas/Sandai Kitetsu.webp",
+      "imgALT": "Sandai Kitetsu",
+      "title": "Sandai Kitetsu",
+      "description": "Sandai Kitetsu is a moderately curved katana with a white edge and a distinct blue hamon that has the appearance of flames. Its tsuba is golden and shaped like a rounded cross pattée; the hilt is wrapped reddish-brown, with a golden clasp around its middlead a golden kashira pommel.",
+      "price": 4880,
+      "stock": 14
+    },
+    {
+      "id": 3,
+      "class": "commun",
+      "imgSRC": "../../../../assets/images/products/katanas/communKatanas/Training Katana.webp",
+      "imgALT": "Training Katana",
+      "title": "Training Katana",
+      "description": "A wooden katana, perfect for training.",
+      "price": 999,
+      "stock": 50
+    },
+    {
+      "id": 4,
+      "class": "commun",
+      "imgSRC": "../../../../assets/images/products/katanas/communKatanas/Uchigatana.webp",
+      "imgALT": "Uchigatana",
+      "title": "Uchigatana",
+      "description": "A katana with a long single-edged curved blade. A unique weapon wielded by the samurai from the Land of Reeds. The blade, with its undulating design, boasts extraordinary sharpness, and its slash attacks cause blood loss.",
+      "price": 2400,
+      "stock": 19
+    },
+    {
+      "id": 5,
+      "class": "commun",
+      "imgSRC": "../../../../assets/images/products/katanas/communKatanas/Wado Ichimonji.webp",
+      "imgALT": "Wado Ichimonji",
+      "title": "Wado Ichimonji",
+      "description": "The Wado Ichimonji is a sword of great personal importance to Roronoa Zoro. It was forged by Shimotsuki Kouzaburou and was once a prized heirloom of his family. It is also one of the 21 Great Grade swords. After the death of its previous owner, Kuina, Zoro asked for it from her father, who then gave the sword to him.",
+      "price": 1950,
+      "stock": 10
+    },
+    {
+      "id": 6,
+      "class": "commun",
+      "imgSRC": "../../../../assets/images/products/katanas/communKatanas/Yubashiri.webp",
+      "imgALT": "Yubashiri",
+      "title": "Yubashiri",
+      "description": "Yubashiri was one of the 50 Skillful Grade swords. Roronoa Zoro obtained this sword for free from Ipponmatsu. The sword was a family heirloom and the best sword in the shop in Loguetown.",
+      "price": 1050,
+      "stock": 18
+    }
+  ],
+  "cursed-katanas": [
+    {
+      "id": 0,
+      "class": "cursed",
+      "imgSRC": "../../../../assets/images/products/katanas/cursedKatanas/Deadly Katana.webp",
+      "imgALT": "Deadly Katana",
+      "title": "Deadly Katana",
+      "description": "An odachi capable of slaying the undying. Its crimson blade will take the life of any who dares draw it. Without the power of Resurrection, one could not hope to wield this weapon, which allows one to defeat even infested beings. Long concealed within Senpou Temple, the blade is inscribed with its true name: 'Gracious Gift of Tears'.",
+      "price": 7150,
+      "curseTitle": "Instant Death",
+      "curseDescription": "The user dies instantly when drawing the katana for the first time, it is said thtonly those capable of revival can use it.",
+      "stock": 4
+    },
+    {
+      "id": 1,
+      "class": "cursed",
+      "imgSRC": "../../../../assets/images/products/katanas/communKatanas/Enma Sheathed.webp",
+      "imgALT": "Enma Sheathed",
+      "title": "Enma Sheathed",
+      "description": "Enma is the king of Hell in Japanese Buddhist myth, the judge of dead souls. He is the Japanese version of Yama, the king of hell found in sects of Buddhism across East Asia; Enma mostly derives from the Chinese-Buddhist Yánluó, who in turn is based on the Hindu (Vedic) god of death, also called Yama.",
+      "price": 6800,
+      "curseTitle": "Power Absorption",
+      "curseDescription": "The katana will constantly absorb the user's life force, and transform it into power, if the user is not strong enough, the katana will suck out their soul, killing them.",
+      "stock": 5
+    },
+    {
+      "id": 2,
+      "class": "cursed",
+      "imgSRC": "../../../../assets/images/products/katanas/communKatanas/Rakshara's Great Katana.webp",
+      "imgALT": "Rakshara's Great Katana",
+      "title": "Rakshara's Great Katana",
+      "description": "A great katana with the tempering pattern of its blade forever stained red with blood. Weapon of Rakshasa, who cuts down and devours. A berserker's weapon used to endure enemy attacks and reply with one's full fury. When attacking, the wielder is less likely to stagger from counterattacks, but will also take increased damage.",
+      "price": 4899,
+      "curseTitle": "Blood Addiction",
+      "curseDescription": "The katana is addicted to absorbing the blood of its opponents, this addiction is passed on to the user, who becomes a murderous maniac addicted to killing.",
+      "stock": 6
+    },
+    {
+      "id": 3,
+      "class": "cursed",
+      "imgSRC": "../../../../assets/images/products/katanas/communKatanas/Rivers of Blood.webp",
+      "imgALT": "Rivers of Blood",
+      "title": "Rivers of Blood",
+      "description": "Weapon of Okina, swordsman from the Land of Reeds. A cursed weapon that has felled countless men. When Mohg, the Lord of Blood, first felt Okina's sword, and madness, upon his flesh, he had a proposal, to offer Okina the life of a demon, whose thirst would never go unsated.",
+      "price": 5100,
+      "curseTitle": "Blood Manipulation",
+      "curseDescription": "The katana has the ability to manipulate its user's blood, and when the user injures someone with the katana, it uses the user's own blood to burn their opponents as if it were acid, fo the inside ot",
+      "stock": 3
+    }
+  ],
+  "legendary-katanas": [
+    {
+      "id": 0,
+      "class": "legendary",
+      "imgSRC": "../../../../assets/images/products/katanas/legendaryKatanas/Dragon-Hunter's Great Katana.webp",
+      "imgALT": "Dragon-Hunter's Great Katana",
+      "title": "Dragon-Hunter's Great Katana",
+      "description": "Great katana with spines of gravel stone along its blade, wielded by the Ancient Dragon-Man of the Dragon's Pit. Has an anti-dragon effect.",
+      "price": 7199,
+      "ancientSwordsman": "Ancient Dragon-Man",
+      "legend": "Formerly a Dragon Communion warrior, the Ancient Dragon-Man was once arbiter of those worthy to devour the Dreaded One.",
+      "dormantPowerName": "Dragonwound Slash",
+      "dormantPowerDescription": "Is idealfr hunting dragons, granting the armament a cloak with anti-dragon effect, before performing a powerful slash.",
+      "stock": 1
+    },
+    {
+      "id": 1,
+      "class": "legendary",
+      "imgSRC": "../../../../assets/images/products/katanas/legendaryKatanas/Dragonscale Blade.webp",
+      "imgALT": "Dragonscale Blade",
+      "title": "Dragonscale Blade",
+      "description": "A weapon made by sharpening a Gravel Stone scale, thought to be the source of ancient dragon immortality, into an unclouded blade.",
+      "price": 9550,
+      "ancientSwordsman": "Alas, the Dragonkin Soldiers",
+      "legend": "Alas, the Dragonkin Soldiers never attained immortality, and perished as decrepit, pale imitations of their skyborn kin.",
+      "dormantPowerName": "Ice Lightning Sword",
+      "dormantPowerDescription": "Calls down a bolt of ice lightning that damages an enemy. It also leaves the blade with extra lightning damage and frostbite buildup for the next 45 seconds.",
+      "stock": 1
+    },
+    {
+      "id": 2,
+      "class": "legendary",
+      "imgSRC": "../../../../assets/images/products/katanas/legendaryKatanas/Hand of Malenia.webp",
+      "imgALT": "Hand of Malenia",
+      "title": "Hand of Malenia",
+      "description": "Blade built into Malenia's prosthetic arm. Through consecration it is resistant to rot.",
+      "price": 22000,
+      "ancientSwordsman": "Malenia, Goddess of Rot",
+      "legend": "She is the Empyrean twin sister of Miquella and gained renown for her legendary battle against Starscourge Radahn during the Shattering, in which she unleashed the power of the Scarlet Rot and reduced Caelid torins.",
+      "dormantPowerName": "Waterfowl Dance",
+      "dormantPowerDescription": "Perform a series of one-footed leaps in the manner of a waterfowl to unleash a swift yet graceful slashing combo. Repeated inputs allow for up to two follow-up attacks",
+      "stock": 1
+    },
+    {
+      "id": 3,
+      "class": "legendary",
+      "imgSRC": "../../../../assets/images/products/katanas/legendaryKatanas/Shusui.webp",
+      "imgALT": "Shusui",
+      "title": "Shusui",
+      "description": "Shusui is a black blade that has as distinct white (reddish-purple in the anime) reverse wave hamon (hardening line) that is of a Kanemoto style and its tsuba (handguard) has flower-like edges in the shape of an octofoil. It also has no accessories on the hilt, being wrapped with black silk. Kashira, tsuba and kojiri end cap are golden, and the sheath is black, decorated with dark red circles split into even thirds.",
+      "price": 15000,
+      "ancientSwordsman": "Shimotsuki Ryuma",
+      "legend": "Shimotsuki Ryuma was a legendary, world-famous samurai hailing from the Shimotsuki Family of Wano Country, who lived during Wano's 'Country of Gold' era centuries ago. He was revered for his mastery of swordsmanship that earned him the title Sword God, as well as his feat of slaying a dragon.",
+      "dormantPowerName": "Unbreakable Spirit",
+      "dormantPowerDescription": "The stronger the user's willpower, the stronger the katana will be, being able to become unbreakable in a few moments.",
+      "stock": 1
+    }
+  ],
+  "magic-katanas": [
+    {
+      "id": 0,
+      "class": "magic",
+      "imgSRC": "../../../../assets/images/products/katanas/magicKatanas/Meteoric Ore Blade.webp",
+      "imgALT": "Meteoric Ore Blade",
+      "title": "Meteoric Ore Blade",
+      "description": "Katana forged from meteoric ore to dispatch lifeforms born of falling stars. Deals magic damage. The blade is weighty, known to deliver slashes of such ferocity that the impact is said torsemble the crash of a falling meteor",
+      "price": 7050,
+      "spellName": "Gravitas",
+      "spellDescription": "Skill originating from the Alabaster Lords, who had skin of stone. Thrust the armament into the ground to create a gravity well. In addition to dealing damage, this attack pulls enemies in.",
+      "stock": 6
+    },
+    {
+      "id": 1,
+      "class": "magic",
+      "imgSRC": "../../../../assets/images/products/katanas/magicKatanas/Moonveil.webp",
+      "imgALT": "Moonveil",
+      "title": "Moonveil",
+      "description": "Katana forged of glintstone. Masterpiece of a Sellian swordsmith. Light enwreathes the blade when sheathed, explaining its Moonveil moniker.",
+      "price": 8999,
+      "spellName": "Transient Moonlight",
+      "spellDescription": "Sheathe blade, holding it at the hip in a composed stance. Follow up with either a normal or a strong attack to draw the blade at great speed for an instant slash attack. Both attacks fire off a wave of light.",
+      "stock": 6
+    },
+    {
+      "id": 2,
+      "class": "magic",
+      "imgSRC": "../../../../assets/images/products/katanas/magicKatanas/Serpentbone Blade.webp",
+      "imgALT": "Serpentbone Blade",
+      "title": "Serpentbone Blade",
+      "description": "Sinister katana modeled after a serpent bone. The densely packed row of spines that jut away from the cutting edge are coated in a lethal poison.",
+      "price": 7600,
+      "spellName": "Double Slash",
+      "spellDescription": "Skill of superior swordsmen. Perform a crossing slash attack from a low stance. Repeated inputs allow for up to two follow up attacks.",
+      "stock": 4
+    },
+    {
+      "id": 3,
+      "class": "magic",
+      "imgSRC": "../../../../assets/images/products/katanas/magicKatanas/Star-Lined Sword.webp",
+      "imgALT": "Star-Lined Sword",
+      "title": "Star-Lined Sword",
+      "description": "Sword encrusted with a line of stars fashioned from small pieces of crude glintstone. Weapon of the demi-human swordsmen. When bestowed with this weapon by their queen, the swordsmen swear to find the truth that lies at the end of the procession of stars.",
+      "price": 8150,
+      "spellName": "Onze's Line of Stars",
+      "spellDescription": "This skill, named after a demi-human swordmaster, imbues sorcerous energy into lined glintstones and executes a slash attack. Repeated inputs allow for up to two follow-up attacks, each dealing greater damage than the last.",
+      "stock": 5
+    },
+    {
+      "id": 4,
+      "class": "magic",
+      "imgSRC": "../../../../assets/images/products/katanas/magicKatanas/Sword of Night.webp",
+      "imgALT": "Sword of Night",
+      "title": "Sword of Night",
+      "description": "Sword of an all-consuming, bottomless black that devours even the light that shines upon it. Wielded by Jolán, Swordhand of Night. The blade of the sword is only semicorporeal, and thus cannot be guarded against completely.",
+      "price": 12199,
+      "spellName": "Witching Hour Slash",
+      "spellDescription": "Hold the sword level and infuse it with the dark of Night before unleashing a series of incorporeal attacks. This attack cannot be blocked. Can be charged to increase its power.",
+      "stock": 2
+    }
+  ]
+}

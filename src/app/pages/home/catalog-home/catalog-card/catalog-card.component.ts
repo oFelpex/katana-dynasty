@@ -1,14 +1,11 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, Input, input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
-import {
-  CartItem,
-  CartService,
-} from '../../../../services/cart-service/cart-service';
+import { CartService } from '../../../../services/cart-service/cart-service';
 import { BaseKatana } from '../../../../models/base-katanas';
-import { Katanas } from '../../../../models/katanas';
+
 @Component({
   selector: 'app-catalog-card',
   standalone: true,
