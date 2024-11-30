@@ -29,7 +29,7 @@ export class HeaderComponent {
   wallpaperSRC: string;
   constructor() {
     this.wallpaperNumber = Number((Math.random() * 5).toFixed(0));
-    this.wallpaperSRC = `../../../assets/images/backgrounds/background-${this.wallpaperNumber}.webp`;
+    this.wallpaperSRC = `https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/backgrounds/background-${this.wallpaperNumber}.webp`;
   }
 
   navBarStyles: {} = {
