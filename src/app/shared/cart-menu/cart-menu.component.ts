@@ -1,16 +1,14 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
+import { Subscription } from 'rxjs';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
-import { Subscription } from 'rxjs';
 
-import {
-  CartItem,
-  CartService,
-} from '../../services/cart-service/cart-service';
-import { CurrencyPipe } from '@angular/common';
+import { CartService } from '../../services/cart-service/cart-service';
 
 @Component({
   selector: 'app-cart-menu',

@@ -2,16 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CatalogCardComponent } from './catalog-card/catalog-card.component';
-import { CommunKatanas } from '../../../models/commun-katanas';
+import { BaseKatana } from '../../../models/base-katanas';
+import { CommonKatanas } from '../../../models/common-katanas';
 import { LegendaryKatanas } from '../../../models/legendary-katanas';
 import { MagicKatanas } from '../../../models/magic-katanas';
-import { CommunKatanasService } from '../../../services/common-katanas/common-katanas.service';
+import { CommonKatanasService } from '../../../services/common-katanas/common-katanas.service';
 import { LegendaryKatanasService } from '../../../services/legendary-katanas/legendary-katanas.service';
 import { MagicKatanasService } from '../../../services/magic-katanas/magic-katanas.service';
-import { BaseKatana } from '../../../models/base-katanas';
-import { CursedKatanasService } from '../../../services/cursed-katanas/cursed-katanas.service';
-import { CursedKatanas } from '../../../models/cursed-katanas';
-
 @Component({
   selector: 'app-catalog-home',
   standalone: true,
@@ -20,20 +17,20 @@ import { CursedKatanas } from '../../../models/cursed-katanas';
   styleUrls: ['./catalog-home.component.scss'],
 })
 export class CatalogHomeComponent implements OnInit {
-  communKatanas: CommunKatanas[] = [];
+  communKatanas: CommonKatanas[] = [];
   legendaryKatanas: LegendaryKatanas[] = [];
   magicKatanas: MagicKatanas[] = [];
   newlyAddedKatanas: BaseKatana[] = [];
   loading = true;
 
   constructor(
-    private communKatanasService: CommunKatanasService,
+    private commonKatanasService: CommonKatanasService,
     private legendaryKatanasService: LegendaryKatanasService,
     private magicKatanasService: MagicKatanasService
   ) {}
 
   ngOnInit(): void {
-    this.communKatanasService.getCommunKatanasFromAPI().subscribe({
+    this.commonKatanasService.getCommunKatanasFromAPI().subscribe({
       next: (katanas) => {
         this.communKatanas = katanas;
         this.loading = false;

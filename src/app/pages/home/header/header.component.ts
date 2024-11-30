@@ -1,8 +1,9 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { FormsModule } from '@angular/forms';
 
 import { NavBarComponent } from '../../../shared/nav-bar/nav-bar.component';
 import { CherryBlossomPetalsComponent } from './cherry-blossom-petals/cherry-blossom-petals.component';
@@ -61,10 +62,9 @@ export class HeaderComponent {
   }
 
   moveDown(): void {
-    const target = document.getElementById('catalog-container');
+    const target = document.getElementById('catalog-container') as HTMLElement;
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      console.log(this.navBarStyles);
     }
   }
 

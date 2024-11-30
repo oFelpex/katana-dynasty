@@ -1,10 +1,9 @@
-import { CurrencyPipe } from '@angular/common';
-import { TitleCasePipe } from '@angular/common';
+import { TitleCasePipe, CurrencyPipe, CommonModule } from '@angular/common';
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
-import { CommonModule } from '@angular/common';
 
 import { CartService } from '../../../../services/cart-service/cart-service';
 import { BaseKatana } from '../../../../models/base-katanas';

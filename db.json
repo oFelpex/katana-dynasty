@@ -2,7 +2,7 @@
   "common-katanas": [
     {
       "id": 0,
-      "class": "commun",
+      "class": "common",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/communKatanas/Great%20Katana.webp",
       "imgALT": "A Great Katana",
       "title": "Great Katana",
@@ -12,7 +12,7 @@
     },
     {
       "id": 1,
-      "class": "commun",
+      "class": "common",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/communKatanas/Nagakiba.webp",
       "imgALT": "A Long Katana",
       "title": "Nagakiba",
@@ -22,7 +22,7 @@
     },
     {
       "id": 2,
-      "class": "commun",
+      "class": "common",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/communKatanas/Sandai%20Kitetsu.webp",
       "imgALT": "Sandai Kitetsu",
       "title": "Sandai Kitetsu",
@@ -32,7 +32,7 @@
     },
     {
       "id": 3,
-      "class": "commun",
+      "class": "common",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/communKatanas/Training%20Katana.webp",
       "imgALT": "Training Katana",
       "title": "Training Katana",
@@ -42,7 +42,7 @@
     },
     {
       "id": 4,
-      "class": "commun",
+      "class": "common",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/communKatanas/Uchigatana.webp",
       "imgALT": "Uchigatana",
       "title": "Uchigatana",
@@ -52,7 +52,7 @@
     },
     {
       "id": 5,
-      "class": "commun",
+      "class": "common",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/communKatanas/Wado%20Ichimonji.webp",
       "imgALT": "Wado Ichimonji",
       "title": "Wado Ichimonji",
@@ -62,7 +62,7 @@
     },
     {
       "id": 6,
-      "class": "commun",
+      "class": "common",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/communKatanas/Yubashiri.webp",
       "imgALT": "Yubashiri",
       "title": "Yubashiri",

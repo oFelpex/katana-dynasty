@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import { BaseKatana } from '../../models/base-katanas';
-
 export interface CartItem extends BaseKatana {
   quantity: number;
 }

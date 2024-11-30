@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { CursedKatanas } from '../../models/cursed-katanas';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { CursedKatanas } from '../../models/cursed-katanas';
 @Injectable({
   providedIn: 'root',
 })
