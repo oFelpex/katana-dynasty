@@ -1,5 +1,5 @@
 <mat-card
-  [ngClass]="{ 'legendary-katana': newlyAddedKatana.class === 'legendary' }"
+  [class]="newlyAddedKatana.class && newlyAddedKatana.class + '-background'"
   id="card-container"
   appearance="outlined"
 >
@@ -18,8 +18,8 @@
     />
   </div>
   <mat-card-content>
-    <mat-card-title>{{ newlyAddedKatana.title }}</mat-card-title>
-    <mat-card-subtitle>{{ newlyAddedKatana.description }}</mat-card-subtitle>
+    <h2>{{ newlyAddedKatana.title }}</h2>
+    <span>{{ newlyAddedKatana.description }}</span>
   </mat-card-content>
   <div class="card-about">
     <div class="chip">{{ newlyAddedKatana.class | titlecase }}</div>

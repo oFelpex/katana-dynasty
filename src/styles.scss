@@ -47,3 +47,264 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: #f5f5f5;
 }
+
+.common {
+  mat-card-content {
+    padding: 20px 0 20px 20px;
+    flex: 1;
+
+    h2 {
+      width: fit-content;
+      cursor: pointer;
+      font-weight: 500;
+      transition: transform 0.2s, color 0.2s;
+
+      &:hover {
+        color: #777777;
+        transform: scale(1.05);
+      }
+    }
+    span {
+      font-weight: 500;
+    }
+  }
+  .card-about {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 0 20px;
+    justify-content: center;
+    gap: 8px;
+
+    .chip {
+      background: none;
+      height: fit-content;
+      text-align: center;
+      max-width: 90px;
+      padding: 8px;
+      border: 1px solid black;
+      border-radius: 5px;
+      cursor: default;
+      transition: background 0.2s, color 0.2s;
+
+      &:hover {
+        background: #313131e7;
+        color: #fefefe;
+      }
+    }
+    button {
+      color: #000000;
+      background-color: #1d1f2013;
+    }
+  }
+}
+.common-background {
+  --borderWidth: 5px;
+  background: #1d1f20;
+  position: relative;
+  backdrop-filter: blur();
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+
+    background-color: gainsboro;
+    z-index: -1;
+    background-size: 300% 300%;
+  }
+}
+
+.legendary {
+  mat-card-content {
+    padding: 20px 0 20px 20px;
+    flex: 1;
+
+    h2 {
+      width: fit-content;
+      cursor: pointer;
+      font-weight: 500;
+      transition: transform 0.2s, color 0.2s;
+      color: #fff;
+
+      &:hover {
+        color: #fff;
+        transform: scale(1.05);
+      }
+    }
+    span {
+      color: #fff;
+      font-weight: 500;
+    }
+  }
+  .card-about {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 0 20px;
+    justify-content: center;
+    gap: 8px;
+
+    .chip {
+      background: none;
+      height: fit-content;
+      text-align: center;
+      max-width: 90px;
+      padding: 8px;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      cursor: default;
+      transition: background 0.2s, color 0.2s;
+      color: #fff;
+
+      &:hover {
+        background: #313131e7;
+        color: #f1e100;
+        filter: drop-shadow(0px 0px 20px rgb(255, 242, 1));
+      }
+    }
+    .price {
+      color: #fff;
+    }
+    button {
+      color: #fff;
+      background-color: #1d1f2026;
+    }
+  }
+}
+.legendary-background {
+  --borderWidth: 5px;
+  background: #1d1f20;
+  position: relative;
+  backdrop-filter: blur();
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+
+    background: linear-gradient(
+      60deg,
+      hsl(38, 100%, 50%),
+      hsl(32, 100%, 50%),
+      hsl(22, 100%, 50%),
+      hsl(8, 100%, 50%),
+      hsl(0, 100%, 45%)
+    );
+    z-index: -1;
+    animation: animatedGradientLegendary 3s ease alternate infinite;
+    background-size: 300% 300%;
+  }
+  @keyframes animatedGradientLegendary {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+.magic {
+  mat-card-content {
+    padding: 20px 0 20px 20px;
+    flex: 1;
+
+    h2 {
+      width: fit-content;
+      cursor: pointer;
+      font-weight: 500;
+      transition: transform 0.2s, color 0.2s;
+      color: #fff;
+
+      &:hover {
+        color: #fff;
+        transform: scale(1.05);
+      }
+    }
+    span {
+      color: #fff;
+      font-weight: 500;
+    }
+  }
+  .card-about {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 0 20px;
+    justify-content: center;
+    gap: 8px;
+
+    .chip {
+      background: none;
+      height: fit-content;
+      text-align: center;
+      max-width: 90px;
+      padding: 8px;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      cursor: default;
+      transition: background 0.2s, color 0.2s;
+      color: #fff;
+
+      &:hover {
+        background: #313131e7;
+        color: #2600ff;
+        filter: drop-shadow(0px 0px 20px rgb(1, 187, 255));
+      }
+    }
+    .price {
+      color: #fff;
+    }
+    button {
+      color: #ffffff;
+      background-color: #fcfdfd26;
+
+      &:hover {
+        background-color: #57575726;
+      }
+    }
+  }
+}
+.magic-background {
+  --borderWidth: 5px;
+  background: #1d1f20;
+  position: relative;
+  backdrop-filter: blur();
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+
+    background: linear-gradient(
+      60deg,
+      hsl(205, 100%, 50%),
+      hsl(220, 100%, 50%),
+      hsl(235, 100%, 50%),
+      hsl(250, 100%, 50%),
+      hsl(265, 100%, 50%),
+      hsl(280, 100%, 50%)
+    );
+    z-index: -1;
+    animation: animatedGradientMagic 3s ease alternate infinite;
+    background-size: 300% 300%;
+  }
+  @keyframes animatedGradientMagic {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
