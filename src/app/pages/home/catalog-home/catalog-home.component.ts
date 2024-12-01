@@ -17,7 +17,7 @@ import { MagicKatanasService } from '../../../services/magic-katanas/magic-katan
   styleUrls: ['./catalog-home.component.scss'],
 })
 export class CatalogHomeComponent implements OnInit {
-  communKatanas: CommonKatanas[] = [];
+  commonKatanas: CommonKatanas[] = [];
   legendaryKatanas: LegendaryKatanas[] = [];
   magicKatanas: MagicKatanas[] = [];
   newlyAddedKatanas: BaseKatana[] = [];
@@ -30,13 +30,15 @@ export class CatalogHomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.commonKatanasService.getCommunKatanasFromAPI().subscribe({
+    this.commonKatanasService.getCommonKatanasFromAPI().subscribe({
       next: (katanas) => {
-        this.communKatanas = katanas;
+        this.commonKatanas = katanas;
         this.loading = false;
 
-        if (this.communKatanas.length > 0) {
-          this.newlyAddedKatanas.push(this.communKatanas[0]);
+        if (this.commonKatanas.length > 0) {
+          this.newlyAddedKatanas.push(
+            this.commonKatanas[this.commonKatanas.length - 1]
+          );
         }
       },
       error: (err) => {
@@ -51,7 +53,9 @@ export class CatalogHomeComponent implements OnInit {
         this.loading = false;
 
         if (this.legendaryKatanas.length > 0) {
-          this.newlyAddedKatanas.push(this.legendaryKatanas[0]);
+          this.newlyAddedKatanas.push(
+            this.legendaryKatanas[this.legendaryKatanas.length - 1]
+          );
         }
       },
       error: (err) => {
@@ -66,7 +70,9 @@ export class CatalogHomeComponent implements OnInit {
         this.loading = false;
 
         if (this.magicKatanas.length > 0) {
-          this.newlyAddedKatanas.push(this.magicKatanas[0]);
+          this.newlyAddedKatanas.push(
+            this.magicKatanas[this.magicKatanas.length - 1]
+          );
         }
       },
       error: (err) => {

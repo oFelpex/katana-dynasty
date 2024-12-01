@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal, WritableSignal } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import { BaseKatana } from '../../models/base-katanas';
+
 export interface CartItem extends BaseKatana {
   quantity: number;
 }
@@ -9,68 +10,70 @@ export interface CartItem extends BaseKatana {
   providedIn: 'root',
 })
 export class CartService {
-  private items: CartItem[] = [];
+  private itemsSignal: WritableSignal<CartItem[]> = signal([]);
 
   getCartItems(): CartItem[] {
-    return this.items;
+    return this.itemsSignal();
   }
 
   getTotalQuantityCartItems(): number {
     let quantityCartItems: number = 0;
-    if (this.items.length > 0) {
-      for (let i = 0; i < this.items.length; i++) {
-        quantityCartItems += this.items[i].quantity;
+    if (this.itemsSignal().length > 0) {
+      for (let i = 0; i < this.itemsSignal().length; i++) {
+        quantityCartItems += this.itemsSignal()[i].quantity;
       }
     }
     return quantityCartItems;
   }
 
   addItem(item: BaseKatana): void {
-    const existingItem = this.items.find(
+    const currentItems = this.itemsSignal();
+    const existingItem = currentItems.find(
       (index) => index.id === item.id && item.class === index.class
     );
-    if (existingItem) existingItem.quantity += 1;
-    else this.items.push({ ...item, quantity: 1 });
+
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      currentItems.push({ ...item, quantity: 1 });
+    }
+
+    this.itemsSignal.set([...currentItems]);
   }
 
   removeItem(item: BaseKatana): void {
-    const index = this.items.findIndex(
+    const items = this.itemsSignal();
+    const index = items.findIndex(
       (i) => i.id === item.id && i.class === item.class
     );
 
     if (index !== -1) {
-      this.items[index].quantity--;
+      items[index].quantity--;
 
-      if (this.items[index].quantity <= 0) {
-        this.items = [
-          ...this.items.slice(0, index),
-          ...this.items.slice(index + 1),
-        ];
+      if (items[index].quantity <= 0) {
+        items.splice(index, 1);
       }
+
+      this.itemsSignal.set([...items]);
     }
-    console.log(this.items);
   }
 
   clearCart(): void {
-    this.items = [];
+    this.itemsSignal.set([]);
   }
 
   getTotal(): number {
-    return this.items.reduce(
+    return this.itemsSignal().reduce(
       (total, item) => total + item.price * item.quantity,
       0
     );
   }
 
   disableButton(id: number, katana: BaseKatana): boolean {
-    const cartItems: CartItem[] = this.getCartItems();
-    const cartItem: CartItem | undefined = cartItems.find(
+    const cartItem = this.itemsSignal().find(
       (item) => item.id === id && item.class === katana.class
     );
-    if (cartItem) {
-      return cartItem.quantity >= katana.stock;
-    }
-    return false;
+    return cartItem ? cartItem.quantity >= katana.stock : false;
   }
 
   private toggleCartSource = new Subject<void>();

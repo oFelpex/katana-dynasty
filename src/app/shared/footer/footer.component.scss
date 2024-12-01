@@ -1,10 +1,135 @@
-div {
-  position: relative;
-  top: 150%;
+#footer-container {
+  margin-top: 50px;
   width: 100%;
   height: 400px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: bisque;
+  justify-content: flex-end;
+  background-color: #14274e;
+  color: #fff;
+
+  .footer-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    padding: 0 50px 0 50px;
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      .social {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: fit-content;
+        gap: 20px;
+
+        div {
+          position: relative;
+          width: fit-content;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            width: 90%;
+            height: 90%;
+            background-color: aliceblue;
+            border-radius: 50%;
+            z-index: 0;
+          }
+          img {
+            position: relative;
+            min-width: 30px;
+            max-width: 50px;
+            height: auto;
+            z-index: 1;
+          }
+        }
+      }
+    }
+    div.start {
+      align-items: self-start;
+      gap: 20px;
+      p {
+        text-align: justify;
+        height: fit-content;
+      }
+    }
+    div.end {
+      align-items: self-end;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+
+        .example-full-width {
+          height: 75px;
+        }
+
+        button {
+          background-color: #0f1d39;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    width: 100%;
+
+    .footer-bottom-nav {
+      display: flex;
+      width: 100%;
+      height: 70px;
+      background-color: #0f1d39;
+      align-items: center;
+      justify-content: space-around;
+      border-top: 1px solid #fff;
+
+      .routes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 40%;
+
+        li {
+          cursor: pointer;
+        }
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+      }
+      .button-back-to-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        span {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .footer-bottom-bar {
+      display: flex;
+      width: 100%;
+      height: 30px;
+      align-items: center;
+      color: #ffffff7e;
+      background-color: #0f1d39;
+      justify-content: center;
+      border-top: 1px solid #ffffff7e;
+    }
+  }
 }

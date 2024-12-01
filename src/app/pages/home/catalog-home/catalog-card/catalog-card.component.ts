@@ -1,5 +1,10 @@
 import { TitleCasePipe, CurrencyPipe, CommonModule } from '@angular/common';
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  Input,
+  ChangeDetectionStrategy,
+  computed,
+} from '@angular/core';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -26,6 +31,13 @@ import { BaseKatana } from '../../../../models/base-katanas';
 export class CatalogCardComponent {
   @Input()
   newlyAddedKatana!: BaseKatana;
+
+  isButtonDisabled = computed(() =>
+    this.cartService.disableButton(
+      this.newlyAddedKatana.id,
+      this.newlyAddedKatana
+    )
+  );
 
   constructor(public cartService: CartService) {}
 

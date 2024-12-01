@@ -22,14 +22,14 @@
     <span>{{ newlyAddedKatana.description }}</span>
   </mat-card-content>
   <div class="card-about">
-    <div class="chip">{{ newlyAddedKatana.class | titlecase }}</div>
+    <div class="chip">
+      {{ newlyAddedKatana.class | titlecase }}
+    </div>
     <mat-card-subtitle class="price">{{
       newlyAddedKatana.price | currency
     }}</mat-card-subtitle>
     <button
-      [disabled]="
-        cartService.disableButton(newlyAddedKatana.id, newlyAddedKatana)
-      "
+      [disabled]="isButtonDisabled()"
       mat-button
       (click)="handleButtonClick()"
     >

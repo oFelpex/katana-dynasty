@@ -1,1 +1,100 @@
-<div id="test">Teste</div>
+<footer id="footer-container">
+  <div class="footer-content">
+    <div class="start">
+      <h2>Let's Talk</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ipsa
+        repellendus veritatis itaque sapiente? Obcaecati, ea rerum. Officiis
+        distinctio ex dolor pariatur nobis adipisci qui cumque sunt debitis,
+        quas hic!
+      </p>
+    </div>
+    <div>
+      <h1>⚔️ Katana Dynasty</h1>
+      <div class="social">
+        <div>
+          <a href="https://github.com/oFelpex/" target="_blank"
+            ><img
+              src="https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/refs/heads/main/assets/icons/icon-github.webp"
+              alt="The GitHub Icon"
+          /></a>
+        </div>
+        <div>
+          <a href="https://www.linkedin.com/in/felpex" target="_blank"
+            ><img
+              src="https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/refs/heads/main/assets/icons/icon-linkedin.webp"
+              alt="The Linkedin Icon"
+          /></a>
+        </div>
+        <div>
+          <img
+            src="https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/refs/heads/main/assets/icons/icon-gmail.webp"
+            alt="The G-mail Icon"
+          />
+        </div>
+        <div>
+          <a href="https://whatsa.me/5584987095902" target="_blank"
+            ><img
+              src="https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/refs/heads/main/assets/icons/icon-whatsapp.webp"
+              alt="The WhatsApp Icon"
+          /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="end">
+      <h2>Don't Miss Out</h2>
+      <span>Subscribe to receive the latest news about our products.</span>
+      <form [formGroup]="subscribe" (ngSubmit)="submitForm()">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input
+            type="name"
+            matInput
+            formControlName="name"
+            placeholder="Enter your first name"
+          />
+          <mat-error>Please enter a valid name</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            formControlName="email"
+            placeholder="Ex. pat@example.com"
+          />
+          <mat-error>Please enter a valid email address</mat-error>
+        </mat-form-field>
+        <button type="submit" mat-button>Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <nav class="footer-bottom-nav">
+      <ul class="routes">
+        <li routerLink="/about">About</li>
+        <li routerLink="/legendary">Legendary</li>
+        <li routerLink="/magic">Magic</li>
+        <li routerLink="/cursed">Cursed</li>
+        <li routerLink="/common">Common</li>
+      </ul>
+      <a href="https://github.com/oFelpex/" target="_blank">© 2024 Felpex</a>
+      <div class="button-back-to-top">
+        <span (click)="moveToTop()">Back to Top</span>
+        <button
+          (click)="moveToTop()"
+          style="color: #fff"
+          mat-icon-button
+          aria-label="This button move you to the top of the page."
+        >
+          <mat-icon>keyboard_arrow_up</mat-icon>
+        </button>
+      </div>
+    </nav>
+    <div class="footer-bottom-bar">
+      This website was created with the intention of being the final project of
+      a programming course.
+    </div>
+  </div>
+</footer>
