@@ -1,15 +1,15 @@
 <footer id="footer-container">
   <div class="footer-content">
     <div class="start">
-      <h2>Let's Talk</h2>
+      <h2>About This Site</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ipsa
-        repellendus veritatis itaque sapiente? Obcaecati, ea rerum. Officiis
-        distinctio ex dolor pariatur nobis adipisci qui cumque sunt debitis,
-        quas hic!
+        Explore our premium collection of authentic katanas. Find the perfect
+        sword for collectors, martial artists, and enthusiasts. High-quality
+        craftsmanship and detailed designs for every budget.
       </p>
     </div>
-    <div>
+
+    <div class="middle">
       <h1>⚔️ Katana Dynasty</h1>
       <div class="social">
         <div>
@@ -26,7 +26,7 @@
               alt="The Linkedin Icon"
           /></a>
         </div>
-        <div>
+        <div [cdkCopyToClipboard]="email" (click)="emailCopied()" class="email">
           <img
             src="https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/refs/heads/main/assets/icons/icon-gmail.webp"
             alt="The G-mail Icon"

@@ -33,7 +33,7 @@
       mat-button
       (click)="handleButtonClick()"
     >
-      ADD TO CART
+      {{ isButtonDisabled() ? "OUT OF STOCK" : "ADD TO CART" }}
     </button>
   </div>
 </mat-card>

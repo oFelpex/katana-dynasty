@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 import {
   FormControl,
@@ -32,6 +33,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatIconModule,
     MatDatepickerModule,
     CommonModule,
+    ClipboardModule,
   ],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
@@ -91,5 +93,12 @@ export class FooterComponent {
 
     this.snackBar.open('Subscribed with success!', 'Fechar');
     this.subscribe.setValue({ name: '', email: '' });
+  }
+
+  email = 'felipe95176@gmail.com';
+  emailCopied() {
+    this.snackBar.open(`Email: "${this.email}" copied with success!`, 'Close', {
+      duration: 5000,
+    });
   }
 }
