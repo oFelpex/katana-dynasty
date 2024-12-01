@@ -7,6 +7,7 @@ import { CommonComponent } from './pages/catalog/common/common.component';
 import { CursedComponent } from './pages/catalog/cursed/cursed.component';
 import { LegendaryComponent } from './pages/catalog/legendary/legendary.component';
 import { MagicComponent } from './pages/catalog/magic/magic.component';
+import { KatanaFormComponent } from './pages/katana-form/katana-form.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,6 +17,7 @@ export const routes: Routes = [
   { path: 'magic', component: MagicComponent },
   { path: 'legendary', component: LegendaryComponent },
   { path: 'cursed', component: CursedComponent },
+  { path: 'add-katana', component: KatanaFormComponent },
   { path: '**', component: NotFoundComponent },
 ];
 @NgModule({

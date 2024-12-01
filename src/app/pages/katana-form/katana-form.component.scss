@@ -1,0 +1,59 @@
+#form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 800px;
+  width: 100%;
+  padding-top: 55px;
+
+  #form-add-katana {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: aqua;
+    width: 70%;
+    height: 80%;
+
+    mat-form-field {
+      display: flex;
+      padding: 0 20px 0 20px;
+      width: 60%;
+    }
+
+    .legendary-form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 28%;
+
+        mat-form-field {
+          display: flex;
+          width: 100%;
+        }
+      }
+    }
+
+    .description-form-field {
+      textarea {
+        resize: none;
+        height: 170px;
+      }
+    }
+
+    .bottom {
+      width: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

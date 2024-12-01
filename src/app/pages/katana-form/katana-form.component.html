@@ -1,0 +1,132 @@
+<app-nav-bar></app-nav-bar>
+<div id="form-container">
+  <h1>Add a new Katana</h1>
+  <form id="form-add-katana" [formGroup]="subscribe" (ngSubmit)="submitForm()">
+    <mat-form-field>
+      <mat-label>Katana's name</mat-label>
+      <input
+        matInput
+        formControlName="name"
+        maxlength="40"
+        minlength="3"
+        placeholder="Ex. Uchigatana"
+      />
+      <mat-error>Enter a valid name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Image source (URL)</mat-label>
+      <input
+        matInput
+        formControlName="imgSRC"
+        placeholder="Ex. https://image.png"
+      />
+      <mat-error>Enter a valid URL</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="description-form-field">
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        minlength="3"
+        maxlength="300"
+        formControlName="description"
+        placeholder="Something about the history of the katana"
+      ></textarea>
+      <mat-error>Enter a valid text</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select
+        formControlName="category"
+        #select
+        (selectionChange)="onInput($event)"
+      >
+        <mat-option value="common">Common</mat-option>
+        <mat-option value="legendary">Legendary</mat-option>
+        <mat-option value="magic">Magic</mat-option>
+        <mat-option value="cursed">Cursed</mat-option>
+      </mat-select>
+      <mat-error>Choose one option</mat-error>
+    </mat-form-field>
+
+    @if(value() === "legendary") {
+    <div class="legendary-form">
+      <div class="container">
+        <mat-form-field>
+          <mat-label>Katana's name</mat-label>
+          <input
+            matInput
+            formControlName="name"
+            maxlength="40"
+            minlength="3"
+            placeholder="Ex. Uchigatana"
+          />
+          <mat-error>Enter a valid name</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="description-form-field">
+          <mat-label>Description</mat-label>
+          <textarea
+            matInput
+            minlength="3"
+            maxlength="300"
+            formControlName="description"
+            placeholder="Something about the history of the katana"
+          ></textarea>
+          <mat-error>Enter a valid text</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="container">
+        <mat-form-field>
+          <mat-label>Katana's name</mat-label>
+          <input
+            matInput
+            formControlName="name"
+            maxlength="40"
+            minlength="3"
+            placeholder="Ex. Uchigatana"
+          />
+          <mat-error>Enter a valid name</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="description-form-field">
+          <mat-label>Description</mat-label>
+          <textarea
+            matInput
+            minlength="3"
+            maxlength="300"
+            formControlName="description"
+            placeholder="Something about the history of the katana"
+          ></textarea>
+          <mat-error>Enter a valid text</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    } @if(value() === "magic") {
+    <div>MAGIC</div>
+    } @if(value() === "cursed") {
+    <div>CURSED</div>
+    }
+
+    <div class="bottom">
+      <mat-form-field floatLabel="always">
+        <mat-label>Available in stock</mat-label>
+        <input matInput type="number" formControlName="stock" placeholder="0" />
+        <mat-error>Enter the number</mat-error>
+      </mat-form-field>
+
+      <mat-form-field floatLabel="always">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" formControlName="price" placeholder="0" />
+        <span matTextPrefix>$&nbsp;</span>
+        <mat-error>Enter the price</mat-error>
+      </mat-form-field>
+    </div>
+
+    <button mat-button>Submit</button>
+  </form>
+</div>
+<app-footer></app-footer>
