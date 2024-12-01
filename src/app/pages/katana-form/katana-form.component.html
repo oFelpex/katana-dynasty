@@ -39,7 +39,7 @@
     <mat-form-field>
       <mat-label>Category</mat-label>
       <mat-select
-        formControlName="category"
+        formControlName="class"
         #select
         (selectionChange)="onInput($event)"
       >
@@ -55,25 +55,25 @@
     <div class="legendary-form">
       <div class="container">
         <mat-form-field>
-          <mat-label>Katana's name</mat-label>
+          <mat-label>Ancient sword man's name</mat-label>
           <input
             matInput
-            formControlName="name"
+            formControlName="ancientSwordsman"
             maxlength="40"
             minlength="3"
-            placeholder="Ex. Uchigatana"
+            placeholder="Ex. Roronoa Zoro"
           />
           <mat-error>Enter a valid name</mat-error>
         </mat-form-field>
 
         <mat-form-field class="description-form-field">
-          <mat-label>Description</mat-label>
+          <mat-label>The Legend</mat-label>
           <textarea
             matInput
             minlength="3"
             maxlength="300"
-            formControlName="description"
-            placeholder="Something about the history of the katana"
+            formControlName="legend"
+            placeholder="Enter the legend of this Katana"
           ></textarea>
           <mat-error>Enter a valid text</mat-error>
         </mat-form-field>
@@ -81,25 +81,25 @@
 
       <div class="container">
         <mat-form-field>
-          <mat-label>Katana's name</mat-label>
+          <mat-label>Dormant power's name</mat-label>
           <input
             matInput
-            formControlName="name"
+            formControlName="dormantPowerName"
             maxlength="40"
             minlength="3"
-            placeholder="Ex. Uchigatana"
+            placeholder="Ex. Dragonwound Slash"
           />
           <mat-error>Enter a valid name</mat-error>
         </mat-form-field>
 
         <mat-form-field class="description-form-field">
-          <mat-label>Description</mat-label>
+          <mat-label>Dormant power description</mat-label>
           <textarea
             matInput
             minlength="3"
             maxlength="300"
-            formControlName="description"
-            placeholder="Something about the history of the katana"
+            formControlName="dormantPowerDescription"
+            placeholder="How the dormant power works?"
           ></textarea>
           <mat-error>Enter a valid text</mat-error>
         </mat-form-field>
@@ -114,8 +114,15 @@
     <div class="bottom">
       <mat-form-field floatLabel="always">
         <mat-label>Available in stock</mat-label>
-        <input matInput type="number" formControlName="stock" placeholder="0" />
-        <mat-error>Enter the number</mat-error>
+        <input
+          matInput
+          type="number"
+          max="99"
+          min="0"
+          formControlName="stock"
+          placeholder="0"
+        />
+        <mat-error>Enter the number beetwen 0-30</mat-error>
       </mat-form-field>
 
       <mat-form-field floatLabel="always">

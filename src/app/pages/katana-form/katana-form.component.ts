@@ -40,13 +40,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class KatanaFormComponent {
   protected readonly value = signal('');
-
-  protected onInput(event: MatSelectChange) {
-    this.value.set(event.value);
-  }
-
   public subscribe: FormGroup;
   private snackBar: MatSnackBar;
+  errors: string[] = [];
 
   constructor() {
     this.subscribe = new FormGroup({
@@ -56,64 +52,97 @@ export class KatanaFormComponent {
         Validators.required,
         Validators.minLength(3),
       ]),
-      category: new FormControl('', Validators.required),
-      stock: new FormControl('', Validators.required),
-      price: new FormControl('', Validators.required),
+      class: new FormControl('', Validators.required),
+      stock: new FormControl('', [
+        Validators.required,
+        Validators.min(0),
+        Validators.max(99),
+      ]),
+      price: new FormControl('', [Validators.required, Validators.min(0)]),
     });
 
     this.snackBar = inject(MatSnackBar);
   }
 
+  protected onInput(event: MatSelectChange) {
+    this.value.set(event.value);
+
+    this.value() === 'legendary'
+      ? this.addLegendaryControls()
+      : this.removeLegendaryControls();
+  }
+
+  private addLegendaryControls() {
+    const controls = [
+      'ancientSwordsman',
+      'legend',
+      'dormantPowerName',
+      'dormantPowerDescription',
+    ];
+
+    controls.forEach((control) => {
+      if (!this.subscribe.contains(control)) {
+        this.subscribe.addControl(
+          control,
+          new FormControl('', [Validators.required, Validators.minLength(3)])
+        );
+      }
+      this.subscribe.controls[control].updateValueAndValidity();
+    });
+  }
+
+  private removeLegendaryControls() {
+    const controls = [
+      'ancientSwordsman',
+      'legend',
+      'dormantPowerName',
+      'dormantPowerDescription',
+    ];
+
+    controls.forEach((control) => {
+      this.subscribe.removeControl(control);
+    });
+
+    this.errors = [];
+  }
+
+  private generateErrors() {
+    this.errors = [];
+
+    Object.keys(this.subscribe.controls).forEach((controlName) => {
+      const control = this.subscribe.get(controlName);
+
+      if (control?.hasError('required')) {
+        this.errors.push(`${controlName} is required`);
+      }
+      if (control?.hasError('minlength')) {
+        this.errors.push(`${controlName} must be at least 3 characters long`);
+      }
+      if (control?.hasError('min') && controlName === 'stock') {
+        this.errors.push(`enter the ${controlName} number beetwen 0-30`);
+      }
+      if (control?.hasError('min') && controlName === 'price') {
+        this.errors.push(`enter the ${controlName} upper than 0`);
+      }
+      if (control?.hasError('minlength')) {
+        this.errors.push(`enter the ${controlName} number beetwen 0-30`);
+      }
+    });
+  }
+
   submitForm() {
+    this.generateErrors();
+
     if (this.subscribe.invalid) {
-      const errors: string[] = [];
-
-      if (this.subscribe.get('name')?.hasError('required')) {
-        errors.push('Name is required');
-      }
-      if (this.subscribe.get('name')?.hasError('minlength')) {
-        errors.push('Name must be at least 3 characters long');
-      }
-
-      if (this.subscribe.get('imgSRC')?.hasError('required')) {
-        errors.push('Image Source is required');
-      }
-
-      if (this.subscribe.get('description')?.hasError('required')) {
-        errors.push('Description is required');
-      }
-      if (this.subscribe.get('description')?.hasError('minlength')) {
-        errors.push('Description must be at least 3 characters long');
-      }
-
-      if (this.subscribe.get('category')?.hasError('required')) {
-        errors.push('Category is required');
-      }
-
-      if (this.subscribe.get('stock')?.hasError('required')) {
-        errors.push('Stock is required');
-      }
-
-      if (this.subscribe.get('price')?.hasError('required')) {
-        errors.push('Price is required');
-      }
-
-      this.snackBar.open(`Errors: ${errors.join('. ')}`, 'Close', {
+      this.snackBar.open(`Errors: ${this.errors.join(', ')}`, 'Close', {
         duration: 5000,
       });
-
       return;
     }
 
-    this.snackBar.open('Subscribed with success!', 'Fechar');
+    this.snackBar.open('Subscribed with success!', 'Close');
     console.log(this.subscribe.value);
-    this.subscribe.setValue({
-      name: '',
-      imgSRC: '',
-      description: '',
-      category: '',
-      stock: '',
-      price: '',
-    });
+    this.subscribe.reset();
+    this.errors = [];
   }
 }
