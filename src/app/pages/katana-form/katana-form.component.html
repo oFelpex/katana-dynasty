@@ -1,139 +1,202 @@
 <app-nav-bar></app-nav-bar>
-<div id="form-container">
-  <h1>Add a new Katana</h1>
-  <form id="form-add-katana" [formGroup]="subscribe" (ngSubmit)="submitForm()">
-    <mat-form-field>
-      <mat-label>Katana's name</mat-label>
-      <input
-        matInput
-        formControlName="name"
-        maxlength="40"
-        minlength="3"
-        placeholder="Ex. Uchigatana"
-      />
-      <mat-error>Enter a valid name</mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Image source (URL)</mat-label>
-      <input
-        matInput
-        formControlName="imgSRC"
-        placeholder="Ex. https://image.png"
-      />
-      <mat-error>Enter a valid URL</mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="description-form-field">
-      <mat-label>Description</mat-label>
-      <textarea
-        matInput
-        minlength="3"
-        maxlength="300"
-        formControlName="description"
-        placeholder="Something about the history of the katana"
-      ></textarea>
-      <mat-error>Enter a valid text</mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Category</mat-label>
-      <mat-select
-        formControlName="class"
-        #select
-        (selectionChange)="onInput($event)"
-      >
-        <mat-option value="common">Common</mat-option>
-        <mat-option value="legendary">Legendary</mat-option>
-        <mat-option value="magic">Magic</mat-option>
-        <mat-option value="cursed">Cursed</mat-option>
-      </mat-select>
-      <mat-error>Choose one option</mat-error>
-    </mat-form-field>
-
-    @if(value() === "legendary") {
-    <div class="legendary-form">
-      <div class="container">
-        <mat-form-field>
-          <mat-label>Ancient sword man's name</mat-label>
-          <input
-            matInput
-            formControlName="ancientSwordsman"
-            maxlength="40"
-            minlength="3"
-            placeholder="Ex. Roronoa Zoro"
-          />
-          <mat-error>Enter a valid name</mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="description-form-field">
-          <mat-label>The Legend</mat-label>
-          <textarea
-            matInput
-            minlength="3"
-            maxlength="300"
-            formControlName="legend"
-            placeholder="Enter the legend of this Katana"
-          ></textarea>
-          <mat-error>Enter a valid text</mat-error>
-        </mat-form-field>
-      </div>
-
-      <div class="container">
-        <mat-form-field>
-          <mat-label>Dormant power's name</mat-label>
-          <input
-            matInput
-            formControlName="dormantPowerName"
-            maxlength="40"
-            minlength="3"
-            placeholder="Ex. Dragonwound Slash"
-          />
-          <mat-error>Enter a valid name</mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="description-form-field">
-          <mat-label>Dormant power description</mat-label>
-          <textarea
-            matInput
-            minlength="3"
-            maxlength="300"
-            formControlName="dormantPowerDescription"
-            placeholder="How the dormant power works?"
-          ></textarea>
-          <mat-error>Enter a valid text</mat-error>
-        </mat-form-field>
-      </div>
-    </div>
-    } @if(value() === "magic") {
-    <div>MAGIC</div>
-    } @if(value() === "cursed") {
-    <div>CURSED</div>
-    }
-
-    <div class="bottom">
-      <mat-form-field floatLabel="always">
-        <mat-label>Available in stock</mat-label>
+<main>
+  <div id="form-container">
+    <h1>Add a new Katana</h1>
+    <form
+      id="form-add-katana"
+      [formGroup]="subscribe"
+      (ngSubmit)="submitForm()"
+    >
+      <mat-form-field>
+        <mat-label>Katana's name</mat-label>
         <input
           matInput
-          type="number"
-          max="99"
-          min="0"
-          formControlName="stock"
-          placeholder="0"
+          formControlName="name"
+          maxlength="40"
+          minlength="3"
+          placeholder="Ex. Uchigatana"
         />
-        <mat-error>Enter the number beetwen 0-30</mat-error>
+        <mat-error>Enter a valid name</mat-error>
       </mat-form-field>
 
-      <mat-form-field floatLabel="always">
-        <mat-label>Price</mat-label>
-        <input matInput type="number" formControlName="price" placeholder="0" />
-        <span matTextPrefix>$&nbsp;</span>
-        <mat-error>Enter the price</mat-error>
+      <mat-form-field>
+        <mat-label>Image source (URL)</mat-label>
+        <input
+          matInput
+          formControlName="imgSRC"
+          placeholder="Ex. https://image.png"
+        />
+        <mat-error>Enter a valid URL</mat-error>
       </mat-form-field>
-    </div>
 
-    <button mat-button>Submit</button>
-  </form>
-</div>
+      <mat-form-field class="description-form-field">
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          minlength="3"
+          maxlength="300"
+          formControlName="description"
+          placeholder="Something about the history of the katana"
+        ></textarea>
+        <mat-error>Enter a valid text</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select
+          formControlName="class"
+          #select
+          (selectionChange)="onInput($event)"
+        >
+          <mat-option value="common">Common</mat-option>
+          <mat-option value="legendary">Legendary</mat-option>
+          <mat-option value="magic">Magic</mat-option>
+          <mat-option value="cursed">Cursed</mat-option>
+        </mat-select>
+        <mat-error>Choose one option</mat-error>
+      </mat-form-field>
+
+      @if(value() === "legendary") {
+      <div class="category-form">
+        <div class="container">
+          <mat-form-field>
+            <mat-label>Ancient sword man's name</mat-label>
+            <input
+              matInput
+              formControlName="ancientSwordsman"
+              maxlength="40"
+              minlength="3"
+              placeholder="Ex. Roronoa Zoro"
+            />
+            <mat-error>Enter a valid name</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="description-form-field">
+            <mat-label>The Legend</mat-label>
+            <textarea
+              matInput
+              minlength="3"
+              maxlength="300"
+              formControlName="legend"
+              placeholder="Enter the legend of this Katana"
+            ></textarea>
+            <mat-error>Enter a valid text</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="container">
+          <mat-form-field>
+            <mat-label>Dormant power's name</mat-label>
+            <input
+              matInput
+              formControlName="dormantPowerName"
+              maxlength="40"
+              minlength="3"
+              placeholder="Ex. Dragonwound Slash"
+            />
+            <mat-error>Enter a valid name</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="description-form-field">
+            <mat-label>Dormant power description</mat-label>
+            <textarea
+              matInput
+              minlength="3"
+              maxlength="300"
+              formControlName="dormantPowerDescription"
+              placeholder="How the dormant power works?"
+            ></textarea>
+            <mat-error>Enter a valid text</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      } @if(value() === "magic") {
+      <div class="category-form">
+        <div class="container" style="width: 100%">
+          <mat-form-field>
+            <mat-label>Spell's name</mat-label>
+            <input
+              matInput
+              formControlName="spellName"
+              maxlength="40"
+              minlength="3"
+              placeholder="Ex. Gravitas"
+            />
+            <mat-error>Enter a valid name</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="description-form-field">
+            <mat-label>Spell's description</mat-label>
+            <textarea
+              matInput
+              minlength="3"
+              maxlength="300"
+              formControlName="spellDescription"
+              placeholder="Enter the description of this Spell"
+            ></textarea>
+            <mat-error>Enter a valid text</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      } @if(value() === "cursed") {
+      <div class="category-form">
+        <div class="container" style="width: 100%">
+          <mat-form-field>
+            <mat-label>Curse's name</mat-label>
+            <input
+              matInput
+              formControlName="curseTitle"
+              maxlength="40"
+              minlength="3"
+              placeholder="Ex. Gravitas"
+            />
+            <mat-error>Enter a valid name</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="description-form-field">
+            <mat-label>Curse's description</mat-label>
+            <textarea
+              matInput
+              minlength="3"
+              maxlength="300"
+              formControlName="curseDescription"
+              placeholder="Enter a description of this Curse"
+            ></textarea>
+            <mat-error>Enter a valid text</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      }
+
+      <div class="bottom">
+        <mat-form-field floatLabel="always">
+          <mat-label>Available in stock</mat-label>
+          <input
+            matInput
+            type="number"
+            max="99"
+            min="0"
+            formControlName="stock"
+            placeholder="0"
+          />
+          <mat-error>Enter the number beetwen 0-99</mat-error>
+        </mat-form-field>
+
+        <mat-form-field floatLabel="always">
+          <mat-label>Price</mat-label>
+          <input
+            matInput
+            type="number"
+            formControlName="price"
+            placeholder="0"
+          />
+          <span matTextPrefix>$&nbsp;</span>
+          <mat-error>Enter the price</mat-error>
+        </mat-form-field>
+      </div>
+
+      <button mat-button>Submit</button>
+    </form>
+  </div>
+</main>
 <app-footer></app-footer>

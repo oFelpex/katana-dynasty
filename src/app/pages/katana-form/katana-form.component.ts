@@ -1,14 +1,8 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  signal,
-  inject,
-} from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
   Validators,
-  FormsModule,
   ReactiveFormsModule,
   FormGroup,
 } from '@angular/forms';
@@ -21,6 +15,8 @@ import { MatSelectChange, MatSelectModule } from '@angular/material/select';
 import { NavBarComponent } from '../../shared/nav-bar/nav-bar.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { KatanasAPIService } from '../../services/katanas-api/katanas-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-katana-form',
@@ -42,9 +38,15 @@ export class KatanaFormComponent {
   protected readonly value = signal('');
   public subscribe: FormGroup;
   private snackBar: MatSnackBar;
+  private katanaAPI: KatanasAPIService;
+  private router: Router;
   errors: string[] = [];
 
   constructor() {
+    this.katanaAPI = inject(KatanasAPIService);
+    this.snackBar = inject(MatSnackBar);
+    this.router = inject(Router);
+
     this.subscribe = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       imgSRC: new FormControl('', Validators.required),
@@ -60,8 +62,6 @@ export class KatanaFormComponent {
       ]),
       price: new FormControl('', [Validators.required, Validators.min(0)]),
     });
-
-    this.snackBar = inject(MatSnackBar);
   }
 
   protected onInput(event: MatSelectChange) {
@@ -70,6 +70,12 @@ export class KatanaFormComponent {
     this.value() === 'legendary'
       ? this.addLegendaryControls()
       : this.removeLegendaryControls();
+    this.value() === 'magic'
+      ? this.addMagicControls()
+      : this.removeMagicControls();
+    this.value() === 'cursed'
+      ? this.addCursedControls()
+      : this.removeCursedControls();
   }
 
   private addLegendaryControls() {
@@ -90,7 +96,6 @@ export class KatanaFormComponent {
       this.subscribe.controls[control].updateValueAndValidity();
     });
   }
-
   private removeLegendaryControls() {
     const controls = [
       'ancientSwordsman',
@@ -98,6 +103,52 @@ export class KatanaFormComponent {
       'dormantPowerName',
       'dormantPowerDescription',
     ];
+
+    controls.forEach((control) => {
+      this.subscribe.removeControl(control);
+    });
+
+    this.errors = [];
+  }
+
+  private addMagicControls() {
+    const controls = ['spellName', 'spellDescription'];
+
+    controls.forEach((control) => {
+      if (!this.subscribe.contains(control)) {
+        this.subscribe.addControl(
+          control,
+          new FormControl('', [Validators.required, Validators.minLength(3)])
+        );
+      }
+      this.subscribe.controls[control].updateValueAndValidity();
+    });
+  }
+  private removeMagicControls() {
+    const controls = ['spellName', 'spellDescription'];
+
+    controls.forEach((control) => {
+      this.subscribe.removeControl(control);
+    });
+
+    this.errors = [];
+  }
+
+  private addCursedControls() {
+    const controls = ['curseTitle', 'curseDescription'];
+
+    controls.forEach((control) => {
+      if (!this.subscribe.contains(control)) {
+        this.subscribe.addControl(
+          control,
+          new FormControl('', [Validators.required, Validators.minLength(3)])
+        );
+      }
+      this.subscribe.controls[control].updateValueAndValidity();
+    });
+  }
+  private removeCursedControls() {
+    const controls = ['curseTitle', 'curseDescription'];
 
     controls.forEach((control) => {
       this.subscribe.removeControl(control);
@@ -119,13 +170,13 @@ export class KatanaFormComponent {
         this.errors.push(`${controlName} must be at least 3 characters long`);
       }
       if (control?.hasError('min') && controlName === 'stock') {
-        this.errors.push(`enter the ${controlName} number beetwen 0-30`);
+        this.errors.push(`enter the ${controlName} number beetwen 0-99`);
+      }
+      if (control?.hasError('max') && controlName === 'stock') {
+        this.errors.push(`enter the ${controlName} number beetwen 0-99`);
       }
       if (control?.hasError('min') && controlName === 'price') {
         this.errors.push(`enter the ${controlName} upper than 0`);
-      }
-      if (control?.hasError('minlength')) {
-        this.errors.push(`enter the ${controlName} number beetwen 0-30`);
       }
     });
   }
@@ -142,6 +193,67 @@ export class KatanaFormComponent {
 
     this.snackBar.open('Subscribed with success!', 'Close');
     console.log(this.subscribe.value);
+
+    if (this.subscribe.value.class === 'common') {
+      this.katanaAPI.createCommonKatana(this.subscribe.value).subscribe({
+        next: () => {
+          this.snackBar.open('Common Katana added with success!', 'Close', {
+            duration: 5000,
+          });
+          this.router.navigate(['home']);
+        },
+        error: () => {
+          this.snackBar.open(
+            "Error, we can't add this katana. Contact support for more information!",
+            'Close'
+          );
+        },
+      });
+    } else if (this.subscribe.value.class === 'legendary') {
+      this.katanaAPI.createLegendaryKatana(this.subscribe.value).subscribe({
+        next: () => {
+          this.snackBar.open('Legendary Katana added with success!', 'Close');
+          this.router.navigate(['home']);
+        },
+        error: () => {
+          this.snackBar.open(
+            "Error, we can't add this katana. Contact support for more information!",
+            'Close'
+          );
+        },
+      });
+    } else if (this.subscribe.value.class === 'magic') {
+      this.katanaAPI.createMagicKatana(this.subscribe.value).subscribe({
+        next: () => {
+          this.snackBar.open('Magic Katana added with success!', 'Close', {
+            duration: 5000,
+          });
+          this.router.navigate(['home']);
+        },
+        error: () => {
+          this.snackBar.open(
+            "Error, we can't add this katana. Contact support for more information!",
+            'Close'
+          );
+        },
+      });
+    } else if (this.subscribe.value.class === 'cursed') {
+      this.katanaAPI.createCursedKatana(this.subscribe.value).subscribe({
+        next: () => {
+          this.snackBar.open('Cursed Katana added with success!', 'Close', {
+            duration: 5000,
+          });
+          this.router.navigate(['home']);
+        },
+        error: () => {
+          this.snackBar.open(
+            "Error, we can't add this katana. Contact support for more information!",
+            'Close'
+          );
+        },
+      });
+    }
+
     this.subscribe.reset();
     this.errors = [];
   }
