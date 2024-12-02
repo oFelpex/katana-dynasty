@@ -200,7 +200,7 @@ export class KatanaFormComponent {
           this.snackBar.open('Common Katana added with success!', 'Close', {
             duration: 5000,
           });
-          this.router.navigate(['home']);
+          this.router.navigate(['common']);
         },
         error: () => {
           this.snackBar.open(
@@ -213,7 +213,7 @@ export class KatanaFormComponent {
       this.katanaAPI.createLegendaryKatana(this.subscribe.value).subscribe({
         next: () => {
           this.snackBar.open('Legendary Katana added with success!', 'Close');
-          this.router.navigate(['home']);
+          this.router.navigate(['legendary']);
         },
         error: () => {
           this.snackBar.open(
@@ -228,7 +228,7 @@ export class KatanaFormComponent {
           this.snackBar.open('Magic Katana added with success!', 'Close', {
             duration: 5000,
           });
-          this.router.navigate(['home']);
+          this.router.navigate(['magic']);
         },
         error: () => {
           this.snackBar.open(
@@ -243,7 +243,7 @@ export class KatanaFormComponent {
           this.snackBar.open('Cursed Katana added with success!', 'Close', {
             duration: 5000,
           });
-          this.router.navigate(['home']);
+          this.router.navigate(['cursed']);
         },
         error: () => {
           this.snackBar.open(

@@ -7,7 +7,6 @@
   align-items: center;
   justify-content: space-around;
   border-bottom: 1px solid;
-  backdrop-filter: blur(4px);
   z-index: 2;
   flex-wrap: wrap;
 
@@ -18,11 +17,14 @@
   .routes {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 30px;
+    justify-content: space-evenly;
+    width: 65%;
 
     li {
       cursor: pointer;
     }
   }
+}
+
+@media (max-width: 768px) {
 }

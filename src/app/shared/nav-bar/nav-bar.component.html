@@ -1,4 +1,5 @@
 <nav class="nav-bar" [ngStyle]="navBarStyles">
+  @if (!isMobileScreen) {
   <a routerLink="/home" class="logo">⚔</a>
   <!-- ROUTES -->
   <ul class="routes">
@@ -8,6 +9,21 @@
     <li routerLink="/cursed">Cursed</li>
     <li routerLink="/common">Common</li>
   </ul>
+  } @else {
+  <!-- ROUTES -->
+  <mat-icon mat-icon [matMenuTriggerFor]="menu">menu</mat-icon>
+  <mat-menu #menu="matMenu">
+    <ul class="routes">
+      <li routerLink="/about">About</li>
+      <li routerLink="/legendary">Legendary</li>
+      <li routerLink="/magic">Magic</li>
+      <li routerLink="/cursed">Cursed</li>
+      <li routerLink="/common">Common</li>
+    </ul>
+  </mat-menu>
+  <a routerLink="/home" class="logo">⚔</a>
+
+  }
   <button mat-icon-button aria-label="Cart button" (click)="openTheCart()">
     <mat-icon
       [ngStyle]="navBarStyles"
