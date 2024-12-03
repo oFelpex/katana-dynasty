@@ -24,12 +24,9 @@
   <a routerLink="/home" class="logo">⚔</a>
 
   }
-  <button mat-icon-button aria-label="Cart button" (click)="openTheCart()">
-    <mat-icon
-      [ngStyle]="navBarStyles"
-      [matBadge]="cartService.getTotalQuantityCartItems()"
-      aria-hidden="false"
-      >shopping_cart</mat-icon
-    >
-  </button>
+
+  <div class="user-button">
+    <button mat-button (click)="toggleChildSidenav()">USER</button>
+  </div>
 </nav>
+<app-user-menu></app-user-menu>

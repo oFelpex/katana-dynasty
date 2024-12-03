@@ -1,0 +1,15 @@
+#user-container {
+  position: fixed;
+  width: 100%;
+  height: calc(100% - 60px);
+  margin-top: 60px;
+  background-color: transparent;
+  z-index: 15;
+  pointer-events: all;
+
+  .drawer {
+    border-radius: 0%;
+    background-color: #f1f6f9;
+    width: 40%;
+  }
+}

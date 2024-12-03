@@ -1,0 +1,22 @@
+<mat-drawer-container
+  id="user-container"
+  [hasBackdrop]="true"
+  (click)="changePointersEvents()"
+>
+  <mat-drawer #userSideNav position="end" [mode]="'over'" class="drawer">
+    <p>Auto-resizing sidenav</p>
+    <button
+      mat-icon-button
+      aria-label="Cart button"
+      (click)="toggleCartDrawer()"
+    >
+      <mat-icon
+        [matBadge]="cartService.getTotalQuantityCartItems()"
+        aria-hidden="false"
+        >shopping_cart</mat-icon
+      >
+    </button>
+  </mat-drawer>
+
+  <div class="example-sidenav-content"></div>
+</mat-drawer-container>
