@@ -1,3 +1,13 @@
 <app-nav-bar></app-nav-bar>
-<p>cursed works!</p>
+<div class="catalog-container">
+  <h2>Cursed Katanas</h2>
+  @if(loading) {
+  <h3>Loading...</h3>
+  } @else { @for (cursedKatana of cursedKatanas; track $index) {
+  <app-catalog-card
+    [ngClass]="cursedKatana.class"
+    [newlyAddedKatana]="cursedKatana"
+  ></app-catalog-card>
+  } }
+</div>
 <app-footer></app-footer>

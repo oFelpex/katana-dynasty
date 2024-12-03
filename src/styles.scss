@@ -129,7 +129,7 @@ body {
       color: #fff;
 
       &:hover {
-        color: #fff;
+        color: #ffe375;
         transform: scale(1.05);
       }
     }
@@ -223,7 +223,7 @@ body {
       color: #fff;
 
       &:hover {
-        color: #fff;
+        color: #96b9ff;
         transform: scale(1.05);
       }
     }
@@ -306,5 +306,105 @@ body {
     100% {
       background-position: 0% 50%;
     }
+  }
+}
+
+// NEED TO CHANGE WHEN I HAVE MORE TIME FOR
+.cursed {
+  mat-card-content {
+    padding: 20px 0 20px 20px;
+    flex: 1;
+
+    h2 {
+      width: fit-content;
+      cursor: pointer;
+      font-weight: 500;
+      transition: transform 0.2s, color 0.2s;
+      color: #fff;
+
+      &:hover {
+        color: #ffa8a8;
+        transform: scale(1.05);
+      }
+    }
+    span {
+      font-weight: 500;
+      color: #fff;
+    }
+  }
+  .card-about {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 0 20px;
+    justify-content: center;
+    gap: 8px;
+
+    .chip {
+      background: none;
+      height: fit-content;
+      text-align: center;
+      max-width: 90px;
+      padding: 8px;
+      border: 1px solid rgb(88, 0, 0);
+      border-radius: 5px;
+      cursor: default;
+      transition: background 0.2s, color 0.2s;
+
+      &:hover {
+        background: #630101e7;
+        color: #fefefe;
+      }
+    }
+    .price {
+      color: #fff;
+    }
+    button {
+      color: #fff;
+      background-color: #1d1f2013;
+    }
+  }
+}
+.cursed-background {
+  --borderWidth: 5px;
+  background: #1d1f20;
+  position: relative;
+  backdrop-filter: blur();
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+
+    background: linear-gradient(
+      60deg,
+      hsl(0, 100%, 50%),
+      hsl(0, 100%, 45%),
+      hsl(0, 100%, 40%),
+      hsl(0, 100%, 35%),
+      hsl(0, 100%, 30%),
+      hsl(0, 100%, 25%)
+    );
+    z-index: -1;
+    animation: animatedGradientMagic 3s ease alternate infinite;
+    background-size: 300% 300%;
+  }
+}
+
+.catalog-container {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-self: center;
+  padding-top: 80px;
+  margin-bottom: 50px;
+
+  h2 {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
   }
 }

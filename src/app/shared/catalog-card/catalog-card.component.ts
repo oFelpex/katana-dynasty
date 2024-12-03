@@ -10,8 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 
-import { CartService } from '../../../../services/cart-service/cart-service';
-import { BaseKatana } from '../../../../models/base-katanas';
+import { CartService } from '../../services/cart-service/cart-service';
+import { BaseKatana } from '../../models/base-katanas';
 
 @Component({
   selector: 'app-catalog-card',

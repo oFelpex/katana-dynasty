@@ -11,7 +11,7 @@ export class CursedKatanasService {
 
   constructor(private http: HttpClient) {}
 
-  getCursedKatanas(): Observable<CursedKatanas[]> {
+  getCursedKatanasFromAPI(): Observable<CursedKatanas[]> {
     return this.http.get<CursedKatanas[]>(this.apiUrl);
   }
 }

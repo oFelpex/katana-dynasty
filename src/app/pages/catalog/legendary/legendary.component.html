@@ -1,3 +1,13 @@
 <app-nav-bar></app-nav-bar>
-<p>legendary works!</p>
+<div class="catalog-container">
+  <h2>Cursed Katanas</h2>
+  @if(loading) {
+  <h3>Loading...</h3>
+  } @else { @for (legendaryKatana of legendaryKatanas; track $index) {
+  <app-catalog-card
+    [ngClass]="legendaryKatana.class"
+    [newlyAddedKatana]="legendaryKatana"
+  ></app-catalog-card>
+  } }
+</div>
 <app-footer></app-footer>

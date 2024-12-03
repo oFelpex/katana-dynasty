@@ -1,12 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NavBarComponent } from '../../../shared/nav-bar/nav-bar.component';
 import { FooterComponent } from '../../../shared/footer/footer.component';
+import { CommonKatanas } from '../../../models/common-katanas';
+import { CommonKatanasService } from '../../../services/common-katanas/common-katanas.service';
+import { CommonModule } from '@angular/common';
+import { CatalogCardComponent } from '../../../shared/catalog-card/catalog-card.component';
 
 @Component({
   selector: 'app-commun',
   standalone: true,
-  imports: [NavBarComponent, FooterComponent],
+  imports: [
+    NavBarComponent,
+    CommonModule,
+    CatalogCardComponent,
+    FooterComponent,
+  ],
   templateUrl: './common.component.html',
   styleUrls: ['./common.component.scss'],
 })
-export class CommonComponent {}
+export class CommonComponent implements OnInit {
+  commonKatanas: CommonKatanas[] = [];
+  private commonKatanasService: CommonKatanasService;
+
+  loading = true;
+
+  constructor() {
+    this.commonKatanasService = inject(CommonKatanasService);
+  }
+
+  ngOnInit(): void {
+    this.commonKatanasService.getCommonKatanasFromAPI().subscribe({
+      next: (katanas) => {
+        this.commonKatanas = katanas;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Error when searching for katanas on the API: ', err);
+        this.loading = false;
+      },
+    });
+  }
+}

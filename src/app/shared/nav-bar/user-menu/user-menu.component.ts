@@ -4,11 +4,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import {
-  MatDrawer,
-  MatSidenav,
-  MatSidenavModule,
-} from '@angular/material/sidenav';
+import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { CartService } from '../../../services/cart-service/cart-service';
 
@@ -27,7 +23,7 @@ import { CartService } from '../../../services/cart-service/cart-service';
   templateUrl: './user-menu.component.html',
   styleUrl: './user-menu.component.scss',
 })
-export class UserMenuComponent implements OnInit {
+export class UserMenuComponent {
   public cartService: CartService;
   @ViewChild('userSideNav') userSideNav!: MatDrawer;
 
@@ -37,12 +33,6 @@ export class UserMenuComponent implements OnInit {
   toggleCartDrawer() {
     this.userSideNav.toggle();
     this.cartService.toggleCartDrawer();
-  }
-
-  ngOnInit(): void {
-    (
-      document.getElementById('user-container') as HTMLElement
-    ).style.pointerEvents = 'none';
   }
 
   changePointersEvents() {

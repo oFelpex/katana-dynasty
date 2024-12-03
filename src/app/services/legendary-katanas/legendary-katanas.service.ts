@@ -11,7 +11,7 @@ export class LegendaryKatanasService {
 
   constructor(private http: HttpClient) {}
 
-  getLegendaryKatanas(): Observable<LegendaryKatanas[]> {
+  getLegendaryKatanasFromAPI(): Observable<LegendaryKatanas[]> {
     return this.http.get<LegendaryKatanas[]>(this.apiUrl);
   }
 }

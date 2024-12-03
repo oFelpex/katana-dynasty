@@ -11,7 +11,7 @@ export class MagicKatanasService {
 
   constructor(private http: HttpClient) {}
 
-  getMagicKatanas(): Observable<MagicKatanas[]> {
+  getMagicKatanasFromAPI(): Observable<MagicKatanas[]> {
     return this.http.get<MagicKatanas[]>(this.apiUrl);
   }
 }

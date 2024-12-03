@@ -1,3 +1,13 @@
 <app-nav-bar></app-nav-bar>
-<p>magic works!</p>
+<div class="catalog-container">
+  <h2>Cursed Katanas</h2>
+  @if(loading) {
+  <h3>Loading...</h3>
+  } @else { @for (magicKatana of magicKatanas; track $index) {
+  <app-catalog-card
+    [ngClass]="magicKatana.class"
+    [newlyAddedKatana]="magicKatana"
+  ></app-catalog-card>
+  } }
+</div>
 <app-footer></app-footer>

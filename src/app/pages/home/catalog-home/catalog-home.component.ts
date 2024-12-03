@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CatalogCardComponent } from './catalog-card/catalog-card.component';
+import { CatalogCardComponent } from '../../../shared/catalog-card/catalog-card.component';
 import { BaseKatana } from '../../../models/base-katanas';
 import { CommonKatanas } from '../../../models/common-katanas';
 import { LegendaryKatanas } from '../../../models/legendary-katanas';
@@ -47,7 +47,7 @@ export class CatalogHomeComponent implements OnInit {
       },
     });
 
-    this.legendaryKatanasService.getLegendaryKatanas().subscribe({
+    this.legendaryKatanasService.getLegendaryKatanasFromAPI().subscribe({
       next: (katanas) => {
         this.legendaryKatanas = katanas;
         this.loading = false;
@@ -64,7 +64,7 @@ export class CatalogHomeComponent implements OnInit {
       },
     });
 
-    this.magicKatanasService.getMagicKatanas().subscribe({
+    this.magicKatanasService.getMagicKatanasFromAPI().subscribe({
       next: (katanas) => {
         this.magicKatanas = katanas;
         this.loading = false;
