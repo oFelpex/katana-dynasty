@@ -54,7 +54,7 @@ export class NavBarComponent {
 
   ngOnInit(): void {
     this.breakpointSubscription = this.breakpointObserver
-      .observe('(max-width: 480px)')
+      .observe('(max-width: 580px)')
       .subscribe((state: BreakpointState) => {
         this.isMobileScreen = state.matches;
       });

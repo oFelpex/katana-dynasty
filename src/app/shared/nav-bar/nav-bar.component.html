@@ -1,6 +1,6 @@
 <nav class="nav-bar" [ngStyle]="navBarStyles">
   @if (!isMobileScreen) {
-  <a routerLink="/home" class="logo">⚔</a>
+  <a routerLink="/home" class="logo">⚔ KatanaDynasty</a>
   <!-- ROUTES -->
   <ul class="routes">
     <li routerLink="/about">About</li>
@@ -15,13 +15,13 @@
   <mat-menu #menu="matMenu">
     <ul class="routes">
       <li routerLink="/about">About</li>
-      <li routerLink="/legendary">Legendary</li>
-      <li routerLink="/magic">Magic</li>
-      <li routerLink="/cursed">Cursed</li>
-      <li routerLink="/common">Common</li>
+      <li routerLink="/catalog/legendary">Legendary</li>
+      <li routerLink="/catalog/magic">Magic</li>
+      <li routerLink="/catalog/cursed">Cursed</li>
+      <li routerLink="/catalog/common">Common</li>
     </ul>
   </mat-menu>
-  <a routerLink="/home" class="logo">⚔</a>
+  <a routerLink="/home" class="logo">⚔ KatanaDynasty</a>
 
   }
 
