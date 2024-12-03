@@ -240,5 +240,13 @@
       "spellDescription": "Hold the sword level and infuse it with the dark of Night before unleashing a series of incorporeal attacks. This attack cannot be blocked. Can be charged to increase its power.",
       "stock": 2
     }
+  ],
+
+  "users": [
+    {
+      "id": 0,
+      "email": "admin@admin.com",
+      "password": "admin123"
+    }
   ]
 }

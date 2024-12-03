@@ -8,16 +8,19 @@ import { CursedComponent } from './pages/catalog/cursed/cursed.component';
 import { LegendaryComponent } from './pages/catalog/legendary/legendary.component';
 import { MagicComponent } from './pages/catalog/magic/magic.component';
 import { KatanaFormComponent } from './pages/katana-form/katana-form.component';
+import { AuthComponent } from './pages/auth/auth.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'auth', component: AuthComponent },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'common', component: CommonComponent },
   { path: 'magic', component: MagicComponent },
   { path: 'legendary', component: LegendaryComponent },
   { path: 'cursed', component: CursedComponent },
-  { path: 'add-katana', component: KatanaFormComponent },
+  { path: 'add-katana', component: KatanaFormComponent, canActivate[authGuard] },
   { path: '**', component: NotFoundComponent },
 ];
 @NgModule({

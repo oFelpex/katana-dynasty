@@ -47,11 +47,11 @@ export class FooterComponent {
     }
   }
 
-  public subscribe: FormGroup;
+  public subscribeForm: FormGroup;
   private snackBar: MatSnackBar;
 
   constructor() {
-    this.subscribe = new FormGroup({
+    this.subscribeForm = new FormGroup({
       name: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
@@ -64,23 +64,23 @@ export class FooterComponent {
   }
 
   submitForm() {
-    if (this.subscribe.invalid) {
+    if (this.subscribeForm.invalid) {
       const errors: string[] = [];
 
-      if (this.subscribe.get('name')?.hasError('required')) {
+      if (this.subscribeForm.get('name')?.hasError('required')) {
         errors.push('Name is required');
       }
-      if (this.subscribe.get('name')?.hasError('minlength')) {
+      if (this.subscribeForm.get('name')?.hasError('minlength')) {
         errors.push('Name must be at least 3 characters long');
       }
-      if (this.subscribe.get('name')?.hasError('pattern')) {
+      if (this.subscribeForm.get('name')?.hasError('pattern')) {
         errors.push('Only letters are allowed in the name');
       }
 
-      if (this.subscribe.get('email')?.hasError('required')) {
+      if (this.subscribeForm.get('email')?.hasError('required')) {
         errors.push('Email is required');
       }
-      if (this.subscribe.get('email')?.hasError('email')) {
+      if (this.subscribeForm.get('email')?.hasError('email')) {
         errors.push('Invalid email address');
       }
 
@@ -92,7 +92,7 @@ export class FooterComponent {
     }
 
     this.snackBar.open('Subscribed with success!', 'Fechar');
-    this.subscribe.setValue({ name: '', email: '' });
+    this.subscribeForm.setValue({ name: '', email: '' });
   }
 
   email = 'felipe95176@gmail.com';

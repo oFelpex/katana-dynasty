@@ -36,7 +36,7 @@ import { Router } from '@angular/router';
 })
 export class KatanaFormComponent {
   protected readonly value = signal('');
-  public subscribe: FormGroup;
+  public katanaForm: FormGroup;
   private snackBar: MatSnackBar;
   private katanaAPI: KatanasAPIService;
   private router: Router;
@@ -47,7 +47,7 @@ export class KatanaFormComponent {
     this.snackBar = inject(MatSnackBar);
     this.router = inject(Router);
 
-    this.subscribe = new FormGroup({
+    this.katanaForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       imgSRC: new FormControl('', Validators.required),
       description: new FormControl('', [
@@ -87,13 +87,13 @@ export class KatanaFormComponent {
     ];
 
     controls.forEach((control) => {
-      if (!this.subscribe.contains(control)) {
-        this.subscribe.addControl(
+      if (!this.katanaForm.contains(control)) {
+        this.katanaForm.addControl(
           control,
           new FormControl('', [Validators.required, Validators.minLength(3)])
         );
       }
-      this.subscribe.controls[control].updateValueAndValidity();
+      this.katanaForm.controls[control].updateValueAndValidity();
     });
   }
   private removeLegendaryControls() {
@@ -105,7 +105,7 @@ export class KatanaFormComponent {
     ];
 
     controls.forEach((control) => {
-      this.subscribe.removeControl(control);
+      this.katanaForm.removeControl(control);
     });
 
     this.errors = [];
@@ -115,20 +115,20 @@ export class KatanaFormComponent {
     const controls = ['spellName', 'spellDescription'];
 
     controls.forEach((control) => {
-      if (!this.subscribe.contains(control)) {
-        this.subscribe.addControl(
+      if (!this.katanaForm.contains(control)) {
+        this.katanaForm.addControl(
           control,
           new FormControl('', [Validators.required, Validators.minLength(3)])
         );
       }
-      this.subscribe.controls[control].updateValueAndValidity();
+      this.katanaForm.controls[control].updateValueAndValidity();
     });
   }
   private removeMagicControls() {
     const controls = ['spellName', 'spellDescription'];
 
     controls.forEach((control) => {
-      this.subscribe.removeControl(control);
+      this.katanaForm.removeControl(control);
     });
 
     this.errors = [];
@@ -138,20 +138,20 @@ export class KatanaFormComponent {
     const controls = ['curseTitle', 'curseDescription'];
 
     controls.forEach((control) => {
-      if (!this.subscribe.contains(control)) {
-        this.subscribe.addControl(
+      if (!this.katanaForm.contains(control)) {
+        this.katanaForm.addControl(
           control,
           new FormControl('', [Validators.required, Validators.minLength(3)])
         );
       }
-      this.subscribe.controls[control].updateValueAndValidity();
+      this.katanaForm.controls[control].updateValueAndValidity();
     });
   }
   private removeCursedControls() {
     const controls = ['curseTitle', 'curseDescription'];
 
     controls.forEach((control) => {
-      this.subscribe.removeControl(control);
+      this.katanaForm.removeControl(control);
     });
 
     this.errors = [];
@@ -160,8 +160,8 @@ export class KatanaFormComponent {
   private generateErrors() {
     this.errors = [];
 
-    Object.keys(this.subscribe.controls).forEach((controlName) => {
-      const control = this.subscribe.get(controlName);
+    Object.keys(this.katanaForm.controls).forEach((controlName) => {
+      const control = this.katanaForm.get(controlName);
 
       if (control?.hasError('required')) {
         this.errors.push(`${controlName} is required`);
@@ -184,7 +184,7 @@ export class KatanaFormComponent {
   submitForm() {
     this.generateErrors();
 
-    if (this.subscribe.invalid) {
+    if (this.katanaForm.invalid) {
       this.snackBar.open(`Errors: ${this.errors.join(', ')}`, 'Close', {
         duration: 5000,
       });
@@ -192,10 +192,10 @@ export class KatanaFormComponent {
     }
 
     this.snackBar.open('Subscribed with success!', 'Close');
-    console.log(this.subscribe.value);
+    console.log(this.katanaForm.value);
 
-    if (this.subscribe.value.class === 'common') {
-      this.katanaAPI.createCommonKatana(this.subscribe.value).subscribe({
+    if (this.katanaForm.value.class === 'common') {
+      this.katanaAPI.createCommonKatana(this.katanaForm.value).subscribe({
         next: () => {
           this.snackBar.open('Common Katana added with success!', 'Close', {
             duration: 5000,
@@ -209,8 +209,8 @@ export class KatanaFormComponent {
           );
         },
       });
-    } else if (this.subscribe.value.class === 'legendary') {
-      this.katanaAPI.createLegendaryKatana(this.subscribe.value).subscribe({
+    } else if (this.katanaForm.value.class === 'legendary') {
+      this.katanaAPI.createLegendaryKatana(this.katanaForm.value).subscribe({
         next: () => {
           this.snackBar.open('Legendary Katana added with success!', 'Close');
           this.router.navigate(['legendary']);
@@ -222,8 +222,8 @@ export class KatanaFormComponent {
           );
         },
       });
-    } else if (this.subscribe.value.class === 'magic') {
-      this.katanaAPI.createMagicKatana(this.subscribe.value).subscribe({
+    } else if (this.katanaForm.value.class === 'magic') {
+      this.katanaAPI.createMagicKatana(this.katanaForm.value).subscribe({
         next: () => {
           this.snackBar.open('Magic Katana added with success!', 'Close', {
             duration: 5000,
@@ -237,8 +237,8 @@ export class KatanaFormComponent {
           );
         },
       });
-    } else if (this.subscribe.value.class === 'cursed') {
-      this.katanaAPI.createCursedKatana(this.subscribe.value).subscribe({
+    } else if (this.katanaForm.value.class === 'cursed') {
+      this.katanaAPI.createCursedKatana(this.katanaForm.value).subscribe({
         next: () => {
           this.snackBar.open('Cursed Katana added with success!', 'Close', {
             duration: 5000,
@@ -254,7 +254,7 @@ export class KatanaFormComponent {
       });
     }
 
-    this.subscribe.reset();
+    this.katanaForm.reset();
     this.errors = [];
   }
 }
