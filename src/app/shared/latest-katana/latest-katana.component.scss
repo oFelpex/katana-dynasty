@@ -33,6 +33,13 @@ section {
       width: 50%;
       height: 100%;
       background-color: bisque;
+      text-align: justify;
+
+      div {
+        p {
+          margin-top: 10px;
+        }
+      }
     }
   }
 }
