@@ -1,8 +1,7 @@
 #user-container {
   position: fixed;
   width: 100%;
-  height: calc(100% - 60px);
-  margin-top: 60px;
+  height: 100%;
   background-color: transparent;
   z-index: 15;
   pointer-events: none;

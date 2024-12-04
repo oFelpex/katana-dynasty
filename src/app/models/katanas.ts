@@ -1,5 +1,12 @@
-import { BaseKatana } from './base-katanas';
+import { CommonKatanas } from './common-katanas';
+import { CursedKatanas } from './cursed-katanas';
+import { LegendaryKatanas } from './legendary-katanas';
+import { MagicKatanas } from './magic-katanas';
 
 export interface Katanas {
-  katanaCategory: BaseKatana;
+  katanaCategory:
+    | CommonKatanas
+    | LegendaryKatanas
+    | MagicKatanas
+    | CursedKatanas;
 }

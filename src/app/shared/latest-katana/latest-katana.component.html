@@ -1,1 +1,74 @@
-<p>latest-katana works!</p>
+<section>
+  <h1>Look Our Brand New Katana</h1>
+  <div class="last-added-katana-container">
+    <div class="last-added-katana-img">
+      <img
+        [src]="lastAddedKatana.katanaCategory.imgSRC"
+        [alt]="lastAddedKatana.katanaCategory.imgALT"
+      />
+    </div>
+    <div class="last-added-katana">
+      <h1>{{ lastAddedKatana.katanaCategory.title }}</h1>
+      @if(lastAddedKatana) { @if(isCommonKatana(lastAddedKatana.katanaCategory))
+      {
+      <div>
+        <h2>{{ lastAddedKatana.katanaCategory.title }} (Common)</h2>
+        <p>{{ lastAddedKatana.katanaCategory.description }}</p>
+
+        <button mat-button>BUTTON</button>
+      </div>
+      } @else if(isCursedKatana(lastAddedKatana.katanaCategory)) {
+      <div>
+        <h2>{{ lastAddedKatana.katanaCategory.title }} (Cursed)</h2>
+        <p>{{ lastAddedKatana.katanaCategory.description }}</p>
+        <p>
+          <strong>Curse:</strong>
+          {{ lastAddedKatana.katanaCategory.curseTitle }}
+        </p>
+        <p>
+          <strong>Curse's Description:</strong>
+          {{ lastAddedKatana.katanaCategory.curseDescription }}
+        </p>
+        <button mat-button>BUTTON</button>
+      </div>
+      } @else if(isLegendaryKatana(lastAddedKatana.katanaCategory)) {
+      <div>
+        <h2>{{ lastAddedKatana.katanaCategory.title }} (Legendary)</h2>
+        <p>{{ lastAddedKatana.katanaCategory.description }}</p>
+        <p>
+          <strong>Ancient Swordsman:</strong>
+          {{ lastAddedKatana.katanaCategory.ancientSwordsman }}
+        </p>
+        <p>
+          <strong>Legend:</strong> {{ lastAddedKatana.katanaCategory.legend }}
+        </p>
+        <p>
+          <strong>Dormant Power Name:</strong>
+          {{ lastAddedKatana.katanaCategory.dormantPowerName }}
+        </p>
+        <p>
+          <strong>Dormant Power Description:</strong>
+          {{ lastAddedKatana.katanaCategory.dormantPowerDescription }}
+        </p>
+        <button mat-button>BUTTON</button>
+      </div>
+      } @else if(isMagicKatana(lastAddedKatana.katanaCategory)) {
+      <div>
+        <h2>{{ lastAddedKatana.katanaCategory.title }} (Magic)</h2>
+        <p>{{ lastAddedKatana.katanaCategory.description }}</p>
+        <p>
+          <strong>Spell:</strong>
+          {{ lastAddedKatana.katanaCategory.spellName }}
+        </p>
+        <p>
+          <strong>Spell Description:</strong>
+          {{ lastAddedKatana.katanaCategory.spellDescription }}
+        </p>
+        <button mat-button>BUTTON</button>
+      </div>
+      } } @else {
+      <h1>ERROR</h1>
+      }
+    </div>
+  </div>
+</section>

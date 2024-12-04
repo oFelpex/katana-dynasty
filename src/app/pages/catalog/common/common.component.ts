@@ -5,6 +5,8 @@ import { CommonKatanas } from '../../../models/common-katanas';
 import { CommonKatanasService } from '../../../services/common-katanas/common-katanas.service';
 import { CommonModule } from '@angular/common';
 import { CatalogCardComponent } from '../../../shared/catalog-card/catalog-card.component';
+import { LatestKatanaComponent } from '../../../shared/latest-katana/latest-katana.component';
+import { Katanas } from '../../../models/katanas';
 
 @Component({
   selector: 'app-commun',
@@ -14,12 +16,18 @@ import { CatalogCardComponent } from '../../../shared/catalog-card/catalog-card.
     CommonModule,
     CatalogCardComponent,
     FooterComponent,
+    LatestKatanaComponent,
   ],
   templateUrl: './common.component.html',
   styleUrls: ['./common.component.scss'],
 })
 export class CommonComponent implements OnInit {
-  commonKatanas: CommonKatanas[] = [];
+  public commonKatanas: CommonKatanas[] = [];
+  public lastAddedKatana: Katanas = {
+    katanaCategory: this.commonKatanas[
+      this.commonKatanas.length - 1
+    ] as CommonKatanas,
+  };
   private commonKatanasService: CommonKatanasService;
 
   loading = true;
@@ -33,6 +41,10 @@ export class CommonComponent implements OnInit {
       next: (katanas) => {
         this.commonKatanas = katanas;
         this.loading = false;
+
+        this.lastAddedKatana = {
+          katanaCategory: this.commonKatanas[this.commonKatanas.length - 1],
+        };
       },
       error: (err) => {
         console.error('Error when searching for katanas on the API: ', err);

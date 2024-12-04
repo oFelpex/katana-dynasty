@@ -5,6 +5,8 @@ import { CursedKatanas } from '../../../models/cursed-katanas';
 import { CursedKatanasService } from '../../../services/cursed-katanas/cursed-katanas.service';
 import { CommonModule } from '@angular/common';
 import { CatalogCardComponent } from '../../../shared/catalog-card/catalog-card.component';
+import { LatestKatanaComponent } from '../../../shared/latest-katana/latest-katana.component';
+import { Katanas } from '../../../models/katanas';
 
 @Component({
   selector: 'app-cursed',
@@ -14,13 +16,19 @@ import { CatalogCardComponent } from '../../../shared/catalog-card/catalog-card.
     CatalogCardComponent,
     CommonModule,
     FooterComponent,
+    LatestKatanaComponent,
   ],
   templateUrl: './cursed.component.html',
   styleUrls: ['./cursed.component.scss'],
 })
 export class CursedComponent implements OnInit {
-  cursedKatanas: CursedKatanas[] = [];
+  public cursedKatanas: CursedKatanas[] = [];
   private cursedKatanasService: CursedKatanasService;
+  public lastAddedKatana: Katanas = {
+    katanaCategory: this.cursedKatanas[
+      this.cursedKatanas.length - 1
+    ] as CursedKatanas,
+  };
 
   loading = true;
 
@@ -33,6 +41,10 @@ export class CursedComponent implements OnInit {
       next: (katanas) => {
         this.cursedKatanas = katanas;
         this.loading = false;
+
+        this.lastAddedKatana = {
+          katanaCategory: this.cursedKatanas[this.cursedKatanas.length - 1],
+        };
       },
       error: (err) => {
         console.error('Error when searching for katanas on the API: ', err);

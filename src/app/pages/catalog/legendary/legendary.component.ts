@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { LegendaryKatanas } from '../../../models/legendary-katanas';
 import { LegendaryKatanasService } from '../../../services/legendary-katanas/legendary-katanas.service';
 import { CatalogCardComponent } from '../../../shared/catalog-card/catalog-card.component';
+import { Katanas } from '../../../models/katanas';
+import { LatestKatanaComponent } from '../../../shared/latest-katana/latest-katana.component';
 
 @Component({
   selector: 'app-legendary',
@@ -14,12 +16,18 @@ import { CatalogCardComponent } from '../../../shared/catalog-card/catalog-card.
     CatalogCardComponent,
     CommonModule,
     FooterComponent,
+    LatestKatanaComponent,
   ],
   templateUrl: './legendary.component.html',
   styleUrls: ['./legendary.component.scss'],
 })
 export class LegendaryComponent implements OnInit {
-  legendaryKatanas: LegendaryKatanas[] = [];
+  public legendaryKatanas: LegendaryKatanas[] = [];
+  public lastAddedKatana: Katanas = {
+    katanaCategory: this.legendaryKatanas[
+      this.legendaryKatanas.length - 1
+    ] as LegendaryKatanas,
+  };
   private magicKatanasService: LegendaryKatanasService;
 
   loading = true;
@@ -33,6 +41,11 @@ export class LegendaryComponent implements OnInit {
       next: (katanas) => {
         this.legendaryKatanas = katanas;
         this.loading = false;
+
+        this.lastAddedKatana = {
+          katanaCategory:
+            this.legendaryKatanas[this.legendaryKatanas.length - 1],
+        };
       },
       error: (err) => {
         console.error('Error when searching for katanas on the API: ', err);

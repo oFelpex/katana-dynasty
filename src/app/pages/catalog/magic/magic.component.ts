@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { MagicKatanas } from '../../../models/magic-katanas';
 import { MagicKatanasService } from '../../../services/magic-katanas/magic-katanas.service';
 import { CatalogCardComponent } from '../../../shared/catalog-card/catalog-card.component';
+import { LatestKatanaComponent } from '../../../shared/latest-katana/latest-katana.component';
+import { Katanas } from '../../../models/katanas';
 
 @Component({
   selector: 'app-magic',
@@ -14,12 +16,18 @@ import { CatalogCardComponent } from '../../../shared/catalog-card/catalog-card.
     CatalogCardComponent,
     CommonModule,
     FooterComponent,
+    LatestKatanaComponent,
   ],
   templateUrl: './magic.component.html',
   styleUrls: ['./magic.component.scss'],
 })
 export class MagicComponent implements OnInit {
-  magicKatanas: MagicKatanas[] = [];
+  public magicKatanas: MagicKatanas[] = [];
+  public lastAddedKatana: Katanas = {
+    katanaCategory: this.magicKatanas[
+      this.magicKatanas.length - 1
+    ] as MagicKatanas,
+  };
   private magicKatanasService: MagicKatanasService;
 
   loading = true;
@@ -33,6 +41,10 @@ export class MagicComponent implements OnInit {
       next: (katanas) => {
         this.magicKatanas = katanas;
         this.loading = false;
+
+        this.lastAddedKatana = {
+          katanaCategory: this.magicKatanas[this.magicKatanas.length - 1],
+        };
       },
       error: (err) => {
         console.error('Error when searching for katanas on the API: ', err);
