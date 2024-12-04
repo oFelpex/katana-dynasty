@@ -29,6 +29,10 @@ export class UserMenuComponent {
 
   toggleSidenav() {
     this.userSideNav.toggle();
+
+    if (this.cartService.drawerIsOpen) {
+      this.cartService.toggleCartDrawer();
+    }
   }
   toggleCartDrawer() {
     this.userSideNav.toggle();

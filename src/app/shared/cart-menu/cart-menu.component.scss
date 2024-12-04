@@ -14,7 +14,7 @@
     .cart-menu {
       display: flex;
       align-items: center;
-      height: 80%;
+      height: 75%;
       flex-direction: column;
       overflow-y: auto;
 
@@ -71,14 +71,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 80%;
+      height: 75%;
     }
 
     .cart-footer {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      height: 19%;
+      height: 17%;
 
       .cart-footer-about {
         width: 50%;
@@ -103,6 +103,16 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #cart-menu-container {
+    mat-drawer {
+      border-radius: 0%;
+      background-color: #f1f6f9;
+      width: 80%;
     }
   }
 }

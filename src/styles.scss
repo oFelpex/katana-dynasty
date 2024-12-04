@@ -188,14 +188,17 @@ body {
 
     background: linear-gradient(
       60deg,
-      hsl(38, 100%, 50%),
-      hsl(32, 100%, 50%),
-      hsl(22, 100%, 50%),
-      hsl(8, 100%, 50%),
-      hsl(0, 100%, 45%)
+      hsl(15, 100%, 50%),
+      hsl(18, 100%, 50%),
+      hsl(21, 100%, 50%),
+      hsl(24, 100%, 50%),
+      hsl(27, 100%, 50%),
+      hsl(30, 100%, 50%),
+      hsl(33, 100%, 50%),
+      hsl(36, 100%, 50%)
     );
     z-index: -1;
-    animation: animatedGradientLegendary 3s ease alternate infinite;
+    animation: animatedGradientLegendary 8s ease alternate infinite;
     background-size: 300% 300%;
   }
   @keyframes animatedGradientLegendary {
@@ -286,15 +289,17 @@ body {
 
     background: linear-gradient(
       60deg,
-      hsl(220, 100%, 50%),
-      hsl(235, 100%, 50%),
-      hsl(250, 100%, 50%),
+      hsl(260, 100%, 50%),
       hsl(265, 100%, 50%),
+      hsl(270, 100%, 50%),
+      hsl(275, 100%, 50%),
       hsl(280, 100%, 50%),
+      hsl(285, 100%, 50%),
+      hsl(290, 100%, 50%),
       hsl(295, 100%, 50%)
     );
     z-index: -1;
-    animation: animatedGradientMagic 3s ease alternate infinite;
+    animation: animatedGradientMagic 8s ease alternate infinite;
     background-size: 300% 300%;
   }
   @keyframes animatedGradientMagic {
@@ -345,14 +350,16 @@ body {
       text-align: center;
       max-width: 90px;
       padding: 8px;
-      border: 1px solid rgb(88, 0, 0);
+      border: 1px solid #fff;
+      color: #fff;
       border-radius: 5px;
       cursor: default;
       transition: background 0.2s, color 0.2s;
 
       &:hover {
-        background: #630101e7;
-        color: #fefefe;
+        background: #313131e7;
+        color: #ff0000;
+        filter: drop-shadow(0px 0px 20px rgb(255, 1, 1));
       }
     }
     .price {
@@ -384,10 +391,12 @@ body {
       hsl(0, 100%, 40%),
       hsl(0, 100%, 35%),
       hsl(0, 100%, 30%),
-      hsl(0, 100%, 25%)
+      hsl(0, 100%, 25%),
+      hsl(0, 100%, 20%),
+      hsl(0, 100%, 15%)
     );
     z-index: -1;
-    animation: animatedGradientMagic 3s ease alternate infinite;
+    animation: animatedGradientMagic 8s ease alternate infinite;
     background-size: 300% 300%;
   }
 }
