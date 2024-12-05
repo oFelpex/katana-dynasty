@@ -7,6 +7,9 @@
     mat-icon-button
     class="button-wish-list"
     aria-label="A button to add this item to your wish list"
+    [style]="
+      newlyAddedKatana.class === 'common' ? 'color: black' : 'color: #fff'
+    "
   >
     <mat-icon>add_box</mat-icon>
   </button>

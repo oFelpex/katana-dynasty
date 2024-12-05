@@ -24,7 +24,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    word-break: break-all;
 
     .petals-toggle {
       display: flex;
@@ -40,7 +39,7 @@
 
     h1 {
       font-family: "RocknRoll One", sans-serif;
-      font-size: 4rem;
+      font-size: 3.5rem;
       z-index: 1;
       color: transparent;
       -webkit-text-stroke: 1px #f1f6f9;

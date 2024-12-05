@@ -1,21 +1,16 @@
 <mat-drawer-container
-  id="user-container"
+  id="user-drawer"
   [hasBackdrop]="true"
   (click)="changePointersEvents()"
 >
   <mat-drawer #userSideNav position="end" [mode]="'over'" class="drawer">
-    <p>Auto-resizing sidenav</p>
-    <button
-      mat-icon-button
-      aria-label="Cart button"
-      (click)="toggleCartDrawer()"
-    >
-      <mat-icon
-        [matBadge]="cartService.getTotalQuantityCartItems()"
-        aria-hidden="false"
-        >shopping_cart</mat-icon
-      >
-    </button>
+    <div class="user-container">
+      <h1>Welcome USER</h1>
+      <button mat-button aria-label="Cart button" (click)="toggleCartDrawer()">
+        <mat-icon aria-hidden="false">shopping_cart</mat-icon>
+        Cart ({{ cartService.getTotalQuantityCartItems() }})
+      </button>
+    </div>
   </mat-drawer>
 
   <div class="example-sidenav-content"></div>

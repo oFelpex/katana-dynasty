@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, Output, ViewChild } from '@angular/core';
 import { MatBadgeModule } from '@angular/material/badge';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
@@ -42,11 +42,11 @@ export class UserMenuComponent {
   changePointersEvents() {
     if (this.userSideNav.opened) {
       (
-        document.getElementById('user-container') as HTMLElement
+        document.getElementById('user-drawer') as HTMLElement
       ).style.pointerEvents = 'all';
     } else if (!this.userSideNav.opened) {
       (
-        document.getElementById('user-container') as HTMLElement
+        document.getElementById('user-drawer') as HTMLElement
       ).style.pointerEvents = 'none';
     }
     console.log(this.userSideNav.opened);

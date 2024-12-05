@@ -1,7 +1,7 @@
 <app-nav-bar></app-nav-bar>
 <app-latest-katana [lastAddedKatana]="lastAddedKatana"></app-latest-katana>
 <div class="catalog-container">
-  <h2>Magic Katanas</h2>
+  <h2>Magic Katanas Catalog</h2>
   @if(loading) {
   <h3>Loading...</h3>
   } @else { @for (magicKatana of magicKatanas; track $index) {
