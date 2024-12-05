@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   FormControl,
   Validators,
@@ -13,6 +13,8 @@ import { FooterComponent } from '../../shared/footer/footer.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { AuthService } from '../../services/auth-service/auth.service';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-auth',
@@ -30,9 +32,15 @@ import { AuthService } from '../../services/auth-service/auth.service';
 })
 export class AuthComponent {
   public authForm: FormGroup;
-  authService: AuthService;
+  private snackBar: MatSnackBar;
+  public authService: AuthService;
+  private router: Router;
 
   constructor() {
+    this.snackBar = inject(MatSnackBar);
+    this.router = inject(Router);
+    this.authService = inject(AuthService);
+
     this.authForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
@@ -40,13 +48,28 @@ export class AuthComponent {
         Validators.minLength(8),
       ]),
     });
-
-    this.authService = inject(AuthService);
   }
 
   submitForm() {
-    const isLogged = false;
+    const loggedIn = this.authService.loginUser(
+      this.authForm.get('email')?.value,
+      this.authForm.get('password')?.value
+    );
 
-    console.log(this.authForm.value);
+    if (!loggedIn) {
+      this.snackBar.open(
+        'Não foi possível logar. Tente novamente com credenciais válidas!',
+        'Close',
+        {
+          horizontalPosition: 'end',
+          verticalPosition: 'top',
+          duration: 5000,
+        }
+      );
+
+      return;
+    }
+
+    this.router.navigate(['add-katana']);
   }
 }

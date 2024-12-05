@@ -20,7 +20,11 @@ export const routes: Routes = [
   { path: 'catalog/magic', component: MagicComponent },
   { path: 'catalog/legendary', component: LegendaryComponent },
   { path: 'catalog/cursed', component: CursedComponent },
-  { path: 'add-katana', component: KatanaFormComponent },
+  {
+    path: 'add-katana',
+    component: KatanaFormComponent,
+    canActivate: [authGuard],
+  },
   { path: '**', component: NotFoundComponent },
 ];
 @NgModule({

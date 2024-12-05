@@ -8,19 +8,17 @@ import { map } from 'rxjs';
 })
 export class UserService {
   http: HttpClient;
-  users: Users[] = [];
+  usersArray: Users[] = [];
 
   constructor() {
     this.http = inject(HttpClient);
   }
 
-  getUsersByEmail(email: string) {
+  getUserByEmail(email: string) {
     return this.http
       .get<Users[]>('http://localhost:3000/users')
       .pipe(
-        map((usersArray: Users[]) =>
-          usersArray.find((user) => user.email === email)
-        )
+        map((usersArray) => usersArray.find((user) => user.email == email))
       );
   }
 }
