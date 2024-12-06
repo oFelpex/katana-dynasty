@@ -1,0 +1,80 @@
+<mat-drawer-container
+  id="user-drawer"
+  [hasBackdrop]="true"
+  (click)="changePointersEvents()"
+>
+  <mat-drawer #userSideNav position="end" [mode]="'over'">
+    <div class="user-header">
+      <h2>Welcome USER</h2>
+      <button mat-button aria-label="Cart button" (click)="toggleCartDrawer()">
+        <mat-icon aria-hidden="false">shopping_cart</mat-icon>
+        Cart ({{ cartService.getTotalQuantityCartItems() }})
+      </button>
+    </div>
+    <mat-divider></mat-divider>
+
+    @if(wishListService.getWishListItems().length > 0) {
+    <div class="user-menu">
+      <h2>Wish List</h2>
+      <mat-divider></mat-divider>
+      @for (item of wishListService.getWishListItems(); track $index) {
+      <div class="wish-list-item-container">
+        <div class="wish-list-item-main">
+          <img [src]="item.imgSRC" [alt]="item.imgALT" />
+          <mat-divider [vertical]="true"></mat-divider>
+          <div class="wish-list-item-about">
+            <h3>{{ item.title }}</h3>
+            <div class="wish-list-item-about-buttons">
+              <button
+                mat-button
+                aria-label="Add this item to the cart"
+                (click)="wishListService.addWishListItemToCart(item)"
+              >
+                Add To Cart
+              </button>
+              <button
+                mat-button
+                aria-label="Remove Item"
+                style="color: #e84545"
+                (click)="wishListService.removeWishListItem(item)"
+              >
+                Remove One
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      }
+    </div>
+    } @else {
+    <h2 class="wish-list-empty">The wish-list is empty</h2>
+    }
+    <mat-divider></mat-divider>
+    <footer class="wish-list-footer">
+      <div class="wish-list-footer-buttons">
+        <button
+          mat-button
+          aria-label="Add all itens to cart"
+          [disabled]="wishListService.getWishListItems().length <= 0"
+          (click)="
+            wishListService.addAllWishListToCart(
+              wishListService.getWishListItems()
+            )
+          "
+        >
+          Add All To Cart
+        </button>
+        <button
+          mat-button
+          aria-label="Clear Wish List"
+          class="clear-wish-list"
+          [disabled]="wishListService.getWishListItems().length <= 0"
+          (click)="wishListService.clearWishList()"
+        >
+          Clear Wish List
+        </button>
+      </div>
+    </footer>
+  </mat-drawer>
+</mat-drawer-container>

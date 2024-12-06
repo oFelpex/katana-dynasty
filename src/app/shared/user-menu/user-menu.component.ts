@@ -6,7 +6,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
-import { CartService } from '../../../services/cart-service/cart-service';
+import { CartService } from '../../services/cart-service/cart-service';
+import { WishListService } from '../../services/wish-list-service/wish-list.service';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-user-menu',
@@ -19,12 +21,14 @@ import { CartService } from '../../../services/cart-service/cart-service';
     MatButtonModule,
     MatBadgeModule,
     MatMenuModule,
+    MatDividerModule,
   ],
   templateUrl: './user-menu.component.html',
   styleUrl: './user-menu.component.scss',
 })
 export class UserMenuComponent {
   public cartService: CartService;
+  public wishListService: WishListService;
   @ViewChild('userSideNav') userSideNav!: MatDrawer;
 
   toggleSidenav() {
@@ -54,5 +58,6 @@ export class UserMenuComponent {
 
   constructor() {
     this.cartService = inject(CartService);
+    this.wishListService = inject(WishListService);
   }
 }

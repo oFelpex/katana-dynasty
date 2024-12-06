@@ -4,6 +4,7 @@ import {
   Input,
   ChangeDetectionStrategy,
   computed,
+  inject,
 } from '@angular/core';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -12,6 +13,7 @@ import { MatIcon } from '@angular/material/icon';
 
 import { CartService } from '../../services/cart-service/cart-service';
 import { BaseKatana } from '../../models/base-katanas';
+import { WishListService } from '../../services/wish-list-service/wish-list.service';
 
 @Component({
   selector: 'app-catalog-card',
@@ -31,7 +33,8 @@ import { BaseKatana } from '../../models/base-katanas';
 export class CatalogCardComponent {
   @Input()
   newlyAddedKatana!: BaseKatana;
-
+  public cartService: CartService;
+  public wishListService: WishListService;
   isButtonDisabled = computed(() =>
     this.cartService.disableButton(
       this.newlyAddedKatana.id,
@@ -39,9 +42,16 @@ export class CatalogCardComponent {
     )
   );
 
-  constructor(public cartService: CartService) {}
+  constructor() {
+    this.wishListService = inject(WishListService);
+    this.cartService = inject(CartService);
+  }
 
-  handleButtonClick(): void {
+  addToWishListHandleButtonClick(): void {
+    this.wishListService.addWishListItem(this.newlyAddedKatana);
+  }
+
+  addToCartHandleButtonClick(): void {
     this.cartService.toggleCartDrawer();
     this.cartService.addItem(this.newlyAddedKatana);
   }

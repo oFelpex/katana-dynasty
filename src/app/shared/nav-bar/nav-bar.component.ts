@@ -11,7 +11,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { CartService } from '../../services/cart-service/cart-service';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Subscription } from 'rxjs';
-import { UserMenuComponent } from './user-menu/user-menu.component';
+import { UserMenuComponent } from '../user-menu/user-menu.component';
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
@@ -45,6 +45,7 @@ export class NavBarComponent {
     public cartService: CartService,
     private breakpointObserver: BreakpointObserver
   ) {}
+
   openTheCart(): void {
     this.cartService.toggleCartDrawer();
   }

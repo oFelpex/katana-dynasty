@@ -7,6 +7,7 @@
     mat-icon-button
     class="button-wish-list"
     aria-label="A button to add this item to your wish list"
+    (click)="addToWishListHandleButtonClick()"
     [style]="
       newlyAddedKatana.class === 'common' ? 'color: black' : 'color: #fff'
     "
@@ -34,7 +35,7 @@
     <button
       [disabled]="isButtonDisabled()"
       mat-button
-      (click)="handleButtonClick()"
+      (click)="addToCartHandleButtonClick()"
     >
       {{ isButtonDisabled() ? "OUT OF STOCK" : "ADD TO CART" }}
     </button>

@@ -25,8 +25,13 @@
 
   }
 
-  <div class="user-button">
-    <button mat-button (click)="toggleChildSidenav()">USER</button>
-  </div>
+  <button
+    mat-icon-button
+    aria-label="A button to access your account"
+    (click)="toggleChildSidenav()"
+    [ngStyle]="navBarStyles"
+  >
+    <mat-icon> account_circle </mat-icon>
+  </button>
 </nav>
 <app-user-menu></app-user-menu>
