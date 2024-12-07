@@ -33,6 +33,14 @@ export class WishListService {
     return this.itemsSignal();
   }
 
+  public hasThisItemOnWishList(item: BaseKatana): Boolean {
+    const wishListItems: BaseKatana[] = this.getWishListItems();
+    return wishListItems.some(
+      (wishListItem) =>
+        wishListItem.class === item.class && wishListItem.id === item.id
+    );
+  }
+
   addWishListItem(item: BaseKatana): void {
     const currentItems = this.itemsSignal();
     const existingItem = currentItems.find(

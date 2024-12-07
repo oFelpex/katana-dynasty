@@ -1,7 +1,7 @@
 {
   "common-katanas": [
     {
-      "id": 0,
+      "id": "0",
       "class": "common",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/communKatanas/Great%20Katana.webp",
       "imgALT": "A Great Katana",
@@ -11,7 +11,7 @@
       "stock": 13
     },
     {
-      "id": 1,
+      "id": "1",
       "class": "common",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/communKatanas/Nagakiba.webp",
       "imgALT": "A Long Katana",
@@ -21,7 +21,7 @@
       "stock": 16
     },
     {
-      "id": 2,
+      "id": "2",
       "class": "common",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/communKatanas/Sandai%20Kitetsu.webp",
       "imgALT": "Sandai Kitetsu",
@@ -31,7 +31,7 @@
       "stock": 14
     },
     {
-      "id": 3,
+      "id": "3",
       "class": "common",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/communKatanas/Training%20Katana.webp",
       "imgALT": "Training Katana",
@@ -41,7 +41,7 @@
       "stock": 50
     },
     {
-      "id": 4,
+      "id": "4",
       "class": "common",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/communKatanas/Uchigatana.webp",
       "imgALT": "Uchigatana",
@@ -51,7 +51,7 @@
       "stock": 19
     },
     {
-      "id": 5,
+      "id": "5",
       "class": "common",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/communKatanas/Wado%20Ichimonji.webp",
       "imgALT": "Wado Ichimonji",
@@ -61,7 +61,7 @@
       "stock": 10
     },
     {
-      "id": 6,
+      "id": "6",
       "class": "common",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/communKatanas/Yubashiri.webp",
       "imgALT": "Yubashiri",
@@ -73,7 +73,7 @@
   ],
   "cursed-katanas": [
     {
-      "id": 0,
+      "id": "0",
       "class": "cursed",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/cursedKatanas/Deadly%20Katana.webp",
       "imgALT": "Deadly Katana",
@@ -85,7 +85,7 @@
       "stock": 4
     },
     {
-      "id": 1,
+      "id": "1",
       "class": "cursed",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/cursedKatanas/Enma%20Sheathed.webp",
       "imgALT": "Enma Sheathed",
@@ -97,7 +97,7 @@
       "stock": 5
     },
     {
-      "id": 2,
+      "id": "2",
       "class": "cursed",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/cursedKatanas/Rakshasa's%20Great%20Katana.webp",
       "imgALT": "Rakshara's Great Katana",
@@ -109,7 +109,7 @@
       "stock": 6
     },
     {
-      "id": 3,
+      "id": "3",
       "class": "cursed",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/cursedKatanas/Rivers%20of%20Blood.webp",
       "imgALT": "Rivers of Blood",
@@ -123,7 +123,7 @@
   ],
   "legendary-katanas": [
     {
-      "id": 0,
+      "id": "0",
       "class": "legendary",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/legendaryKatanas/Dragon-Hunter's%20Great%20Katana.webp",
       "imgALT": "Dragon-Hunter's Great Katana",
@@ -137,7 +137,7 @@
       "stock": 1
     },
     {
-      "id": 1,
+      "id": "1",
       "class": "legendary",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/legendaryKatanas/Dragonscale%20Blade.webp",
       "imgALT": "Dragonscale Blade",
@@ -151,7 +151,7 @@
       "stock": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "class": "legendary",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/legendaryKatanas/Hand%20of%20Malenia.webp",
       "imgALT": "Hand of Malenia",
@@ -165,7 +165,7 @@
       "stock": 1
     },
     {
-      "id": 3,
+      "id": "3",
       "class": "legendary",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/legendaryKatanas/Shusui.webp",
       "imgALT": "Shusui",
@@ -181,7 +181,7 @@
   ],
   "magic-katanas": [
     {
-      "id": 0,
+      "id": "0",
       "class": "magic",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/magicKatanas/Meteoric%20Ore%20Blade.webp",
       "imgALT": "Meteoric Ore Blade",
@@ -193,7 +193,7 @@
       "stock": 6
     },
     {
-      "id": 1,
+      "id": "1",
       "class": "magic",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/magicKatanas/Moonveil.webp",
       "imgALT": "Moonveil",
@@ -205,7 +205,7 @@
       "stock": 6
     },
     {
-      "id": 2,
+      "id": "2",
       "class": "magic",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/magicKatanas/Serpentbone%20Blade.webp",
       "imgALT": "Serpentbone Blade",
@@ -217,7 +217,7 @@
       "stock": 4
     },
     {
-      "id": 3,
+      "id": "3",
       "class": "magic",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/magicKatanas/Star-Lined%20Sword.webp",
       "imgALT": "Star-Lined Sword",
@@ -229,7 +229,7 @@
       "stock": 5
     },
     {
-      "id": 4,
+      "id": "4",
       "class": "magic",
       "imgSRC": "https://raw.githubusercontent.com/oFelpex/katana-dynasty-assets/c189767804c66389d3cf501c20bbb65d177c2dfe/assets/products/katanas/magicKatanas/Sword%20of%20Night.webp",
       "imgALT": "Sword of Night",

@@ -86,12 +86,10 @@ export class AuthComponent implements OnInit {
       .subscribe((isLoggedIn) => {
         if (!isLoggedIn) {
           this.snackBar.open(
-            'Não foi possível logar. Tente novamente com credenciais válidas!',
+            'Was not possible to log in. Try again!',
             'Close',
             {
-              horizontalPosition: 'end',
-              verticalPosition: 'top',
-              duration: 5000,
+              duration: 3000,
             }
           );
           return;
@@ -108,7 +106,6 @@ export class AuthComponent implements OnInit {
       password: this.registerAuthForm.get('registerPassword')?.value,
     };
 
-    console.log(newUser);
-    this.authService.registerNewUser(newUser);
+    if (this.registerAuthForm.valid) this.authService.registerNewUser(newUser);
   }
 }
