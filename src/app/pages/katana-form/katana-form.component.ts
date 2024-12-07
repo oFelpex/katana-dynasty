@@ -48,7 +48,10 @@ export class KatanaFormComponent {
     this.router = inject(Router);
 
     this.katanaForm = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      title: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
       imgSRC: new FormControl('', Validators.required),
       description: new FormControl('', [
         Validators.required,
@@ -200,7 +203,7 @@ export class KatanaFormComponent {
           this.snackBar.open('Common Katana added with success!', 'Close', {
             duration: 5000,
           });
-          this.router.navigate(['common']);
+          this.router.navigate(['catalog/common']);
         },
         error: () => {
           this.snackBar.open(
@@ -213,7 +216,7 @@ export class KatanaFormComponent {
       this.katanaAPI.createLegendaryKatana(this.katanaForm.value).subscribe({
         next: () => {
           this.snackBar.open('Legendary Katana added with success!', 'Close');
-          this.router.navigate(['legendary']);
+          this.router.navigate(['catalog/legendary']);
         },
         error: () => {
           this.snackBar.open(
@@ -228,7 +231,7 @@ export class KatanaFormComponent {
           this.snackBar.open('Magic Katana added with success!', 'Close', {
             duration: 5000,
           });
-          this.router.navigate(['magic']);
+          this.router.navigate(['catalog/magic']);
         },
         error: () => {
           this.snackBar.open(
@@ -243,7 +246,7 @@ export class KatanaFormComponent {
           this.snackBar.open('Cursed Katana added with success!', 'Close', {
             duration: 5000,
           });
-          this.router.navigate(['cursed']);
+          this.router.navigate(['catalog/cursed']);
         },
         error: () => {
           this.snackBar.open(
