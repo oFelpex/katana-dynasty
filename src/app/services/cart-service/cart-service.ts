@@ -1,7 +1,8 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
+import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import { BaseKatana } from '../../models/base-katanas';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface CartItem extends BaseKatana {
   quantity: number;
@@ -11,6 +12,10 @@ export interface CartItem extends BaseKatana {
 })
 export class CartService {
   private itemsSignal: WritableSignal<CartItem[]> = signal([]);
+  private snackBar: MatSnackBar;
+  constructor() {
+    this.snackBar = inject(MatSnackBar);
+  }
 
   getCartItems(): CartItem[] {
     return this.itemsSignal();
@@ -34,8 +39,18 @@ export class CartService {
 
     if (existingItem) {
       existingItem.quantity += 1;
+      this.snackBar.open(
+        `Added one more of ${item.title}, ${existingItem.quantity} on the cart!`,
+        'Close',
+        {
+          duration: 3000,
+        }
+      );
     } else {
       currentItems.push({ ...item, quantity: 1 });
+      this.snackBar.open(`${item.title} added to cart!`, 'Close', {
+        duration: 3000,
+      });
     }
 
     this.itemsSignal.set([...currentItems]);
@@ -49,9 +64,19 @@ export class CartService {
 
     if (index !== -1) {
       items[index].quantity--;
+      this.snackBar.open(
+        `Removed one of ${item.title} from the cart. ${items[index].quantity} remaining.`,
+        'Close',
+        {
+          duration: 3000,
+        }
+      );
 
       if (items[index].quantity <= 0) {
         items.splice(index, 1);
+        this.snackBar.open(`Removed ${item.title} from the cart.`, 'Close', {
+          duration: 3000,
+        });
       }
 
       this.itemsSignal.set([...items]);
@@ -60,6 +85,9 @@ export class CartService {
 
   clearCart(): void {
     this.itemsSignal.set([]);
+    this.snackBar.open(`Cart cleared.`, 'Close', {
+      duration: 3000,
+    });
   }
 
   getTotal(): number {

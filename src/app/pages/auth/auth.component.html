@@ -1,8 +1,14 @@
 <app-nav-bar></app-nav-bar>
 <main>
   <div id="form-container">
+    @if(loginOrRegisterScreen) {
     <h1>Login to add a new Katana</h1>
-    <form id="form-auth" [formGroup]="authForm" (ngSubmit)="submitForm()">
+
+    <form
+      id="form-auth"
+      [formGroup]="loginAuthForm"
+      (ngSubmit)="submitLoginForm()"
+    >
       <mat-form-field>
         <mat-label>E-mail</mat-label>
         <input
@@ -10,7 +16,7 @@
           type="email"
           formControlName="email"
           minlength="3"
-          placeholder="Ex. Uchigatana"
+          placeholder="Ex. email@email.com"
         />
         <mat-error>Enter a valid e-mail</mat-error>
       </mat-form-field>
@@ -21,13 +27,67 @@
           matInput
           type="password"
           formControlName="password"
-          placeholder="Ex. https://image.png"
+          placeholder="Enter your password"
         />
         <mat-error>CALMA QUE VOU MUDAR</mat-error>
       </mat-form-field>
 
-      <button mat-button>Submit</button>
+      <div class="buttons">
+        <button mat-button type="submit">Sign in</button>
+        <button mat-button type="button" (click)="changeScreen()">
+          Sign on
+        </button>
+      </div>
     </form>
+    } @else if(!loginOrRegisterScreen) {
+    <h1>Welcome! Make your registragion</h1>
+    <form
+      id="form-auth"
+      [formGroup]="registerAuthForm"
+      (ngSubmit)="submitRegisterForm()"
+    >
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="registerUsername"
+          minlength="3"
+          placeholder="Ex. TheCoolerUserName"
+        />
+        <mat-error>Enter a valid username</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>E-mail</mat-label>
+        <input
+          matInput
+          type="email"
+          formControlName="registerEmail"
+          minlength="3"
+          placeholder="Ex. email@email.com"
+        />
+        <mat-error>Enter a valid e-mail</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="registerPassword"
+          placeholder="Enter your password"
+        />
+        <mat-error>CALMA QUE VOU MUDAR</mat-error>
+      </mat-form-field>
+
+      <div class="buttons">
+        <button mat-button type="button" (click)="changeScreen()">
+          Sign in
+        </button>
+        <button mat-button type="submit">Sign on</button>
+      </div>
+    </form>
+    }
   </div>
 </main>
 <app-footer></app-footer>

@@ -15,7 +15,7 @@
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      button {
+      .cart-button {
         text-align: center;
         width: fit-content;
         height: fit-content;
@@ -27,6 +27,15 @@
         mat-icon {
           font-size: 20px;
           padding-bottom: 25px;
+        }
+      }
+      .user-button {
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        mat-icon {
+          width: 100%;
         }
       }
     }

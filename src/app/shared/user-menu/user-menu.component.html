@@ -5,10 +5,25 @@
 >
   <mat-drawer #userSideNav position="end" [mode]="'over'">
     <div class="user-header">
-      <h2>Welcome USER</h2>
-      <button mat-button aria-label="Cart button" (click)="toggleCartDrawer()">
+      <button
+        class="cart-button"
+        mat-button
+        aria-label="Cart button"
+        (click)="toggleCartDrawer()"
+      >
         <mat-icon aria-hidden="false">shopping_cart</mat-icon>
         Cart ({{ cartService.getTotalQuantityCartItems() }})
+      </button>
+      <h2>Welcome, {{ userService.getUsernameLogged() }}</h2>
+      <button
+        (click)="makeLoginOrLogout()"
+        class="user-button"
+        mat-icon-button
+        aria-label="User button"
+      >
+        <mat-icon aria-hidden="false">{{
+          authService.isAuthenticated() ? "person_remove" : "person_add"
+        }}</mat-icon>
       </button>
     </div>
     <mat-divider></mat-divider>

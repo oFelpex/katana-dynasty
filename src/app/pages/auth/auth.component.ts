@@ -30,46 +30,75 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.scss',
 })
-export class AuthComponent {
-  public authForm: FormGroup;
-  private snackBar: MatSnackBar;
+export class AuthComponent implements OnInit {
+  public loginAuthForm: FormGroup;
+  public registerAuthForm: FormGroup;
   public authService: AuthService;
+  private snackBar: MatSnackBar;
   private router: Router;
+  public loginOrRegisterScreen: Boolean = true;
 
   constructor() {
     this.snackBar = inject(MatSnackBar);
     this.router = inject(Router);
     this.authService = inject(AuthService);
 
-    this.authForm = new FormGroup({
+    this.loginAuthForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(8),
       ]),
     });
+
+    this.registerAuthForm = new FormGroup({
+      registerUsername: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      registerEmail: new FormControl('', [
+        Validators.required,
+        Validators.email,
+      ]),
+      registerPassword: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
+    });
   }
 
-  submitForm() {
-    const loggedIn = this.authService.loginUser(
-      this.authForm.get('email')?.value,
-      this.authForm.get('password')?.value
-    );
+  ngOnInit(): void {
+    if (this.authService.isAuthenticated())
+      this.router.navigate(['add-katana']);
+  }
 
-    if (!loggedIn) {
-      this.snackBar.open(
-        'Não foi possível logar. Tente novamente com credenciais válidas!',
-        'Close',
-        {
-          horizontalPosition: 'end',
-          verticalPosition: 'top',
-          duration: 5000,
+  changeScreen(): void {
+    this.loginOrRegisterScreen = !this.loginOrRegisterScreen;
+  }
+
+  submitLoginForm(): void {
+    this.authService
+      .loginUser(
+        this.loginAuthForm.get('email')?.value,
+        this.loginAuthForm.get('password')?.value
+      )
+      .subscribe((isLoggedIn) => {
+        if (!isLoggedIn) {
+          this.snackBar.open(
+            'Não foi possível logar. Tente novamente com credenciais válidas!',
+            'Close',
+            {
+              horizontalPosition: 'end',
+              verticalPosition: 'top',
+              duration: 5000,
+            }
+          );
+          return;
         }
-      );
 
-      return;
-    }
-
-    this.router.navigate(['add-katana']);
+        this.router.navigate(['add-katana']);
+      });
   }
+
+  submitRegisterForm(): void {}
 }

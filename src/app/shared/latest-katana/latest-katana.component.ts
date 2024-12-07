@@ -62,7 +62,6 @@ export class LatestKatanaComponent implements OnInit {
   }
 
   handleButtonClick(): void {
-    this.cartService.toggleCartDrawer();
     this.cartService.addItem(this.lastAddedKatana.katanaCategory);
   }
 

@@ -28,6 +28,12 @@ main {
         padding: 0 20px 0 20px;
         width: 100%;
       }
+
+      div.buttons {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+      }
     }
   }
 }

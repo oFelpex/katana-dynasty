@@ -52,7 +52,6 @@ export class CatalogCardComponent {
   }
 
   addToCartHandleButtonClick(): void {
-    this.cartService.toggleCartDrawer();
     this.cartService.addItem(this.newlyAddedKatana);
   }
 }

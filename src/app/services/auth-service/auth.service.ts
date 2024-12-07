@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Users } from '../../models/users';
 import { UserService } from '../user-service/user.service';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,24 +17,16 @@ export class AuthService {
     return loggedUser != null;
   }
 
-  loginUser(email: string, password: string) {
-    if (email == 'admin@admin.com' && password == 'admin123') {
-      localStorage.setItem(
-        'loggedUser',
-        JSON.stringify({
-          email,
-          password,
-        })
-      );
-      return true;
-    }
-
-    return false;
-    // return this.userService.getUserByEmail(email).subscribe((user) => {
-    //   if (user?.password === password) return true; // loguei o meu usuário
-
-    //   return false; // não loguei o meu usuário
-    // });
+  loginUser(email: string, password: string): Observable<boolean> {
+    return this.userService.getUserByEmail(email).pipe(
+      map((user) => {
+        if (user?.password === password) {
+          localStorage.setItem('loggedUser', JSON.stringify(user));
+          return true;
+        }
+        return false;
+      })
+    );
   }
 
   logoutUser() {

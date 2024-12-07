@@ -245,6 +245,7 @@
   "users": [
     {
       "id": 0,
+      "username": "admin",
       "email": "admin@admin.com",
       "password": "admin123"
     }

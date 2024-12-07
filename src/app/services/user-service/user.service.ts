@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Users } from '../../models/users';
-import { map } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
+import { AuthService } from '../auth-service/auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,10 +16,22 @@ export class UserService {
   }
 
   getUserByEmail(email: string) {
-    return this.http
-      .get<Users[]>('http://localhost:3000/users')
-      .pipe(
-        map((usersArray) => usersArray.find((user) => user.email == email))
-      );
+    return this.http.get<Users[]>('http://localhost:3000/users').pipe(
+      map((usersArray) => {
+        return usersArray.find(
+          (user) =>
+            user.email.toLowerCase().trim() === email.toLowerCase().trim()
+        );
+      })
+    );
+  }
+
+  getUsernameLogged() {
+    const loggedUser = JSON.parse(localStorage.getItem('loggedUser') || 'null');
+    if (loggedUser) {
+      return loggedUser.username;
+    } else {
+      return 'Guest';
+    }
   }
 }
