@@ -33,5 +33,15 @@
   >
     <mat-icon> account_circle </mat-icon>
   </button>
+  @if(authService.isAuthenticated()) {
+  <button
+    mat-icon-button
+    aria-label="A button to access the add katana page"
+    (click)="router.navigate(['add-katana'])"
+    [ngStyle]="navBarStyles"
+  >
+    <mat-icon>library_add</mat-icon>
+  </button>
+  }
 </nav>
 <app-user-menu></app-user-menu>
