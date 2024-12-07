@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { AuthService } from '../../services/auth-service/auth.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Users } from '../../models/users';
 
 @Component({
   selector: 'app-auth',
@@ -100,5 +101,14 @@ export class AuthComponent implements OnInit {
       });
   }
 
-  submitRegisterForm(): void {}
+  submitRegisterForm(): void {
+    const newUser: Users = {
+      username: this.registerAuthForm.get('registerUsername')?.value,
+      email: this.registerAuthForm.get('registerEmail')?.value,
+      password: this.registerAuthForm.get('registerPassword')?.value,
+    };
+
+    console.log(newUser);
+    this.authService.registerNewUser(newUser);
+  }
 }

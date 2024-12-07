@@ -16,14 +16,16 @@ export class UserService {
   }
 
   getUserByEmail(email: string) {
-    return this.http.get<Users[]>('http://localhost:3000/users').pipe(
-      map((usersArray) => {
-        return usersArray.find(
-          (user) =>
-            user.email.toLowerCase().trim() === email.toLowerCase().trim()
-        );
-      })
-    );
+    return this.http
+      .get<Users[]>('http://localhost:3000/users')
+      .pipe(
+        map((usersArray) =>
+          usersArray.find(
+            (user) =>
+              user.email.toLowerCase().trim() === email.toLowerCase().trim()
+          )
+        )
+      );
   }
 
   getUsernameLogged() {

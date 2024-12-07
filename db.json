@@ -241,13 +241,18 @@
       "stock": 2
     }
   ],
-
   "users": [
     {
-      "id": 0,
+      "id": "abw1",
       "username": "admin",
       "email": "admin@admin.com",
       "password": "admin123"
+    },
+    {
+      "id": "a0b2",
+      "username": "felpex",
+      "email": "felpex@gmail.com",
+      "password": "felpexsenha"
     }
   ]
 }
