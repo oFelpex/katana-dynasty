@@ -16,10 +16,6 @@ export class KatanasAPIService {
     this.http = inject(HttpClient);
   }
 
-  getAllKatanas() {
-    return this.http.get<BaseKatana[]>('http://localhost:3000/games');
-  }
-
   createCommonKatana(newKatana: CommonKatanas) {
     return this.http.post<CommonKatanas[]>(
       'http://localhost:3000/common-katanas',
