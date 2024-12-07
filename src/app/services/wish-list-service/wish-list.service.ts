@@ -7,13 +7,26 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   providedIn: 'root',
 })
 export class WishListService {
-  private itemsSignal: WritableSignal<BaseKatana[]> = signal([]);
+  private itemsSignal: WritableSignal<BaseKatana[]> = signal(
+    this.getWishListItemsFromLocalStorage()
+  );
   private cartService: CartService;
   private snackBar: MatSnackBar;
 
   constructor() {
     this.cartService = inject(CartService);
     this.snackBar = inject(MatSnackBar);
+  }
+
+  private updateWishListItemsFromLocalStorage() {
+    const wishListItems: BaseKatana[] = this.itemsSignal();
+    localStorage.setItem('wishListItems', JSON.stringify(wishListItems));
+  }
+  private getWishListItemsFromLocalStorage(): BaseKatana[] {
+    const items = JSON.parse(localStorage.getItem('wishListItems') || 'null');
+
+    if (items) return items;
+    return [];
   }
 
   getWishListItems(): BaseKatana[] {
@@ -39,6 +52,7 @@ export class WishListService {
     }
 
     this.itemsSignal.set([...currentItems]);
+    this.updateWishListItemsFromLocalStorage();
   }
 
   removeWishListItem(item: BaseKatana): void {
@@ -51,6 +65,10 @@ export class WishListService {
       items.splice(index, 1);
 
       this.itemsSignal.set([...items]);
+      this.updateWishListItemsFromLocalStorage();
+      if (this.itemsSignal().length <= 0) {
+        localStorage.removeItem('wishListItems');
+      }
     }
   }
 
@@ -74,6 +92,8 @@ export class WishListService {
 
   clearWishList(): void {
     this.itemsSignal.set([]);
+    localStorage.removeItem('wishListItems');
+
     this.snackBar.open(`Wish list cleared!`, 'Close', {
       duration: 3000,
     });

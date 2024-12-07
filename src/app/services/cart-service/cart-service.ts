@@ -11,10 +11,23 @@ export interface CartItem extends BaseKatana {
   providedIn: 'root',
 })
 export class CartService {
-  private itemsSignal: WritableSignal<CartItem[]> = signal([]);
+  private itemsSignal: WritableSignal<CartItem[]> = signal(
+    this.getCartItemsFromLocalStorage()
+  );
   private snackBar: MatSnackBar;
   constructor() {
     this.snackBar = inject(MatSnackBar);
+  }
+
+  private updateCartItemsFromLocalStorage() {
+    const cartItems: CartItem[] = this.itemsSignal();
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }
+  private getCartItemsFromLocalStorage(): CartItem[] {
+    const items = JSON.parse(localStorage.getItem('cartItems') || 'null');
+
+    if (items) return items;
+    return [];
   }
 
   getCartItems(): CartItem[] {
@@ -54,6 +67,7 @@ export class CartService {
     }
 
     this.itemsSignal.set([...currentItems]);
+    this.updateCartItemsFromLocalStorage();
   }
 
   removeItem(item: BaseKatana): void {
@@ -80,11 +94,14 @@ export class CartService {
       }
 
       this.itemsSignal.set([...items]);
+      this.updateCartItemsFromLocalStorage();
     }
   }
 
   clearCart(): void {
     this.itemsSignal.set([]);
+    localStorage.removeItem('cartItems');
+
     this.snackBar.open(`Cart cleared.`, 'Close', {
       duration: 3000,
     });
