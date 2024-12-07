@@ -7,7 +7,7 @@ import { LegendaryKatanas } from '../../models/legendary-katanas';
   providedIn: 'root',
 })
 export class LegendaryKatanasService {
-  private apiUrl = 'http://localhost:3000/legendary-katanas';
+  private apiUrl = 'https://katana-dynasty.vercel.app/api/legendary-katanas';
 
   constructor(private http: HttpClient) {}
 

@@ -7,7 +7,7 @@ import { CursedKatanas } from '../../models/cursed-katanas';
   providedIn: 'root',
 })
 export class CursedKatanasService {
-  private apiUrl = 'http://localhost:3000/cursed-katanas';
+  private apiUrl = 'https://katana-dynasty.vercel.app/api/cursed-katanas';
 
   constructor(private http: HttpClient) {}
 

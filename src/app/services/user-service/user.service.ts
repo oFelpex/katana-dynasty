@@ -17,7 +17,7 @@ export class UserService {
 
   getUserByEmail(email: string) {
     return this.http
-      .get<Users[]>('http://localhost:3000/users')
+      .get<Users[]>('https://katana-dynasty.vercel.app/api/users')
       .pipe(
         map((usersArray) =>
           usersArray.find(
