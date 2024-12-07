@@ -18,25 +18,25 @@ export class KatanasAPIService {
 
   createCommonKatana(newKatana: CommonKatanas) {
     return this.http.post<CommonKatanas[]>(
-      'http://localhost:3000/common-katanas',
+      'https://katana-dynasty.vercel.app/api/common-katanas',
       newKatana
     );
   }
   createLegendaryKatana(newKatana: LegendaryKatanas) {
     return this.http.post<LegendaryKatanas[]>(
-      'http://localhost:3000/legendary-katanas',
+      'https://katana-dynasty.vercel.app/api/legendary-katanas',
       newKatana
     );
   }
   createMagicKatana(newKatana: MagicKatanas) {
     return this.http.post<MagicKatanas[]>(
-      'http://localhost:3000/magic-katanas',
+      'https://katana-dynasty.vercel.app/api/magic-katanas',
       newKatana
     );
   }
   createCursedKatana(newKatana: CursedKatanas) {
     return this.http.post<CursedKatanas[]>(
-      'http://localhost:3000/cursed-katanas',
+      'https://katana-dynasty.vercel.app/api/cursed-katanas',
       newKatana
     );
   }

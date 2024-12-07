@@ -7,7 +7,7 @@ import { MagicKatanas } from '../../models/magic-katanas';
   providedIn: 'root',
 })
 export class MagicKatanasService {
-  private apiUrl = 'http://localhost:3000/magic-katanas';
+  private apiUrl = 'https://katana-dynasty.vercel.app/api/magic-katanas';
 
   constructor(private http: HttpClient) {}
 
