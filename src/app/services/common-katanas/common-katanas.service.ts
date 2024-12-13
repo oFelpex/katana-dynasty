@@ -7,7 +7,7 @@ import { CommonKatanas } from '../../models/common-katanas';
   providedIn: 'root',
 })
 export class CommonKatanasService {
-  private apiUrl = 'https://katana-dynasty.vercel.app/api/common-katanas';
+  private apiUrl = 'http://localhost:3000/common-katanas';
 
   constructor(private http: HttpClient) {}
 

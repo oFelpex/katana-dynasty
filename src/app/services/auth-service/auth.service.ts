@@ -67,28 +67,26 @@ export class AuthService {
         return;
       }
 
-      this.http
-        .post('https://katana-dynasty.vercel.app/api/users', newUser)
-        .subscribe(() => {
-          this.snackBar.open(`Registered with success!`, 'Close', {
-            duration: 3000,
-          });
-
-          interval(1000)
-            .pipe(
-              take(5),
-              switchMap(() => this.loginUser(newUser.email, newUser.password)),
-              filter((isLoggedIn) => isLoggedIn)
-            )
-            .subscribe({
-              next: () => this.router.navigate(['home']),
-              error: (err) =>
-                this.snackBar.open(
-                  `Something is not right, please try to contact Felpex. Error: ${err}`,
-                  'Close'
-                ),
-            });
+      this.http.post('http://localhost:3000/users', newUser).subscribe(() => {
+        this.snackBar.open(`Registered with success!`, 'Close', {
+          duration: 3000,
         });
+
+        interval(1000)
+          .pipe(
+            take(5),
+            switchMap(() => this.loginUser(newUser.email, newUser.password)),
+            filter((isLoggedIn) => isLoggedIn)
+          )
+          .subscribe({
+            next: () => this.router.navigate(['home']),
+            error: (err) =>
+              this.snackBar.open(
+                `Something is not right, please try to contact Felpex. Error: ${err}`,
+                'Close'
+              ),
+          });
+      });
     });
   }
 }
